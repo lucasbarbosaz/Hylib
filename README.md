@@ -42,7 +42,7 @@ To build the production CMS just run the command
 ```bash
 npm run build
 ```
-A folder will be generated `"bundled"` will be created and you will have to upload it to your web server.
+A folder will be generated `"build"` will be created and you will have to upload it to your web server.
 
 ### 
 ## Contributing
