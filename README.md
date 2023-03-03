@@ -5,6 +5,7 @@ CMS made for Comet Emulator using what ReactJS has to offer.
 ## Requisites
 - [Git](https://git-scm.com/)
 - [NodeJS](https://nodejs.org/) >= 16.x
+- [Backend for Hylib](https://github.com/TheLaxus/HylibServer)
 
 If you want use yarn, you need:
 - [Yarn](https://yarnpkg.com/)
@@ -43,6 +44,7 @@ npm run build
 ```
 A folder will be generated `"bundled"` will be created and you will have to upload it to your web server.
 
+### 
 ## Contributing
 
 All pull requests are welcome for the best performance and design of cms.
