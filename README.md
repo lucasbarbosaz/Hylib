@@ -7,19 +7,12 @@ CMS made for Comet Emulator using what ReactJS has to offer.
 - [NodeJS](https://nodejs.org/) >= 16.x
 - [Backend Server for Hylib](https://github.com/TheLaxus/HylibServer)
 
-If you want use yarn, you need:
-- [Yarn](https://yarnpkg.com/)
-
 ### How to install
 
 Open you bash and use npm install or yarn install to install the packages
 
 ```bash
 npm install
-```
-OR
-```bash
-yarn install
 ```
 
 ### Install packages and run the backend server
