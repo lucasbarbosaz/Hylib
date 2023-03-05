@@ -1,0 +1,15 @@
+.noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+
+#root {
+    display: flex;
+    min-height: 100%;
+    flex-direction: column;
+  }

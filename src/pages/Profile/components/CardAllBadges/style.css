@@ -1,0 +1,31 @@
+.grid-all-badges {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(auto-fit, minmax(min(100%/3, max(64px, 100%/5)), 1fr));
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 200px;
+    margin: 0 0 10px 0;
+}
+
+.badge-item{
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.badge-item:hover {
+    transform: scale(1.2);
+}
+
+.legenda_interna {
+	position: absolute;
+    border-radius: 10px;
+    padding: 3px 5px;
+    background: #1d1d1d;
+    color: #cecece;
+    top: -10%;
+    z-index: 999;
+}
+.legenda_visibility {
+    visibility: hidden;
+}

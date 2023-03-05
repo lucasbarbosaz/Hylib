@@ -1,0 +1,7 @@
+const CardArticle = (props) => {
+    return (
+        <>
+        
+        </>
+    )
+}

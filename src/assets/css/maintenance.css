@@ -1,0 +1,309 @@
+*,
+*::before,
+*::after {
+    position: relative;
+    padding: 0;
+    margin: 0;
+    outline: none;
+    font-family: Ubuntu, sans-serif;
+    box-sizing: border-box;
+}
+
+html, body {
+    background: linear-gradient(rgb(181, 225, 248),rgb(133, 191, 222));
+    width: 100%;
+    font-family: Ubuntu, sans-serif;
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+#content {
+    position: relative;
+    min-width: 1000px;
+    height: fit-content;
+    margin: auto;
+    padding: 15px;
+}
+
+.row-1::before {
+    content: "";
+    position: absolute;
+    background: url('../img/manutencao/sprite.png?aaa') no-repeat -29px -11px;
+    width: 731px;
+    height: 413px;
+    left: 5px;
+}
+
+.row-1 {
+    position: relative;
+    height: 413px;
+}
+
+#spin-ray {
+    position: absolute;
+    background: url('../img/manutencao/sprite.png?aaa') no-repeat -840px -37px;
+    width: 291px;
+    height: 287px;
+    top: -115px;
+    left: 50px;
+    animation: spin 15s linear infinite;
+}
+
+#logo {
+    position: relative;
+    background: url('../img/manutencao/sprite.png?aaa') no-repeat -180px -428px;
+    width: 146px;
+    height: 55px;
+}
+
+#countdown {
+    position: relative;
+    width: fit-content;
+    height: 90px;
+    float: left;
+}
+
+#countdown .days,
+#countdown .hours,
+#countdown .minutes,
+#countdown .seconds {
+    position: relative;
+    background: rgba(0, 0, 0, 0.1);
+    width: 85px;
+    height: 85px;
+    color: rgb(255, 255, 255);
+    border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+    float: left;
+    overflow: hidden;
+}
+
+#countdown .days span,
+#countdown .hours span,
+#countdown .minutes span,
+#countdown .seconds span {
+    position: relative;
+    font-size: 32px;
+    font-weight: bold;
+    margin: auto;
+}
+
+#countdown .days label,
+#countdown .hours label,
+#countdown .minutes label,
+#countdown .seconds label {
+    position: relative;
+    background: rgba(0, 0, 0, 0.08);
+    padding: 6px 5px;
+    text-align: center;
+    font-size: 14px;
+}
+
+#features-manutention {
+    position: relative;
+    background: rgb(255, 255, 255);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#features-manutention-header {
+    position: relative;
+    background: rgb(207, 165, 60);
+    height: 60px;
+    border-radius: 5px;
+}
+
+#features-manutention-header-icon {
+    position: relative;
+    background: rgb(255, 255, 255);
+    width: 70px;
+    height: 70px;
+    border-radius: 5px;
+    margin: -20px 10px 0 10px;
+    display: flex;
+    float: left;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+#features-manutention-list {
+    position: relative;
+    width: 100%;
+    height: 60px;
+    overflow: hidden;
+}
+
+#features-manutention-list-box {
+    position: relative;
+    width: fit-content;
+    height: 60px;
+    border-radius: 5px;
+    float: left;
+    display: flex;
+}
+
+#features-manutention-list-box-header {
+    position: relative;
+    background: rgb(197, 197, 197);
+    width: 60px;
+    height: 60px;
+    border-radius: 5px;
+    float: left;
+    display: flex;
+}
+
+#features-manutention-list-box-header-icon {
+    position: relative;
+    background: rgb(255, 255, 255);
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    margin: auto;
+}
+
+#radio-container,
+#discord-container {
+    position: relative;
+    background: rgb(255, 255, 255);
+    width: 480px;
+    height: 66px;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+#radio-container-locutor {
+    position: relative;
+    width: 64px;
+    height: 90px;
+    margin: -34px 0 0px -10px;
+    overflow: hidden;
+}
+
+#radio-container-locutor-info {
+    position: relative;
+    width: 190px;
+}
+
+#radio-container-interactions #pause,
+#radio-container-interactions #aumentar,
+#radio-container-interactions #diminuir,
+#radio-container-interactions #pedido {
+    margin-right: 2px;
+}
+
+#radio-container-interactions #pause:hover,
+#radio-container-interactions #aumentar:hover,
+#radio-container-interactions #diminuir:hover,
+#radio-container-interactions #pedido:hover,
+#radio-container-interactions #atualizar:hover {
+    opacity: 0.9;
+}
+
+#radio-container-interactions #pause {
+    position: relative;
+    background: url('../img/sprite.png?aaa') no-repeat -769px -712px;
+    width: 40px;
+    height: 46px;
+}
+
+#radio-container-interactions #aumentar {
+    position: relative;
+    background: url('../img/sprite.png?aaa') no-repeat -811px -712px;
+    width: 40px;
+    height: 46px;
+}
+
+#radio-container-interactions #diminuir {
+    position: relative;
+    background: url('../img/sprite.png?aaa') no-repeat -853px -712px;
+    width: 40px;
+    height: 46px;
+}
+
+#radio-container-interactions #pedido {
+    position: relative;
+    background: url('../img/sprite.png?aaa') no-repeat -895px -712px;
+    width: 40px;
+    height: 46px;
+}
+
+#radio-container-interactions #atualizar {
+    position: relative;
+    background: url('../img/sprite.png?aaa') no-repeat -937px -712px;
+    width: 39px;
+    height: 46px;
+}
+
+#discord-container-box {
+    position: relative;
+    background: rgb(114, 137, 218);
+    width: 170px;
+    height: 46px;
+    border-radius: 5px;
+}
+
+#discord-container-box-logo {
+    position: relative;
+    background: url('../img/manutencao/sprite.png?aaa') no-repeat -786px -398px;
+    width: 95px;
+    height: 30px;
+}
+
+#discord-container-box-server-logo {
+    position: relative;
+    background: center center / cover no-repeat scroll rgb(160, 178, 243);
+    width: 33px;
+    height: 33px;
+    border-radius: 50%;
+}
+
+.modal-area {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    z-index: 99999;
+}
+
+.modal-area > .modal-area-close {
+    content: "";
+    position: absolute;
+    background: rgba(0, 0, 0, 0.8);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.modal-area > .modal {
+    position: relative;
+    background: rgb(255, 255, 255);
+    width: 500px;
+    border-radius: 5px;
+    border: 1px solid rgb(220, 220, 220);
+    margin: auto;
+}
+
+input {
+    position: relative;
+    background: rgb(242, 242, 242);
+    width: 100%;
+    border-radius: 3px;
+    border: 1px solid rgb(208, 208, 208);
+    padding: 12px;
+}

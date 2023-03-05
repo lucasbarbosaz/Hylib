@@ -1,0 +1,262 @@
+.green-button-1,
+.green-button-2,
+.gray-button-1,
+.purple-button-1,
+.blue-button-1 {
+    position: relative;
+    border-radius: 4px;
+    font-family: 'Ubuntu', sans-serif;
+    display: flex;
+}
+
+.green-button-1::before,
+.green-button-2::before,
+.gray-button-1::before,
+.purple-button-1::before,
+.blue-button-1::before {
+    content: "";
+    position: absolute;
+    width: calc(100% - 10px);
+    height: calc(100% - 10px);
+    top: 0;
+    left: 0;
+    border-radius: 3px 3px 0px 0px;
+    margin: 5px;
+}
+
+/* BotÃ£o grande verde */
+
+.green-button-1::before {
+    background: linear-gradient(#d00b77 50%, transparent 50%);
+}
+
+.green-button-1 {
+    background: #a6055d;
+    border: 1px solid #9d0558;
+}
+
+.green-button-1:hover:before {
+    background: linear-gradient(#d90b7c 50%, transparent 50%);
+}
+
+.green-button-1:hover {
+    background: rgb(180, 6, 101);
+    cursor: pointer;
+}
+
+.green-button-1:active:before {
+    background: linear-gradient(#d00b77 50%, transparent 50%);
+}
+
+.green-button-1:active {
+    background: rgb(166, 5, 93);
+}
+
+.green-button-2::before {
+    background: linear-gradient(#da4b7b 50%, transparent 50%);
+}
+
+.green-button-2 {
+    background: #c83b6a;
+    border: unset;
+}
+
+.green-button-2:hover {
+    background: #d03e6f;
+}
+
+.green-button-2:hover:before {
+    background: linear-gradient(#e04e7f 50%, transparent 50%);
+}
+
+.green-button-2:active {
+    background: #c83b6a;
+}
+
+.green-button-2:active:before {
+    background: linear-gradient(#da4b7b 50%, transparent 50%);
+}
+
+/* BotÃ£o grande cinza */
+
+.gray-button-1::before {
+    background: linear-gradient(rgb(227, 225, 225) 50%, transparent 50%);
+}
+
+.gray-button-1 {
+    background: rgb(210, 208, 208);
+    border: 1px solid rgb(0, 0, 0);
+    box-shadow: 0 1px rgb(0, 0, 0);
+    margin: 0 0 1px 0;
+}
+
+.gray-button-1:hover:before {
+    background: linear-gradient(rgb(236, 234, 234) 50%, transparent 50%);
+}
+
+.gray-button-1:hover {
+    background: rgb(216, 214, 214);
+    cursor: pointer;
+}
+
+.gray-button-1:active:before {
+    background: linear-gradient(rgb(219, 215, 215) 50%, transparent 50%);
+}
+
+.gray-button-1:active {
+    background: rgb(201, 197, 197);
+}
+
+/* BotÃ£o roxo escuro */
+
+.purple-button-1::before {
+    background: linear-gradient(rgb(129, 74, 168) 50%, transparent 50%);
+}
+
+.purple-button-1 {
+    background: rgb(104, 60, 136);
+    border: 1px solid rgb(87, 50, 114);
+}
+
+.purple-button-1:hover:before {
+    background: linear-gradient(rgb(145, 92, 184) 50%, transparent 50%);
+}
+
+.purple-button-1:hover {
+    background: rgb(121, 70, 159);
+    cursor: pointer;
+}
+
+.purple-button-1:active:before {
+    background: linear-gradient(rgb(125, 72, 162) 50%, transparent 50%);
+}
+
+.purple-button-1:active {
+    background: rgb(99, 57, 130);
+}
+
+/* BotÃ£o azul */
+
+.blue-button-1::before {
+    background: linear-gradient(rgb(86, 145, 192) 50%, transparent 50%);
+}
+
+.blue-button-1 {
+    background: rgb(62, 121, 169);
+    border: 1px solid rgb(57, 112, 155);
+}
+
+.blue-button-1:hover:before {
+    background: linear-gradient(rgb(91, 154, 204) 50%, transparent 50%);
+}
+
+.blue-button-1:hover {
+    background: rgb(73, 137, 189);
+    cursor: pointer;
+}
+
+.blue-button-1:active:before {
+    background: linear-gradient(rgb(82, 139, 184) 50%, transparent 50%);
+}
+
+.blue-button-1:active {
+    background: rgb(60, 116, 162);
+}
+
+/* BotÃ£o grande amarelo */
+
+.yellow-button-1::before {
+    background: linear-gradient(rgb(255, 204, 70) 50%, transparent 50%);
+}
+
+.yellow-button-1 {
+    background: rgb(255, 185, 0);
+    border: 1px solid rgb(236, 171, 0);
+}
+
+.yellow-button-1:hover:before {
+    background: linear-gradient(rgb(255, 209, 90) 50%, transparent 50%);
+}
+
+.yellow-button-1:hover {
+    background: rgb(255, 193, 29);
+    cursor: pointer;
+}
+
+.yellow-button-1:active:before {
+    background: linear-gradient(rgb(240, 192, 67) 50%, transparent 50%);
+}
+
+.yellow-button-1:active {
+    background: rgb(243, 177, 0);
+}
+
+.verde-button-1 label,
+.green-button-1 label,
+.green-button-2 label,
+.gray-button-1 label,
+.purple-button-1 label,
+.brown-button-1 label,
+
+.blue-button-1 label,
+.yellow-button-1 label {
+    pointer-events: none;
+}
+
+.verde-button-1 {
+    position: relative;
+    background: rgb(88, 176, 62);
+    border: 1px solid rgb(77, 152, 54);
+    border-radius: 2px;
+    text-decoration: none;
+    padding: 5px;
+    display: flex;
+}
+
+.verde-button-1:hover {
+    background: rgb(97, 190, 69);
+}
+
+.verde-button-1:active {
+    background: rgb(88, 176, 62);
+}
+
+.verde-button-1::before {
+    content: "";
+    position: absolute;
+    background: rgba(128, 255, 107, 0.3);
+    width: calc(100% - 10px);
+    height: calc(50% - 5px);
+    top: 5px;
+    border-radius: 3px 3px 0px 0px;
+}
+
+/*...*/
+
+.brown-button-1 {
+    position: relative;
+    background: #c78144;
+    border: 1px solid #a16937;
+    border-radius: 2px;
+    text-decoration: none;
+    padding: 5px;
+    display: flex;
+}
+
+.brown-button-1:hover {
+    background: #cd884d
+}
+
+.brown-button-1:active {
+    background: #dc904e
+}
+
+.brown-button-1::before {
+    content: "";
+    position: absolute;
+    background: #ef984a;
+    width: calc(100% - 10px);
+    height: calc(50% - 5px);
+    top: 5px;
+    border-radius: 3px 3px 0px 0px;
+}

@@ -1,0 +1,697 @@
+*,
+*::before,
+*::after {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    outline: none;
+}
+
+.webview-client {
+    position: absolute;
+    width: 100%;
+    height: inherit;
+    top: 0;
+    left: 0;
+}
+
+.client-ui {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 10px;
+    z-index: 1;
+}
+
+.client-back::before {
+    content: "";
+    position: absolute;
+    top: -3px;
+    left: -40px;
+    border-width: 19px;
+    border-color: rgba(0, 0, 0, 0) rgb(98, 196, 82) rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+    border-style: solid;
+}
+
+.client-back {
+    position: relative;
+    background: rgb(88, 176, 62);
+    height: 38px;
+    border: 3px solid rgb(98, 196, 82);
+    border-left-width: 2px;
+    margin: 0 0 0 20px;
+    filter: drop-shadow(0px 4px 0px rgba(0, 0, 0, 0.3));
+    -webkit-filter: drop-shadow(0px 4px 0px rgba(0, 0, 0, 0.3));
+}
+
+.client-back::after {
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: -32px;
+    border-width: 16px;
+    border-color: rgba(0, 0, 0, 0) rgb(88, 176, 62) rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+    border-style: solid;
+}
+
+.client-expand,
+.client-unfreeze,
+.client-refresh {
+    position: relative;
+    background: rgb(231, 233, 233);
+    width: 38px;
+    height: 38px;
+    border: 3px solid rgb(251, 252, 252);
+    filter: drop-shadow(0px 4px 0px rgba(0, 0, 0, 0.3));
+    -webkit-filter: drop-shadow(0px 4px 0px rgba(0, 0, 0, 0.3));
+}
+
+.client-back:active,
+.client-expand:active,
+.client-unfreeze:active,
+.client-refresh:active {
+    top: 1px;
+    -webkit-filter: drop-shadow(0px 3px 0px rgba(0, 0, 0, 0.3));
+}
+
+.loader-client {
+    position: fixed;
+    background: url(/cdn/assets/img/background.png) rgb(226, 226, 226);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.loader-client::before {
+    content: "";
+    position: absolute;
+    width: 554px;
+    height: 530px;
+    bottom: 0;
+    opacity: 0.5;
+}
+
+.loader-client > .loader-client-content {
+    width: 580px;
+    float: left;
+}
+
+.loader-client > .loader-client-content > .loader-client-photos {
+    margin: 0 auto;
+}
+
+.loader-client > .loader-client-content > .loader-client-photos span::before {
+    content: "";
+    position: absolute;
+    background: linear-gradient(#0000, #000000c7);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.loader-client > .loader-client-content > .loader-client-photos span:nth-child(1) {
+    position: relative;
+    background: center center / contain no-repeat scroll rgb(218, 218, 218);
+    width: 260px;
+    height: 260px;
+    border-radius: 10px;
+    margin: auto -130px auto 0px;
+    opacity: 0.8;
+    box-shadow: 0 0 20px 10px #0000001a;
+    overflow: hidden;
+}
+
+.loader-client > .loader-client-content > .loader-client-photos span:nth-child(2) {
+    position: relative;
+    background: center center / contain no-repeat scroll rgb(218, 218, 218);
+    width: 320px;
+    height: 320px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px 10px #0000002b;
+    overflow: hidden;
+    display: flex;
+    z-index: 1;
+}
+
+.loader-client > .loader-client-content > .loader-client-photos span:nth-child(2)::after {
+    content: "";
+    position: absolute;
+    background: url('/cdn/assets/img/sprite.png') no-repeat -5px -121px;
+    width: 142px;
+    height: 37px;
+    top: 15px;
+    right: 15px;
+}
+
+.loader-client > .loader-client-content > .loader-client-photos span:nth-child(3) {
+    position: relative;
+    background: center center / contain no-repeat scroll rgb(218, 218, 218);
+    width: 260px;
+    height: 260px;
+    border-radius: 10px;
+    margin: auto 0px auto -130px;
+    opacity: 0.8;
+    box-shadow: 0 0 20px 10px #0000001a;
+    overflow: hidden;
+}
+
+.loader-client-photo-user {
+    margin: auto 0 4px 5px;
+    pointer-events: none;
+}
+
+.loader-client-photo-user > .loader-client-photo-user-image {
+    height: 70px;
+    margin: -5px 0 0 0;
+    filter: drop-shadow(0px -1px #fff) drop-shadow(0px 1px #fff) drop-shadow(1px 0px #fff) drop-shadow(-1px 0px #fff);
+    -webkit-filter: drop-shadow(0px -1px #fff) drop-shadow(0px 1px #fff) drop-shadow(1px 0px #fff) drop-shadow(-1px 0px #fff);
+    -o-filter: drop-shadow(0px -1px #fff) drop-shadow(0px 1px #fff) drop-shadow(1px 0px #fff) drop-shadow(-1px 0px #fff);
+    -ms-filter: drop-shadow(0px -1px #fff) drop-shadow(0px 1px #fff) drop-shadow(1px 0px #fff) drop-shadow(-1px 0px #fff);
+    -moz-filter: drop-shadow(0px -1px #fff) drop-shadow(0px 1px #fff) drop-shadow(1px 0px #fff) drop-shadow(-1px 0px #fff);
+}
+
+.loader-client-photo-user > h4 {
+    margin: auto 0 auto 0;
+    font-size: 24px;
+}
+
+.loader-client > .loader-client-content > .loader-client-words {
+    color: #6b6b6b;
+    font-weight: bold;
+    font-size: 24px;
+    text-align: center;
+    white-space: nowrap;
+    margin: 30px 0 0 0;
+}
+
+.client-disconnected::before {
+    content: "";
+    position: absolute;
+    background: #000000d6;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.client-disconnected {
+    position: fixed;
+    background: #000;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+}
+
+.client-disconnected > div > label > h1 {
+    font-size: 40px;
+    font-family: Ubuntu Condensed, sans-serif!important;
+}
+
+.client-version-container,
+.flash-disabled-container {
+    position: absolute;
+    background: url(../img/background.png) rgb(226, 226, 226);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    font-family: "Ubuntu", sans-serif;
+}
+
+.client-version-content,
+.flash-disabled-content {
+    max-width: 620px;
+}
+
+.frank {
+    position: relative;
+    background: url('../img/frank.png') 0 0 / auto no-repeat;
+    min-width: 228px;
+    height: 368px;
+}
+
+@-webkit-keyframes fade-in-out {
+    50% {
+        opacity: 0.8;
+    }
+
+    0%, 100% {
+        opacity: 0.3;
+    }
+}
+
+@-webkit-keyframes spin {
+    0% {
+        transform: rotate(-360deg);
+        -webkit-transform: rotate(-360deg);
+        -o-transform: rotate(-360deg);
+        -ms-transform: rotate(-360deg);
+        -moz-transform: rotate(-360deg);
+    }
+
+    100% {
+        transform: rotate(-0deg);
+        -webkit-transform: rotate(-0deg);
+        -o-transform: rotate(-0deg);
+        -ms-transform: rotate(-0deg);
+        -moz-transform: rotate(-0deg);
+    }
+}
+
+audio.stream-audio {
+    display: none;
+}
+
+.haibbo-player-area {
+    position: absolute;
+    width: 0;
+    height: calc(100% - 70px);
+    top: 0;
+    left: 0;
+    margin: 60px 0 0 0;
+    z-index: 5;
+}
+
+.haibbo-player-area *,
+.haibbo-player-area *::before,
+.haibbo-player-area *::after {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.haibbo-player {
+    position: absolute;
+    width: 0;
+    height: fit-content;
+    left: 0px!important;
+    opacity: 1;
+    transition: left 0.5s, opacity 1s ease-in-out;
+    -webkit-transition: left 0.5s, opacity 1s ease-in-out;
+    -o-transition: left 0.5s, opacity 1s ease-in-out;
+    -ms-transition: left 0.5s, opacity 1s ease-in-out;
+    -moz-transition: left 0.5s, opacity 1s ease-in-out;
+}
+
+.haibbo-player-large {
+    width: 300px;
+    transition: left 0.5s ease-in-out;
+    -webkit-transition: left 0.5s ease-in-out;
+    -o-transition: left 0.5s ease-in-out;
+    -ms-transition: left 0.5s ease-in-out;
+    -moz-transition: left 0.5s ease-in-out;
+}
+
+.haibbo-player.loadding {
+    pointer-events: none;
+    opacity: 0.8;
+    transition: left 0.5s, opacity 1s ease-in-out;
+    -webkit-transition: left 0.5s, opacity 1s ease-in-out;
+    -o-transition: left 0.5s, opacity 1s ease-in-out;
+    -ms-transition: left 0.5s, opacity 1s ease-in-out;
+    -moz-transition: left 0.5s, opacity 1s ease-in-out;
+}
+
+.haibbo-player-large-area {
+    position: relative;
+    background: rgb(255, 255, 255);
+    width: 300px;
+    height: 85px;
+    border: 2px solid #f7f7f7;
+    border-radius: 5px;
+    float: left;
+    overflow: hidden;
+    display: flex;
+}
+
+.haibbo-player-speaker {
+    position: relative;
+    background: rgb(113, 190, 255);
+    width: 75px;
+    height: 100%;
+    display: flex;
+}
+
+.haibbo-player-speaker::after {
+    content: "";
+    position: absolute;
+    background: url(../img/radio/microphone.png) 0 0 / auto no-repeat scroll;
+    width: 26px;
+    height: 45px;
+    right: 10px;
+    bottom: -15px;
+}
+
+.haibbo-player-speaker-imager {
+    position: relative;
+    background: url(../img/habbo_ghost.png) 0 0 / auto no-repeat scroll;
+    width: 64px;
+    height: 94px;
+    margin: auto 0 0 0;
+}
+
+.haibbo-player-infos {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 13px;
+    font-family: sans-serif;
+}
+
+.haibbo-player-infos-speaker,
+.haibbo-player-infos-programation,
+.haibbo-player-infos-listeners {
+    position: relative;
+    background: #f7f7f7;
+    height: 27px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: flex;
+}
+
+.haibbo-player-infos-speaker::before {
+    content: "";
+    position: relative;
+    background: url('../img/radio/dj.png') 0 0 / auto no-repeat scroll;
+    min-width: 10px;
+    height: 11px;
+    margin: auto 10px auto 10px;
+}
+
+.haibbo-player-infos-programation {
+    background: #fbfbfb;
+}
+
+.haibbo-player-infos-programation::before {
+    content: "";
+    position: relative;
+    background: url('../img/radio/room.png');
+    min-width: 17px;
+    height: 18px;
+    margin: auto 7px auto 6px;
+}
+
+.haibbo-player-infos-listeners::before {
+    content: "";
+    position: relative;
+    background: url('../img/radio/listeners.png') 0 0 / auto no-repeat scroll;
+    min-width: 13px;
+    height: 13px;
+    margin: auto 8px auto 9px;
+}
+
+.haibbo-player-infos-speaker > span,
+.haibbo-player-infos-programation > span,
+.haibbo-player-infos-listeners > span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #a7a7a7;
+    padding: 0 5px 0 0;
+    margin: auto 0;
+}
+
+.haibbo-player-large-control {
+    position: relative;
+    background: rgb(214, 214, 214);
+    min-width: 17px;
+    display: flex;
+}
+
+.haibbo-player-large-control::after {
+    content: "";
+    position: relative;
+    background: url(../img/sprite.png) no-repeat -957px -221px;
+    width: 8px;
+    height: 12px;
+    margin: auto;
+    pointer-events: none;
+}
+
+.player-min.haibbo-player-large-control {
+    position: absolute;
+    background: rgb(214, 214, 214);
+    width: 15px;
+    height: 85px;
+    left: -12px;
+    border: 2px solid #f7f7f7;
+    border-radius: 0px 6px 6px 0px;
+    display: flex;
+    transition: left 0.5s ease-in-out;
+}
+
+.player-min.haibbo-player-large-control::after {
+    content: "";
+    position: relative;
+    background: url(../img/sprite.png) no-repeat -957px -221px;
+    width: 8px;
+    height: 12px;
+    margin: auto;
+    pointer-events: none;
+}
+
+.haibbo-player-large-control:hover {
+    cursor: pointer;
+}
+
+.haibbo-player.maximized > .player-min.haibbo-player-large-control {
+    left: -38px;
+    transition: left 0.5s ease-in-out;
+}
+
+.haibbo-player.minimized > .player-min.haibbo-player-large-control {
+    left: -2px;
+    transition: left 0.5s ease-in-out;
+}
+
+.haibbo-player.maximized > .haibbo-player-large {
+    left: 10px;
+    transition: all 0.5s ease-in-out;
+    filter: drop-shadow(0px 3px 0px rgba(0, 0, 0, 0.3));
+    -webkit-filter: drop-shadow(0px 3px 0px rgba(0, 0, 0, 0.3));
+    -o-filter: drop-shadow(0px 3px 0px rgba(0, 0, 0, 0.3));
+    -ms-filter: drop-shadow(0px 3px 0px rgba(0, 0, 0, 0.3));
+    -moz-filter: drop-shadow(0px 3px 0px rgba(0, 0, 0, 0.3));
+    padding: 0 0 3px 0;
+}
+
+.haibbo-player.minimized > .haibbo-player-large {
+    left: -310px;
+    transition: all 0.5s ease-in-out;
+}
+
+.player-large-actions {
+    margin: 10px 0 0 0;
+}
+
+.player-large-actions-volume {
+    position: relative;
+    background: #fbfbfb;
+    min-width: 115px;
+    height: 30px;
+    border: 2px solid #f7f7f7;
+    border-radius: 3px;
+    padding: 0 12px;
+    margin: 0 10px 0 0;
+    display: flex;
+}
+
+.player-large-actions-volume-bar {
+    position: relative!important;
+    background: #e4e4e4!important;
+    width: 100%!important;
+    height: 10px!important;
+    border: 0!important;
+    border-radius: 100px!important;
+    margin: auto 0!important;
+}
+
+.player-large-actions-volume-bar div {
+    position: relative!important;
+    background: #cacaca!important;
+    height: 100%!important;
+    border-radius: 100px!important;
+}
+
+.player-large-actions-volume-bar span {
+    position: absolute!important;
+    background: #949494!important;
+    width: 14px!important;
+    height: 14px!important;
+    top: -2px!important;
+    border: 0!important;
+    border-radius: 50%!important;
+    margin: 0px 0px 0px -7px!important;
+    display: flex!important;
+    outline: none!important;
+    box-shadow: 0 0 5px #909090;
+}
+
+.player-large-actions-playpause,
+.player-large-actions-dragplayer,
+.player-large-actions-reconnect {
+    position: relative;
+    background: #fbfbfb;
+    width: 30px;
+    height: 30px;
+    border: 2px solid #f7f7f7;
+    border-radius: 3px;
+    margin: 0 5px 0 0;
+    display: flex;
+}
+
+.player-large-actions > div:hover {
+    cursor: pointer;
+} 
+
+.player-large-actions > div:before {
+    pointer-events: none;
+}
+
+.player-large-actions-playpause.played::before {
+    content: "";
+    position: relative;
+    background: url(../img/radio/sprite.png) no-repeat -14px -2px;
+    width: 15px;
+    height: 15px;
+    margin: auto;
+}
+
+.player-large-actions-playpause.paused::before {
+    content: "";
+    position: relative;
+    background: url(../img/radio/sprite.png) no-repeat -2px -2px;
+    width: 10px;
+    height: 15px;
+    margin: auto;
+}
+
+.player-large-actions-reconnect:before {
+    content: "";
+    position: relative;
+    background: url('../img/radio/sprite.png') no-repeat -31px -2px;
+    width: 17px;
+    height: 16px;
+    margin: auto;
+}
+
+.player-large-actions-dragplayer::before {
+    content: "";
+    position: relative;
+    background: url('../img/radio/sprite.png') no-repeat -49px -1px;
+    width: 12px;
+    height: 18px;
+    margin: auto;
+}
+
+.haibbo-player.loadding > .haibbo-player-large > .player-large-actions > .player-large-actions-reconnect:before {
+    width: 17px;
+    animation: spin 1s linear infinite;
+    -webkit-animation: spin 1s linear infinite;
+    -o-animation: spin 1s linear infinite;
+    -ms-animation: spin 1s linear infinite;
+    -moz-animation: spin 1s linear infinite;
+    image-rendering: pixelated;
+}
+
+.fastfood-container {
+    position: fixed;
+    background: #000;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border: 0;
+    transition: opacity 0.25s ease;
+    -webkit-transition: opacity 0.25s ease;
+    -o-transition: opacity 0.25s ease;
+    -moz-transition: opacity 0.25s ease;
+    -ms-transition: opacity 0.25s ease;
+    z-index: 99999;
+    display: none;
+}
+
+.fastfood-container.show {
+    opacity: 1;
+}
+
+iframe.fastfood-iframe {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border: 0;
+}
+
+.fastfood-close-btn {
+    position: fixed!important;
+    font-family: sans-serif;
+    z-index: 99999;
+    top: 12px;
+    left: 12px;
+    display: inline-block;
+    background-color: #ffb900;
+    border: 2px solid #ffea00;
+    box-shadow: none;
+    margin-left: 14px;
+    padding: 0 6px;
+    height: 30px;
+    line-height: 26px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #2d2d2d;
+    text-shadow: 1px 1px #f5e49d;
+    text-decoration: none!important;
+    border-top-right-radius: 4px;
+    -moz-border-top-right-radius: 4px;
+    -webkit-border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    -moz-border-bottom-right-radius: 4px;
+    -webkit-border-bottom-right-radius: 4px
+}
+
+.fastfood-close-btn:after,
+.fastfood-close-btn:before {
+    content: "";
+    position: absolute;
+    display: block;
+    border-style: solid
+}
+
+.fastfood-close-btn:before {
+    border-width: 15px;
+    top: -2px;
+    border-color: transparent #ffea00 transparent transparent;
+    left: -32px
+}
+
+.fastfood-close-btn:after {
+    border-width: 13px;
+    top: 0;
+    border-color: transparent #ffb900 transparent transparent;
+    left: -26px
+}
+
+.fastfood-close-btn:hover {
+    background-color: #ffd400;
+    border-color: #fffd70;
+    color: #2d2d2d
+}
+
+.fastfood-close-btn:hover:after {
+    border-right-color: #ffd400
+}
+
+.fastfood-close-btn:active {
+    background-color: #f89400;
+    border-color: #ffce37;
+    top: 16px
+}
+
+.fastfood-close-btn:active:after {
+    border-right-color: #f89400
+}
