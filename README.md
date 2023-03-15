@@ -25,7 +25,7 @@ Rename `public/configuration.json.example` to `public/configuration.json` and ed
 - "apiUrl"
 - "hotel.url"
 - "hotel.name"
-- "clients" put the url of your client
+- "clients" put the url of your client php
 
 ### Development
 To make changes, launch it with developer mode to apply changes after saving.
