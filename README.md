@@ -47,6 +47,17 @@ All pull requests are welcome for the best performance and design of cms.
 
 Please test before submitting the request.
 
+### How get SSO in client?
+Well, there are two ways.
+Javascript:
+```
+new URLSearchParams(window.location.search).get("sso")
+```
+PHP:
+```
+	$sso = isset($_GET['sso']) ? $_GET['sso'] : null;
+```
+
 ### Demo
 [Visit Lella](https://lella.com.br)
 
