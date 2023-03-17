@@ -55,7 +55,7 @@ new URLSearchParams(window.location.search).get("sso")
 ```
 PHP:
 ```
-	$sso = isset($_GET['sso']) ? $_GET['sso'] : null;
+$sso = isset($_GET['sso']) ? $_GET['sso'] : null;
 ```
 
 ### Demo
