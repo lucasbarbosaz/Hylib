@@ -6,6 +6,8 @@ import AuthService from "../../services/AuthService";
 import StoreContext from "../../store/Context";
 import useInterval from "../../utils/useInterval";
 
+import { i18n } from "../../translate/i18n";
+
 const Header = (props) => {
     const { updateLoggedUser, visited } = props;
     const history = useHistory();
@@ -146,7 +148,7 @@ const Header = (props) => {
                     <div className="mr-bottom-2 margin-top-min width-content">
                         <div className="general-box hotel-big-msg flex width-content">
                             <icon name="hotel-big" className="margin-right-min"></icon>
-                            <h5 className="gray-clear margin-auto-top-bottom">Olá, muito bom ver você por aqui, atualmente temos <b>muitos usuários online</b>, que tal se juntar a todos e desfrutar doque preparamos para você?</h5>
+                            <h5 className="gray-clear margin-auto-top-bottom">{i18n.t('index.header')}</h5>
                         </div>
                     </div>
                 </div>

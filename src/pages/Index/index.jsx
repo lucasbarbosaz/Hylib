@@ -13,6 +13,8 @@ import Requests from '../../services/Requests';
 import StoreContext from "../../store/Context";
 import { loop, scrollToTop } from "../../utils/utils";
 
+import { i18n } from "../../translate/i18n";
+
 const Index = () => {
     const { config, setToken, setUser } = React.useContext(StoreContext);
     const history = useHistory();
@@ -135,23 +137,23 @@ const Index = () => {
                                     <icon name="pad"></icon>
                                 </div>
                                 <label className="white flex-column">
-                                    <h4 className="bold">Área de login</h4>
-                                    <h5>Faça login para jogar conosco!</h5>
+                                    <h4 className="bold">{i18n.t('index.login.title')}</h4>
+                                    <h5>{i18n.t('index.login.smallText')}</h5>
                                 </label>
                             </div>
                             <div className="width-content flex inputs-login margin-bottom-min">
                                 <div className="identification-look" style={{background: `url(${figure ? figure : ghostAvatar}) 0px 0px / auto no-repeat scroll`}}></div>
-                                <input type="text" name="identification" placeholder="Nome de usuário..." className="border-none" onChange={(e) => setIdentification(e.target.value)} onKeyUp={e => onKeyUpValue(e.target.value)}/>
+                                <input type="text" name="identification" placeholder={i18n.t('index.login.placeholders.loginInput')} className="border-none" onChange={(e) => setIdentification(e.target.value)} onKeyUp={e => onKeyUpValue(e.target.value)}/>
                             </div>
                             <div className="width-content flex inputs-login flex">
                                 <div className="flex width-content">
                                     <icon name="lock-big"></icon>
-                                    <input type="password" name="password" placeholder="Sua senha..." className="border-none" onChange={(e) => setPassword(e.target.value)} />
+                                    <input type="password" name="password"placeholder={i18n.t('index.login.placeholders.passwordInput')} className="border-none" onChange={(e) => setPassword(e.target.value)} />
                                 </div>
                                 <button type="submit" className={`lgn-button ${config.cmsStyles.buttonsClass} transition-disabled margin-left-min`} style={{ minWidth: "120px", height: "45px" }} disabled={isLoggingIn}>
                                     <label className="margin-auto white">
                                         {isLoggingIn == false ?
-                                            <h5 className="bold fs-14 uppercase">Entrar</h5> :
+                                            <h5 className="bold fs-14 uppercase">{i18n.t('index.buttons.login')}</h5> :
                                             <><h5 className="bold fs-14 uppercase"></h5><div className="loader-ellipsis pointer-none">
                                                 <span></span>
                                                 <span></span>
@@ -171,8 +173,8 @@ const Index = () => {
                                         <img className="habbo-imager" src={`${config.hotel.avatarImage}?figure=hr-115-42.hd-195-19.ch-3030-82.lg-275-1408.fa-1201.ca-1804-64&action=std&direction=2&head_direction=3&gesture=std&size=n&img_format=png&frame=0&headonly=0`} />
                                     </div>
                                     <label className="gray-clear margin-auto-top-bottom padding-right-min">
-                                        <h5 className="bold fs-14">Sem destaque...</h5>
-                                        <h6>Nenhum usuário(a) destaque em eventos se destacou este mês.</h6>
+                                        <h5 className="bold fs-14">{i18n.t('index.featuredUser.title')}</h5>
+                                        <h6>{i18n.t('index.featuredUser.smallText')}</h6>
                                     </label>
                                 </div>
                             </div>
@@ -182,14 +184,14 @@ const Index = () => {
                         <div className="general-box register-announcement flex padding-md" style={{background: `url(${config.cmsStyles.backgroundIndex}) right 0 / auto no-repeat scroll #5b217f`}}>
                             <label className="flex-column white">
                                 <div className="flex-column padding-minm padding-top-none">
-                                    <h2 className="bold uppercase">Bem-vindo, ou vinda!</h2>
-                                    <h5 className="margin-top-min">O <b>{config.hotel.name}</b> é um incrível mundo de pixels onde você pode criar e construir quartos da maneira que quiser e se divertir com seus amigos através de jogos da comunidade.</h5>
+                                    <h2 className="bold uppercase">{i18n.t('index.registerAnnouncement.title')}</h2>
+                                    <h5 className="margin-top-min"><b>{config.hotel.name}</b> {i18n.t('index.registerAnnouncement.subtitle')}</h5>
                                 </div>
                                 <div className="flex margin-auto-top">
-                                    <h6 className="margin-auto margin-right-min">Não perca tempo, registre-se agora mesmo e venha viver pessoalmente uma experiência agradável, ou não, aqui no <b>{config.hotel.name}</b></h6>
-                                    <Link to="/register" place={`${config.hotel.name} - Crie sua conta, faça amigos e divirta-se gratuitamente.`} className={`${config.cmsStyles.buttonsClass} transition-disabled margin-auto-top-bottom no-link`} style={{ minWidth: "150px", height: "50px" }}>
+                                    <h6 className="margin-auto margin-right-min">{i18n.t('index.registerAnnouncement.smallText')} <b>{config.hotel.name}</b></h6>
+                                    <Link to="/register" className={`${config.cmsStyles.buttonsClass} transition-disabled margin-auto-top-bottom no-link`} style={{ minWidth: "150px", height: "50px" }}>
                                         <label className="margin-auto white">
-                                            <h5 className="bold fs-14 uppercase">Criar conta</h5>
+                                            <h5 className="bold fs-14 uppercase">{i18n.t('index.buttons.createAccount')}</h5>
                                         </label>
                                     </Link>
                                 </div>

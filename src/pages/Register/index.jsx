@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import HCaptcha from '@hcaptcha/react-hcaptcha';
 import React from "react";
 import { useHistory } from "react-router-dom";
@@ -9,6 +10,7 @@ import Header from '../../components/Header';
 import AuthService from "../../services/AuthService";
 import Requests from '../../services/Requests';
 import StoreContext from "../../store/Context";
+import { i18n } from "../../translate/i18n";
 import { scrollToTop } from "../../utils/utils";
 
 
@@ -211,19 +213,19 @@ const Register = () => {
                                     <icon name="search"></icon>
                                 </div>
                                 <label className="white flex-column">
-                                    <h4 className="bold">Registre-se agora</h4>
-                                    <h5>Junte-se a nós hoje!</h5>
+                                    <h4 className="bold">{i18n.t('register.title')}</h4>
+                                    <h5>{i18n.t('register.smallText')}</h5>
                                 </label>
                             </div>
 
                             <form onSubmit={handleSubmitNewUser} className="padding-minm padding-top-none register-form">
                                 <div className="flex-column margin-bottom-min">
                                     <label className="gray margin-bottom-minm">
-                                        <h6>Escolha seu nome de usuário sabiamente, <b>não toleramos vulgaridades em nomes de usuários!</b><br /><br />E o seu nome, também, deve ter entre <b>4 e 15 letras e sem caracteres especiais</b>.</h6>
+                                        <h6>{i18n.t('register.usernameInput.details')}<br /><br />{i18n.t('register.usernameInput.requirements')}</h6>
                                     </label>
                                     <div className="register-inputs width-content flex">
                                         <icon name="head-mini"></icon>
-                                        <input type="text" name="username" placeholder="Nome de usuário(a)" data-input="username" id="username" value={newUser.username} onKeyUp={e => onKeyUpInputs("username", e.target.value)} onChange={(e) => updateNewUser('username', e.target.value)} />
+                                        <input type="text" name="username" placeholder={i18n.t('register.usernameInput.placeholder')} data-input="username" id="username" value={newUser.username} onKeyUp={e => onKeyUpInputs("username", e.target.value)} onChange={(e) => updateNewUser('username', e.target.value)} />
                                         <div className="reg-status username pointer-none">
                                             {alertUsername}
                                         </div>
@@ -232,11 +234,11 @@ const Register = () => {
 
                                 <div className="flex-column margin-bottom-min">
                                     <label className="gray margin-bottom-minm">
-                                        <h6>Certifique-se de utilizar um e-mail <b>válido</b> e <b>verdadeiro</b>, pois caso necessário para recuperação de senhas, entrar em contato e dentre outro, entraremos em contato pelo mesmo.</h6>
+                                        <h6>{i18n.t('register.emailInput.requirements')}</h6>
                                     </label>
                                     <div className="register-inputs width-content flex">
                                         <icon name="email"></icon>
-                                        <input type="email" name="email" placeholder="Endereço de e-mail" data-input="email" id="email" value={newUser.email} onKeyUp={e => onKeyUpInputs("email", e.target.value)} onChange={(e) => updateNewUser('email', e.target.value)} />
+                                        <input type="email" name="email" placeholder={i18n.t('register.emailInput.placeholder')} data-input="email" id="email" value={newUser.email} onKeyUp={e => onKeyUpInputs("email", e.target.value)} onChange={(e) => updateNewUser('email', e.target.value)} />
                                         <div className="reg-status email pointer-none">
                                             {alertEmail}
                                         </div>
@@ -245,18 +247,18 @@ const Register = () => {
 
                                 <div className="flex-column margin-bottom-min">
                                     <label className="gray margin-bottom-minm">
-                                        <h6>Segurança nunca é demais! Utilize <b>uma senha segura</b> e fácil de você lembrar, outra opção é <b>aceitar sugestões de senhas pelo seu próprio navegador</b>, a senha fica salva nele ao fazer login, facilitando mais e te deixando seguro(a).</h6>
+                                        <h6>{i18n.t('register.passwordInput.requirements')}</h6>
                                     </label>
                                     <div className="register-inputs width-content flex">
                                         <icon name="lock-2"></icon>
-                                        <input type="password" name="password" placeholder="Senha" data-input="password" value={newUser.password} onKeyUp={e => onKeyUpInputs("password", e.target.value)} onChange={(e) => updateNewUser('password', e.target.value)} />
+                                        <input type="password" name="password" placeholder={i18n.t('register.passwordInput.placeholder')} data-input="password" value={newUser.password} onKeyUp={e => onKeyUpInputs("password", e.target.value)} onChange={(e) => updateNewUser('password', e.target.value)} />
                                         <div className="reg-status password pointer-none">
                                             {alertPassword}
                                         </div>
                                     </div>
                                 </div>
                                 <label className="gray">
-                                    <h6>Além de ser <b>obrigatório</b>, a <b>escolha de sexo</b> é essêncial para que ao você se registrar você possa receber presentes bem legal, além de também identificar o seu gênero de acordo com a sua escolha.</h6>
+                                    <h6>{i18n.t('register.gender.requirements')}</h6>
                                 </label>
                                 <div className="flex margin-top-min">
                                     <div className="flex width-content">
@@ -266,7 +268,7 @@ const Register = () => {
                                                 <div className="gender-female-option pointer-none">
                                                     <div className="flex">
                                                         <icon name="female"></icon>
-                                                        <h6 className="margin-auto-top-bottom">Sexo feminino</h6>
+                                                        <h6 className="margin-auto-top-bottom">{i18n.t('register.gender.female')}</h6>
                                                     </div>
                                                 </div>
                                             </label>
@@ -277,7 +279,7 @@ const Register = () => {
                                                 <div className="gender-male-option pointer-none">
                                                     <div className="flex">
                                                         <icon name="male"></icon>
-                                                        <h6 className="margin-auto-top-bottom">Sexo masculino</h6>
+                                                        <h6 className="margin-auto-top-bottom">{i18n.t('register.gender.male')}</h6>
                                                     </div>
                                                 </div>
                                             </label>
@@ -287,8 +289,8 @@ const Register = () => {
                                         <div className="result-register-card flex">
                                             <div className="habbo-result female"></div>
                                             <label className="white flex-column text-nowrap">
-                                                <h4 className="bold text-nowrap">{newUser.username !== null && newUser.username !== '' ? newUser.username : "Seu nome aqui!"}</h4>
-                                                <h6 className="margin-auto-top margin-bottom-minm text-nowrap">Vamos embarcar?</h6>
+                                                <h4 className="bold text-nowrap">{newUser.username !== null && newUser.username !== '' ? newUser.username : i18n.t('register.registerPreview.title')}</h4>
+                                                <h6 className="margin-auto-top margin-bottom-minm text-nowrap">{i18n.t('register.registerPreview.smallText')}</h6>
                                             </label>
                                         </div>
                                         <div className="reg-recaptcha margin-top-min">
@@ -305,7 +307,7 @@ const Register = () => {
                                                 <label className="margin-auto white">
                                                     {
                                                         isRegisteringNewUser == false ?
-                                                            <h4 className="bold">Vamos nessa!</h4>
+                                                            <h4 className="bold">{i18n.t('register.buttons.createAccount')}</h4>
                                                             :
                                                             <><h5 className="bold fs-14 uppercase"></h5>
                                                                 <div className="loader-ellipsis pointer-none">
@@ -325,17 +327,17 @@ const Register = () => {
                     </div>
                     <div className="flex-column margin-left-max margin-top-max col-5">
                         <label className="gray flex-column">
-                            <h2 className="bold margin-bottom-min">Venha conhecer o {config.hotel.name}!</h2>
+                            <h2 className="bold margin-bottom-min">{i18n.t('register.aboutHotel.title')} {config.hotel.name}</h2>
                             <div className="flex margin-auto-bottom">
-                                <h5 className="fs-14">O <b>{config.hotel.name}</b> é um comunidade virtua de pixels onde você pode criar seu próprio avatar, fazer muitos amigos, bater-papo com diversos usuários e usuárias do nosso hotel, construir e decorar seus próprios quartos, criar seus próprios jogos ou jogar os de outros usuários e muitos mais...</h5>
+                                <h5 className="fs-14"><b>{config.hotel.name}</b> {i18n.t('register.aboutHotel.firstDescription')}</h5>
                                 <img className="margin-auto-top-bottom" style={{ minWidth: "200px", height: "123px" }} src="https://images.habbo.com/c_images/WhatIsHabbo/ill_17.png" />
                             </div>
                             <div className="flex margin-top-md">
                                 <img className="margin-auto-top-bottom" style={{ minWidth: "200px", height: "171px" }} src="https://images.habbo.com/c_images/WhatIsHabbo/ill_16.png" />
-                                <h5 className="text-right fs-14">Criatividade e originalidade são super bem-vindas no <b>{config.hotel.name}</b>! Toda semana temos várias competições novas para você participar. De competições de quarto, atividades legais onde você pode expressar todos os seus dons artísticos e criativos e, ainda por cima, ganhar conquistas e prêmios! Bateu a inspiração? Dê uma olhada nas nossas <b>notícias</b> para ficar por dentro das últimas atividades e competições da semana!</h5>
+                                <h5 className="text-right fs-14">{i18n.t('register.aboutHotel.secondDescription')}</h5>
                             </div>
                             <div className="flex margin-auto-top">
-                                <h5 className="fs-14">Você adora bater papo e encontrar os seus amigos? os <b>{config.hotel.name} Grupos, Fórums e comunidades de RPG</b> são ótimas opções para você. Entre no exército e assuma seus deveres, monte a sua própria escola e decida você mesmo o que estudar, e arrase na passarela ou corra para a emergência e comece a salvar vidas pixeladas.</h5>
+                                <h5 className="fs-14">{i18n.t('register.aboutHotel.threeDescription')}</h5>
                                 <img className="margin-auto-top-bottom" style={{ minWidth: "198px", height: "157px" }} src={comment} />
                             </div>
                         </label>
