@@ -25,7 +25,7 @@ Rename `public/configuration.json.example` to `public/configuration.json` and ed
 - "apiUrl"
 - "hotel.url"
 - "hotel.name"
-- "clients" put the url of your client
+- "clients" put the url of your client php
 
 ### Development
 To make changes, launch it with developer mode to apply changes after saving.
@@ -46,6 +46,17 @@ A folder will be generated `"build"` will be created and you will have to upload
 All pull requests are welcome for the best performance and design of cms.
 
 Please test before submitting the request.
+
+### How get SSO in client?
+Well, there are two ways.
+Javascript:
+```
+new URLSearchParams(window.location.search).get("sso")
+```
+PHP:
+```
+$sso = isset($_GET['sso']) ? $_GET['sso'] : null;
+```
 
 ### Demo
 [Visit Lella](https://lella.com.br)
