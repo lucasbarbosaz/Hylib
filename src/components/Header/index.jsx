@@ -1,15 +1,16 @@
 import axios from "axios";
-import React from 'react';
+import { useContext, useEffect } from 'react';
 import { Link, useHistory } from "react-router-dom";
 import APIService from "../../services/APIService";
 import AuthService from "../../services/AuthService";
 import StoreContext from "../../store/Context";
+import useInterval from "../../utils/useInterval";
 
 const Header = (props) => {
     const { updateLoggedUser, visited } = props;
     const history = useHistory();
 
-    const { config, token, user, setUser } = React.useContext(StoreContext);
+    const { config, token, user, setUser } = useContext(StoreContext);
 
     const handleLogout = () => {
         history.push('/logout');
@@ -26,9 +27,10 @@ const Header = (props) => {
             .catch(error => {
                 console.log(error)
             })
+            .finally(() => {});
     }
 
-    React.useEffect(() => {
+    useEffect(() => {
         if (AuthService.isUserLoggedIn()) {
             AuthService.setupAxiosHeaders(token);
             if (updateLoggedUser) {
@@ -37,6 +39,14 @@ const Header = (props) => {
         }
     }, []);
 
+    useInterval(() => {
+        if (AuthService.isUserLoggedIn()) {
+            AuthService.isTokenExpired(); //check if token has expired 
+        }
+    }, 60000) ;
+    
+
+       
 
     return (
         <div id="header-wrapper">
