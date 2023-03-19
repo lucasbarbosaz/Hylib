@@ -5,7 +5,9 @@ CMS made for Comet Emulator using what ReactJS has to offer.
 ### Requisites
 - [Git](https://git-scm.com/)
 - [NodeJS](https://nodejs.org/) >= 16.x
+  - If using NodeJS < 18 remove `--openssl-legacy-provider` from the package.json in the scripts part
 - [Backend Server for Hylib](https://github.com/TheLaxus/HylibServer)
+
 
 ### How to install
 
