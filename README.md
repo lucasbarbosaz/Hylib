@@ -12,7 +12,7 @@ CMS made for Comet Emulator using what ReactJS has to offer.
 Open you bash and use npm install or yarn install to install the packages
 
 ```bash
-npm install
+npm install --force
 ```
 
 ### Install packages and run the backend server
