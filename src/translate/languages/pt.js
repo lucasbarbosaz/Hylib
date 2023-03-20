@@ -72,6 +72,91 @@ const messages = {
                     secondDescription: "Criatividade e originalidade são super bem-vindas no nosso hotel! Toda semana temos várias competições novas para você participar. De competições de quarto, atividades legais onde você pode expressar todos os seus dons artísticos e criativos e, ainda por cima, ganhar conquistas e prêmios! Bateu a inspiração? Dê uma olhada nas nossas notícias para ficar por dentro das últimas atividades e competições da semana!",
                     threeDescription: "Você adora bater papo e encontrar os seus amigos? os nossos Grupos, Fórums e comunidades de RPG são ótimas opções para você. Entre no exército e assuma seus deveres, monte a sua própria escola e decida você mesmo o que estudar, e arrase na passarela ou corra para a emergência e comece a salvar vidas pixeladas.",
                 }
+            },
+
+            home: {
+                userDetails: {
+                    vip: 'Você é VIP!',
+
+                    buttons: {
+                        enter: 'Entrar no Hotel',
+                        flash: 'Entrar na versão antiga',
+                        beta: 'Entrar na versão NOVA'
+                    }
+                },
+
+                events: {
+                    title: 'Nenhum evento no momento',
+                    smallText: 'Opps.. por enquanto não adicionamos um evento.',
+                },
+
+
+                activitys: {
+                    title: 'Nenhuma atividade no momento',
+                    smallText: 'Opps.. por enquanto não adicionamos uma atividade.',
+                },
+                
+                richestPlayers: {
+                    title: 'Usuários ricos',
+
+                    currencys: {
+                        type: {
+                            credits: 'créditos',
+                            diamonds: 'diamantes',
+                            duckets: 'duckets'
+                        }
+                    }
+                },
+
+                featuredGroup: {
+                    title: 'Grupos em destaque',
+                    members: 'membros'
+                },
+
+                downloadApp: {
+                    title: 'Baixe o aplicativo do',
+
+                    downloads: {
+                        windows: 'Baixar para Windows',
+                        macOS: 'Baixar para MacOS'
+                    }
+                },
+
+                socialNetworks: {
+                    title: 'Mais acessibilidade para você!',
+
+                    instagram: 'Página no instagram',
+                    twitter: 'Siga-nos no twitter',
+                    discord: 'Servidor no discord'
+                },
+            },
+
+            profile: {
+                userNotFound: 'Usuário não existe.',
+
+                searchInput: {
+                    placeholder: 'Pesquisar perfil de usuário',
+                },
+
+                buttons: {
+                    searchUser: 'Procurar'
+                },
+
+                infos: {
+                    online: 'Conectado',
+                    offline: 'Desconectado',
+
+                    isOwner: 'Dono e desenvolvedor',
+                    friendText: 'amigos',
+
+                    registeredIn: 'Entrou em',
+                },
+
+                groups: {
+                    title: 'Grupos de',
+                    of: 'de',
+                    groupText: 'grupos'
+                }
             }
         }
     }

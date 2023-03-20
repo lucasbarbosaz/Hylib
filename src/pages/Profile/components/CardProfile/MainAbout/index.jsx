@@ -1,3 +1,5 @@
+import { i18n } from "../../../../../translate/i18n";
+
 const MainAbout = ({ isLoadingUserData, isLoadingCount, userData, countFriends, config }) => {
     return (
         <div className="flex margin-bottom-max">
@@ -35,9 +37,7 @@ const MainAbout = ({ isLoadingUserData, isLoadingCount, userData, countFriends, 
                         className="margin-right-minm"
                     ></icon>
                     <label className="fs-14 white">
-                        {countFriends.length > 0 || countFriends > 1
-                            ? `${countFriends} amigos`
-                            : `${countFriends} amigo`}
+                        {`${countFriends} ${i18n.t('profile.infos.friendText')}`}
                     </label>
                 </div>
             )}

@@ -1,5 +1,6 @@
 import moment from 'moment';
 import React from 'react';
+import { i18n } from "../../../../translate/i18n";
 import Badge from './Badge';
 
 const BadgesUsed = ({ badgesUsed, config, isLoadingUserData, userData }) => {
@@ -22,10 +23,10 @@ const BadgesUsed = ({ badgesUsed, config, isLoadingUserData, userData }) => {
                 <div className='flex'>
                     <icon name='display-identity' className='margin-right-minm'></icon>
                     <label className='gray-clear'>
-                        {isLoadingUserData && <h5>Entrou em ...</h5>}
+                        {isLoadingUserData && <h5>{i18n.t('profile.infos.registeredIn')} ...</h5>}
                         {!isLoadingUserData && (
                             <h5>
-                                Entrou em {moment.unix(userData.reg_timestamp).format('DD/MM/YYYY')}
+                                {i18n.t('profile.infos.registeredIn')} {moment.unix(userData.reg_timestamp).format('DD/MM/YYYY')}
                             </h5>
                         )}
                     </label>

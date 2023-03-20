@@ -4,7 +4,7 @@ const FeaturedGroups = ({
     isGroupLoading,
     loadingGroups,
     featuredGroups,
-    config,
+    membersText,
 }) => {
     return (
         <>
@@ -23,7 +23,7 @@ const FeaturedGroups = ({
                                 </div>
                                 <label className="color-4 text-nowrap mr-auto-top-bottom">
                                     <h5 className="bold text-nowrap">{groupData.name}</h5>
-                                    <h6 className="text-nowrap">{groupData.membersCount.count} membros</h6>
+                                    <h6 className="text-nowrap">{groupData.membersCount.count} {membersText}</h6>
                                 </label>
                             </div>
                         )

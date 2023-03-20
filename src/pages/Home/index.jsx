@@ -24,6 +24,9 @@ import useInterval from "../../utils/useInterval";
 import groupIcon from "../../assets/img/070.gif";
 import ghostAvatar from "../../assets/img/ghost.png";
 
+import { i18n } from "../../translate/i18n";
+
+
 const Home = () => {
     const { config, user, setUser } = React.useContext(StoreContext);
     const history = useHistory();
@@ -275,12 +278,12 @@ const Home = () => {
                     <>
                         <Link onClick={() => goToClient('betav2')} className={`${config.cmsStyles.buttonsClass} no-link margin-top`} style={{ width: "180px", height: "42px", marginTop: "6px" }}>
                             <label className="margin-auto white">
-                                <h5>Entrar na <b>versão NOVA</b></h5>
+                                <h5>{i18n.t('home.userDetails.buttons.beta')}</h5>
                             </label>
                         </Link>
                         <Link onClick={() => goToClient('flash')} className={`${config.cmsStyles.buttonsClass} no-link margin-top`} style={{ width: "180px", height: "42px" }}>
                             <label className="margin-auto white">
-                                <h5>Entrar na <b>versão antiga</b></h5>
+                                <h5>{i18n.t('home.userDetails.buttons.flash')}</h5>
                             </label>
                         </Link>
                     </>
@@ -288,7 +291,7 @@ const Home = () => {
                     <>
                         <Link onClick={() => setShowClientOptions(true)} className={`${config.cmsStyles.buttonsClass} no-link margin-top-md`} style={{ width: "180px", height: "42px" }}>
                             <label className="margin-auto white">
-                                <h5>Entrar no <b>Hotel</b></h5>
+                                <h5>{i18n.t('home.userDetails.buttons.enter')}</h5>
                             </label>
                         </Link>
                     </>
@@ -360,8 +363,8 @@ const Home = () => {
                                         !isLoadingEvents &&
                                         <div class="event-box-special" style={{ background: `url(https://images.habbo.com/web_images/habbo-web-articles/lpromo_sellableroombundle.png) 100% center / auto repeat-x scroll rgb(90, 38, 139)`, opacity: ".9" }}>
                                             <label class="white margin-auto-top-bottom margin-auto-right text-nowrap">
-                                                <h3 class="bold text-nowrap" style={{ textShadow: "2px 2px 2px black" }}>Nenhum evento no momento</h3>
-                                                <h6 class="text-nowrap">Opps.. por enquanto não adicionamos um evento.</h6>
+                                                <h3 class="bold text-nowrap" style={{ textShadow: "2px 2px 2px black" }}>{i18n.t('home.events.title')}</h3>
+                                                <h6 class="text-nowrap">{i18n.t('home.events.smallText')}</h6>
                                             </label>
                                         </div>
                                     )
@@ -394,8 +397,8 @@ const Home = () => {
                                         !isLoadingActivitys &&
                                         <div className="event-box-special" style={{ background: `url(https://images.habbo.com/web_images/habbo-web-articles/lpromo_Jan23.png) 100% center / auto repeat-x scroll rgb(90, 38, 139)`, opacity: ".9" }}>
                                             <label className="white margin-auto-top-bottom margin-auto-right text-nowrap">
-                                                <h3 className="bold text-nowrap" style={{ textShadow: "2px 2px 2px black" }}>Nenhuma atividade no momento</h3>
-                                                <h6 className="text-nowrap">Opps.. por enquanto não adicionamos uma atividade.</h6>
+                                                <h3 className="bold text-nowrap" style={{ textShadow: "2px 2px 2px black" }}>{i18n.t('home.activitys.title')}</h3>
+                                                <h6 className="text-nowrap">{i18n.t('home.activitys.smallText')}</h6>
                                             </label>
                                         </div>
                                     )
@@ -411,7 +414,7 @@ const Home = () => {
                                         <icon name="gold-trophy" className="margin-auto"></icon>
                                     </div>
                                     <label className="white">
-                                        <h5>Usuários ricos</h5>
+                                        <h5>{i18n.t('home.richestPlayers.title')}</h5>
                                     </label>
                                 </div>
                                 <div className="flex-column users-featured">
@@ -419,6 +422,9 @@ const Home = () => {
                                         loadingRichestUsers={loadingRichestUsers}
                                         richestUsersLoading={richestUsersLoading}
                                         richestUsers={richestUsers}
+                                        creditsText={i18n.t('home.richestPlayers.currencys.type.credits')}
+                                        diamondsText={i18n.t('home.richestPlayers.currencys.type.diamonds')}
+                                        ducketsText={i18n.t('home.richestPlayers.currencys.type.duckets')}
                                         config={config}
                                     />
                                 </div>
@@ -429,18 +435,22 @@ const Home = () => {
                                         <icon name="room" className="margin-auto"></icon>
                                     </div>
                                     <label className="white">
-                                        <h5>Grupos em destaque</h5>
+                                        <h5>{i18n.t('home.featuredGroup.title')}</h5>
                                     </label>
                                 </div>
                                 <FeaturedGroups
                                     isGroupLoading={isGroupLoading}
                                     loadingGroups={loadingGroups}
                                     featuredGroups={featuredGroups}
+                                    membersText={i18n.t('home.featuredGroup.members')}
                                     config={config}
                                 />
                             </div>
                         </div>
                         <DownloadApp
+                            titleText={i18n.t('home.downloadApp.title')}
+                            windowsText={i18n.t('home.downloadApp.downloads.windows')}
+                            macOSText={i18n.t('home.downloadApp.downloads.macOS')}
                             config={config}
                         />
                     </div>
@@ -454,6 +464,10 @@ const Home = () => {
                             />
                         </div>
                         <SocialNetworks
+                            titleText={i18n.t('home.socialNetworks.title')}
+                            instagramText={i18n.t('home.socialNetworks.instagram')}
+                            twitterText={i18n.t('home.socialNetworks.twitter')}
+                            discordText={i18n.t('home.socialNetworks.discord')}
                             config={config}
                         />
                     </div>

@@ -1,4 +1,5 @@
 import React from "react";
+import { i18n } from "../../../../translate/i18n";
 import Groups from "./Groups";
 import "./style.css";
 
@@ -15,22 +16,19 @@ const CardAllGroups = ({
             <div className="general-box-header-3 padding-md">
                 <label className="gray">
                     {isLoadingUserData && (
-                        <h5 className="bold">Grupos de ...</h5>
+                        <h5 className="bold">{i18n.t('profile.groups.title')} ...</h5>
                     )}
                     {!isLoadingUserData && (
-                        <h5 className="bold">Grupos de {userData.username}</h5>
+                        <h5 className="bold">{i18n.t('profile.groups.title')} {userData.username}</h5>
                     )}
                     {isLoadingCount && (
                         <h6>
-                            <text>0</text> de ...
+                            <text>0</text> {i18n.t('profile.groups.of')} ...
                         </h6>
                     )}
                     {!isLoadingCount && (
                         <h6>
-                            <text>0</text> de{" "}
-                            {countGroups.length > 1
-                                ? `${countGroups} grupos`
-                                : `${countGroups} grupo`}
+                            <text>0</text> {i18n.t('profile.groups.of')} {`${countGroups} ${i18n.t('profile.groups.groupText')}`}
                         </h6>
                     )}
                 </label>

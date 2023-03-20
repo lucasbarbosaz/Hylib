@@ -2,6 +2,7 @@
 import React from "react";
 import Header from '../../../../components/Header';
 import StoreContext from "../../../../store/Context";
+import { i18n } from "../../../../translate/i18n";
 
 const SearchUser = ({ equalsToLoggedUser, onChange, onClickSearchUser }) => {
     const { config } = React.useContext(StoreContext);
@@ -18,7 +19,7 @@ const SearchUser = ({ equalsToLoggedUser, onChange, onClickSearchUser }) => {
                         <div className='flex' style={{ alignItems: 'center' }}>
                             <input
                                 type='text'
-                                placeholder='Pesquisar perfil de usuário'
+                                placeholder={i18n.t('profile.searchInput.placeholder')}
                                 onChange={onChange}
                                 className='profile-page-search-input'
                             ></input>
@@ -26,7 +27,7 @@ const SearchUser = ({ equalsToLoggedUser, onChange, onClickSearchUser }) => {
                                 className={`${config.cmsStyles.buttonsClass} margin-left-min profile-page-search-btn`}
                                 onClick={onClickSearchUser}
                             >
-                                <label class='margin-auto white'>Procurar</label>
+                                <label class='margin-auto white'>{i18n.t('profile.buttons.searchUser')}</label>
                             </button>
                         </div>
                     </div>

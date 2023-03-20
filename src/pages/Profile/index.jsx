@@ -15,6 +15,9 @@ import MessagesReceived from './components/MessagesReceived';
 import Rooms from './components/Rooms';
 import SearchUser from './components/SearchUser';
 
+import { i18n } from "../../translate/i18n";
+
+
 const Profile = () => {
     const { config, user } = useContext(StoreContext);
     const history = useHistory();
@@ -228,7 +231,7 @@ const Profile = () => {
 
     return (
         <>
-            {showMsgError && <Alert message='Usuário não existe.' />}
+            {showMsgError && <Alert message={i18n.t('profile.userNotFound')} />}
             <Head />
             <SearchUser
                 equalsToLoggedUser={equalsToLoggedUser()}

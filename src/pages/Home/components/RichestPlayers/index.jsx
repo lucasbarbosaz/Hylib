@@ -5,6 +5,9 @@ const RichestPlayers = ({
     richestUsersLoading,
     richestUsers,
     loadingRichestUsers,
+    creditsText,
+    diamondsText,
+    ducketsText,
     config,
 }) => {
     return (
@@ -27,7 +30,7 @@ const RichestPlayers = ({
                             </Link>
                             <div className="flex">
                                 <icon name="credits"></icon>
-                                <h6 className="margin-left-minm margin-auto-top-bottom">{richestUsers[0].amount} créditos</h6>
+                                <h6 className="margin-left-minm margin-auto-top-bottom">{richestUsers[0].amount} {creditsText}</h6>
                             </div>
                         </label>
                     </div>
@@ -42,7 +45,7 @@ const RichestPlayers = ({
                             </Link>
                             <div className="flex">
                                 <icon name="diamonds"></icon>
-                                <h6 className="margin-left-minm margin-auto-top-bottom">{richestUsers[1].amount} diamantes</h6>
+                                <h6 className="margin-left-minm margin-auto-top-bottom">{richestUsers[1].amount} {diamondsText}</h6>
                             </div>
                         </label>
                     </div>
@@ -58,7 +61,7 @@ const RichestPlayers = ({
                             </Link>
                             <div className="flex">
                                 <icon name="duckets"></icon>
-                                <h6 className="margin-left-minm margin-auto-top-bottom">{richestUsers[2].amount} duckets</h6>
+                                <h6 className="margin-left-minm margin-auto-top-bottom">{richestUsers[2].amount} {ducketsText}</h6>
                             </div>
                         </label>
                     </div>

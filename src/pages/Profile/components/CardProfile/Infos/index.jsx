@@ -1,3 +1,4 @@
+import { i18n } from "../../../../../translate/i18n";
 import Relationships from './Relationships';
 
 const Infos = ({ isLoadingUserData, userData, config }) => {
@@ -25,7 +26,7 @@ const Infos = ({ isLoadingUserData, userData, config }) => {
                     <icon name='clock-mini' className='margin-right-minm'></icon>
                     {!isLoadingUserData ? (
                         <label className='gray-clear'>
-                            <h5>{userData.online ? 'Conectado' : 'Desconectado'}</h5>
+                            <h5>{userData.online ? i18n.t('profile.infos.online') : i18n.t('profile.infos.offline') }</h5>
                         </label>
                     ) : (
                         <label className='gray-clear'>
