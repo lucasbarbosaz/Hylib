@@ -1,11 +1,11 @@
 import { useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
+import ghostAvatar from '../../../assets/img/ghost.png';
 import Alert from "../../../components/Alert";
 import AuthService from "../../../services/AuthService";
 import Requests from "../../../services/Requests";
 import StoreContext from "../../../store/Context";
 import { i18n } from "../../../translate/i18n";
-import ghostAvatar from '../../../assets/img/ghost.png';
 
 const CardLogin = ({setLoggingIn, isLoggingIn, timeout, setCurrentTab, setAlert}) => {
     const [figure, setFigure] = useState('');
@@ -42,9 +42,14 @@ const CardLogin = ({setLoggingIn, isLoggingIn, timeout, setCurrentTab, setAlert}
                 .then((response) => {
                     let statusCode = response.data.status_code;
                     let message = response.data.message;
+
                     if (statusCode === 200) {
                         clearForms();
                         authenticate(response.data.token, response.data.user);
+                    } else if (statusCode === 204) {
+                        clearForms();
+                        setCurrentTab('login-pin') //pin security staff
+                        return;
                     } else {
                         sendAlert('error', message);
                     }
@@ -162,7 +167,7 @@ const CardLogin = ({setLoggingIn, isLoggingIn, timeout, setCurrentTab, setAlert}
                 }}
                 style={{margin: '15px 0 5px'}}
             >
-                Esqueci minha senha
+                {i18n.t('index.login.forgetPassword')}
             </a>
         </form>
     );

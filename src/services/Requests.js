@@ -9,9 +9,16 @@ const Requests = {
         submitLogin: (identification, password) => {
             return axios.post(`/login-user`, { identification, password });
         },
+        submitPin: (loginPin) => {
+            return axios.post(`/user_login_pin`, { access_code: loginPin })
+        },
         getNewsIndex: () => {
             return axios.get(`/news-index`);
         },
+
+        recoveryPassword: (email) => {
+            return axios.post(`/recovery_account`, { email });
+        }
     },
 
     register: {

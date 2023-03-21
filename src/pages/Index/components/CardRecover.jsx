@@ -1,16 +1,49 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
+import { Link } from 'react-router-dom';
+import Alert from "../../../components/Alert";
+import Requests from "../../../services/Requests";
 import StoreContext from '../../../store/Context';
 import { i18n } from '../../../translate/i18n';
 
-const CardRecover = ({ isLoggingIn, setCurrentTab }) => {
+const CardRecover = ({ isLoggingIn, setCurrentTab, setAlert }) => {
     const { config } = useContext(StoreContext);
 
+    const [isLoading, setLoading] = useState(false);
+    const [email, setEmail] = useState(null);
+
+    const sendAlert = (severity, message) => {
+        setAlert(severity === null || message === null ? null : <Alert message={message} />);
+    };
+
     const submitRecover = (e) => {
-        //implements here
+        if (e !== undefined) e.preventDefault()
+
+        setLoading(true);
+
+        setTimeout(() => {
+            Requests
+                .index
+                .recoveryPassword(email)
+                .then(response => {
+                    let statusCode = response.data.status_code;
+                    let message = response.data.message;
+
+                    if (statusCode === 200) {
+                        sendAlert('success', message);
+                    } else {
+                        sendAlert('error', message);
+                    }
+                })
+                .catch(error => console.log(error))
+                .finally(() => {
+                    setLoading(false);
+                })
+        }, [config.dev.timeout]);
     };
 
     const changeTab = (e) => {
         e.preventDefault();
+        setAlert(null);
         setCurrentTab('login');
     };
 
@@ -32,12 +65,13 @@ const CardRecover = ({ isLoggingIn, setCurrentTab }) => {
                 </label>
             </div>
             <div className='width-content flex inputs-login margin-bottom-min'>
-                <icon name='lock-big'></icon>
+                <icon name='frank-head'></icon>
                 <input
                     type='text'
-                    name='identification'
+                    name='email'
                     placeholder={i18n.t('index.recover.placeholders.recoverInput')}
                     className='border-none'
+                    onChange={(e) => setEmail(e.target.value)}
                 />
             </div>
             <div className='width-content flex inputs-login flex'>
@@ -48,9 +82,9 @@ const CardRecover = ({ isLoggingIn, setCurrentTab }) => {
                         width: '100%',
                     }}
                 >
-                    <a href='/' onClick={changeTab}>
+                    <Link to='/' onClick={changeTab}>
                         {i18n.t('index.recover.buttonBack')}
-                    </a>
+                    </Link>
                 </div>
                 <button
                     type='submit'

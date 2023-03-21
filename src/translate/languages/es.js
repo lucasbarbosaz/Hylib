@@ -12,6 +12,31 @@ const messages = {
                         passwordInput: "Tu contraseña..."
                     }
                 },
+                
+                pin: {
+                    title: 'Introduce tu PIN',
+                    smallText: 'Revisa tu correo electrónico y copia tu código de acceso.',
+
+                    forgetPassword: 'Olvide mi contraseña',
+
+                    placeholders: {
+                        pinInput: 'Introduce tu PIN...'
+                    },
+
+                    pinButton: 'Verificar'
+                },
+
+                recover: {
+                    title: 'Recuperar cuenta',
+                    smallText: 'Recupere su cuenta aquí informando el correo electrónico que la registró.',
+
+                    placeholders: {
+                        recoverInput: 'Escriba su correo electrónico'
+                    },
+                    recoverButton: 'Recuperar',
+                    buttonBack: 'Volver'
+                },
+
                 registerAnnouncement: {
                     title: "¡BIENVENIDO!",
                     subtitle: "es un increíble mundo de píxeles donde puedes diseñar y construir habitaciones de la manera que quieras y divertirte con tus amigos a través de juegos comunitarios.",

@@ -7,10 +7,34 @@ const messages = {
                     title: "Área de login",
                     smallText: "Faça login para jogar conosco!",
 
+                    forgetPassword: 'Esqueci minha senha',
+
                     placeholders: {
                         loginInput: "Nome de usuário...",
                         passwordInput: "Sua senha..."
                     }
+                },
+
+                pin: {
+                    title: 'Insira seu PIN',
+                    smallText: 'Verifique seu e-mail e copie seu código de acesso.',
+
+                    placeholders: {
+                        pinInput: 'Digite seu PIN...'
+                    },
+
+                    pinButton: 'Verificar'
+                },
+
+                recover: {
+                    title: 'Recuperar conta',
+                    smallText: 'Recupere aqui sua conta informando o e-mail que a registrou.',
+
+                    placeholders: {
+                        recoverInput: 'Digite seu e-mail'
+                    },
+                    recoverButton: 'Recuperar',
+                    buttonBack: 'Voltar'
                 },
                 registerAnnouncement: {
                     title: "BEM-VINDO, OU VINDA!",

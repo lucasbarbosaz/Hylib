@@ -7,11 +7,36 @@ const messages = {
                     title: "Login Area",
                     smallText: "Login to play with us!",
 
+                    forgetPassword: 'I forgot my password',
+
                     placeholders: {
                         loginInput: "Username...",
                         passwordInput: "You password..."
                     }
                 },
+
+                pin: {
+                    title: 'Enter your PIN',
+                    smallText: 'Check your email and copy your access code.',
+
+                    placeholders: {
+                        pinInput: 'Enter your PIN...'
+                    },
+
+                    pinButton: 'Verify'
+                },
+
+                recover: {
+                    title: 'Recover account',
+                    smallText: 'Recover your account here by informing the email that registered it.',
+
+                    placeholders: {
+                        recoverInput: 'Write your email'
+                    },
+                    recoverButton: 'Recover',
+                    buttonBack: 'Return'
+                },
+
                 registerAnnouncement: {
                     title: "WELCOME!",
                     subtitle: "it's an amazing pixel world where you can design and build rooms the way you want and have fun with your friends through community games.",

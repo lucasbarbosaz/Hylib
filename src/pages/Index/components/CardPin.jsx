@@ -1,13 +1,57 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
+import { useHistory } from "react-router-dom";
+import Alert from "../../../components/Alert";
+import AuthService from "../../../services/AuthService";
+import Requests from "../../../services/Requests";
 import StoreContext from '../../../store/Context';
 import { i18n } from '../../../translate/i18n';
 
-const CardPin = ({ isLoggingIn }) => {
-    const { config } = useContext(StoreContext);
+const CardPin = ({ isLoggingIn, setLoggingIn, setAlert }) => {
+    const { config, setToken, setUser } = useContext(StoreContext);
+    const history = useHistory();
+
+    const [loginPin, setLoginPin] = useState(null);
+
+    const authenticate = (token, user) => {
+        AuthService.setupAxiosHeaders(token);
+        setToken(token);
+        setUser(user);
+
+        history.push('/home');
+    };
+
+    const sendAlert = (severity, message) => {
+        setAlert(severity === null || message === null ? null : <Alert message={message} />);
+    };
 
     const submitPin = (e) => {
-        //implements here
+        if (e !== undefined) e.preventDefault();
+
+        setLoggingIn(true)
+
+        setTimeout(() => {
+            Requests
+                .index
+                .submitPin(loginPin)
+                .then(response => {
+                    let statusCode = response.data.status_code;
+                    let message = response.data.message;
+
+                    if (statusCode === 200) {
+                        authenticate(response.data.token, response.data.user)
+                    } else {
+                        sendAlert('error', message);
+                    }
+                })
+                .catch(error => {
+                    console.log(error);
+                })
+                .finally(() => {
+                    setLoggingIn(false);
+                })
+        }, 500);
     };
+
 
     return (
         <form
@@ -27,12 +71,13 @@ const CardPin = ({ isLoggingIn }) => {
                 </label>
             </div>
             <div className='width-content flex inputs-login margin-bottom-min'>
-                <icon name='lock-big'></icon>
+                <icon name='frank-head'></icon>
                 <input
                     type='text'
                     name='identification'
                     placeholder={i18n.t('index.pin.placeholders.pinInput')}
                     className='border-none'
+                    onChange={(e) => setLoginPin(e.target.value)}
                 />
             </div>
             <div className='width-content flex inputs-loginPin'>

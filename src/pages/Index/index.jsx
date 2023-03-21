@@ -12,6 +12,7 @@ import { loop, scrollToTop } from '../../utils/utils';
 
 import { i18n } from '../../translate/i18n';
 import CardLogin from './components/CardLogin';
+import CardPin from './components/CardPin';
 import CardRecover from './components/CardRecover';
 
 const Index = () => {
@@ -66,8 +67,16 @@ const Index = () => {
                                 isLoggingIn={isLoggingIn}
                                 config={config}
                                 setCurrentTab={setCurrentTab}
+                                setAlert={setAlert}
                             />
                         )}
+                        {currentTab === 'login-pin' && (
+                            <CardPin
+                                isLoggingIn={isLoggingIn}
+                                setLoggingIn={setLoggingIn}
+                                setAlert={setAlert}
+                            />
+                        )}                        
                         <div className='margin-top-min'>
                             <div className='general-box padding-minm width-content'>
                                 <div className='featured-user flex'>
