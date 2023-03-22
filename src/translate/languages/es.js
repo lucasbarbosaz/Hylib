@@ -1,6 +1,25 @@
 const messages = {
     es: {
         translations: {
+            header: {
+                dropdown: {
+                    me: {
+                        home: 'Mi Página',
+                        profile: 'Mi perfil',
+                        settings: 'Configuración',
+                        logout: 'Salir'
+                    },
+                    news: 'Noticias',
+                    community: {
+                        title: 'Comunidad',
+                        halloffame: 'Salón de la Fama',
+                        staff: 'Equipo'
+                    },
+                    shop: 'Tienda',
+                    housekeeping: 'Panel de control'
+                }
+            },
+
             index: {
                 header: "Hola, qué bueno verte por aquí, actualmente tenemos muchos usuarios en línea, ¿qué tal si te unes a todos y disfrutas de lo que tenemos preparado para ti?",
                 login: {
@@ -12,7 +31,7 @@ const messages = {
                         passwordInput: "Tu contraseña..."
                     }
                 },
-                
+
                 pin: {
                     title: 'Introduce tu PIN',
                     smallText: 'Revisa tu correo electrónico y copia tu código de acceso.',
@@ -182,6 +201,209 @@ const messages = {
                     of: 'de',
                     groupText: 'grupos'
                 }
+            },
+
+            settings: {
+
+                othersPreferences: {
+                    title: 'Otras preferencias',
+                    smallText: 'Vea qué más puede cambiar en su cuenta.',
+
+                    generalPreferences: 'Preferencias generales',
+                    myMail: 'Mi email',
+                    myPassword: 'Mi contraseña',
+                },
+
+                generalSettings: {
+                    title: 'Ajustes rápidos',
+                    smallText: 'Aquí hay algunas configuraciones rápidas y esenciales que puede cambiar.',
+
+                    motto: {
+                        title: 'Tu mision',
+                        smallText: 'en que estas pensando hoy',
+
+                        placeholder: 'Tu misión aquí....'
+                    },
+
+                    friendRequests: {
+                        title: 'Solicitudes de amistad',
+                        smallText: 'Deseo recibir solicitudes de amistad de todos.'
+                    },
+
+                    lastOnline: {
+                        title: 'Último inicio de sesión',
+                        smallText: '¿Permitir que otros usuarios vean la última vez que ingresaste al hotel?',
+                    },
+
+                    statusOnline: {
+                        title: 'Estado en línea',
+                        smallText: '¿Permitir que otros usuarios vean cuando estás en línea?',
+                    },
+
+                    copyFigure: {
+                        title: 'Copiar atuendo',
+                        smallText: '¿Permitir que otros usuarios puedan copiar tu atuendo? (comando: :copy)'
+                    },
+
+                    followMe: {
+                        title: 'Seguirme',
+                        smallText: '¿Permitir que otros usuarios puedan seguirte? (comando: :follow)'
+                    },
+
+                    trade: {
+                        title: 'Negociaciones',
+                        smallText: '¿Permitir que otros usuarios puedan negociar contigo?'
+                    },
+
+                    whisper: {
+                        title: 'Susurros',
+                        smallText: '¿Permitir que otros usuarios puedan susurrarte?'
+                    },
+
+                    allowSex: {
+                        title: 'Sexo',
+                        smallText: '¿Permitir que otros usuarios usen el comando :sexo contigo?'
+                    },
+
+                    mentions: {
+                        title: 'Menciones',
+                        smallText: '¿Quién puede mencionarte?',
+
+                        types: {
+                            friends: 'Amigos',
+                            everyone: 'Todos',
+                            nobody: 'Nadie'
+                        }
+                    },
+
+                    button: 'Guardar cambios',
+                    success: '¡Preferencias guardadas con éxito!',
+                }
+            },
+
+            email: {
+                title: 'Cambiar correo electrónico',
+                smallText: 'Aquí puedes cambiar el correo electrónico de tu cuenta.',
+
+                infos: {
+                    title: '¡Tu correo electrónico es muy importante!',
+                    smallText: 'Al cambiar tu correo electrónico, ¡utiliza un correo electrónico real! ¿Por qué? En caso de que olvides la contraseña de tu cuenta en algún momento, seguramente necesitaremos tu correo electrónico para hacer este proceso.',
+                    smallText2: 'No te preocupes, no enviaremos correos electrónicos promocionales aburridos o cosas innecesarias a tu correo electrónico.'
+                },
+
+                emailInput: {
+                    newMail: 'Nuevo correo electrónico'
+                },
+
+                button: 'Finalizar',
+                success: '¡Correo electrónico cambiado con éxito!',
+            },
+
+            password: {
+                title: 'Cambiar contraseña',
+                smallText: 'Aquí puedes cambiar la contraseña de tu cuenta.',
+
+                infos: {
+                    title: '¡SIEMPRE ELIJA UNA CONTRASEÑA SEGURA!',
+                    smallText: '¡La seguridad nunca es suficiente! Por lo tanto, al cambiar tu contraseña, es preferible elegir una contraseña segura, que puedas recordar y que también sea diferente de la que ya usas en otros Habbo.',
+
+                    smallText2: '¡Nunca des acceso a tu cuenta a nadie! Al proporcionar tu contraseña, no nos hacemos responsables de ello; por lo tanto, es exclusivamente tu responsabilidad comprometer el acceso a tu cuenta para otras personas.',
+                    smallText3: 'Y nunca, bajo ninguna circunstancia, un miembro de nuestro equipo solicitará tu contraseña y, si lo hace, debes informar inmediatamente a un miembro superior.'
+                },
+
+                passwordInput: {
+                    currentPassword: 'Contraseña actual',
+                    newPassword: 'Nueva contraseña',
+                    repeatPassword: 'Confirma tu nueva contraseña',
+
+                    placeholders: {
+                        currentPassword: 'Contraseña actual...',
+                        newPassword: 'Nueva contraseña...',
+                        repeatPassword: 'Confirma tu nueva contraseña...'
+                    }
+                },
+
+                button: 'Finalizar',
+                success: '¡Contraseña cambiada con éxito!'
+            },
+
+            articles: {
+                othersArticles: {
+                    title: 'Otras noticias',
+                    smallText: 'Sigue leyendo otras noticias que preparamos para ti.'
+                },
+
+                footerArticle: {
+                    author: 'Publicado por:',
+                    date: 'En'
+                },
+
+                comments: {
+                    placeholders: {
+                        writeComment: 'Escribe aquí tu comentario...'
+                    },
+
+                    commentOwner: 'Por',
+                    date: 'a las',
+
+                    button: 'Comentar',
+
+                    disabledComments: {
+                        title: 'Mejor comentar sobre la vida de otros',
+                        smallText: 'Porque los comentarios para esta noticia han sido desactivados por el autor.'
+                    }
+                }
+            },
+
+            hall: {
+
+                pages: {
+                    rich: 'Riqueza',
+                    other: 'Eventos y Promociones'
+                },
+
+                rich: {
+                    currencys: {
+                        credits: {
+                            title: 'Créditos',
+    
+                            txt1: 'por tener',
+                            txt2: 'créditos'
+                        },
+                        diamonds: {
+                            title: 'Diamantes',
+    
+                            txt1: 'por tener',
+                            txt2: 'diamantes'
+                        },
+                        duckets: {
+                            title: 'Duckets',
+                            txt1: 'por tener',
+                            txt2: 'duckets'
+                        }
+                    },
+                },
+
+                events_and_promotions: {
+                    events: {
+                        title: 'Eventos',
+    
+                        txt1: 'por ganar',
+                        txt2: 'eventos'
+                    },
+    
+                    promotions: {
+                        title: 'Promociones',
+    
+                        txt1: 'por ganar',
+                        txt2: 'promociones'
+                    }
+                },
+
+                aboutHall: 'El Salón de la Fama de puntos y promociones fue creado con el objetivo de promover a los mejores jugadores de eventos o los más comprometidos en ganar promociones, donde tienes la oportunidad de estar entre los 5 usuarios que obtienen más puntos en eventos o que participaron y ganaron promociones!',
+                aboutHall2: 'Al final de cada mes, este Salón de la Fama es reseteado, dando una nueva oportunidad para que otras personas puedan aparecer aquí, además de que después de resetearse, los usuarios que quedaron en el podio (los primeros 5 lugares) ganarán premios como rubíes, gemas, emblemas o incluso raros. ¡No pierdas esta oportunidad y participa en los eventos y gana promociones para recibir premios y hacerte famoso!',
+
+                button: 'Saber más'
             }
         }
     }

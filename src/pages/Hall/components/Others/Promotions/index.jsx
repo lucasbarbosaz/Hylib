@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { i18n } from "../../../../../translate/i18n";
 
 const Promotions = ({
     promo,
@@ -20,7 +21,7 @@ const Promotions = ({
                                 <div className="flex margin-auto-top-bottom width-content">
                                     <label className="gray flex-column margin-auto-top-bottom">
                                         <h5 className="bold"><Link className="no-link" to={`/profile/${player.username}`}>{player.username}</Link></h5>
-                                        <h6>por ganhar <b>{player.amount}</b> promoções</h6>
+                                        <h6>{i18n.t('hall.events_and_promotions.promotions.txt1')} <b>{player.amount}</b> {i18n.t('hall.events_and_promotions.promotions.txt2')}</h6>
                                     </label>
                                 </div>
                                 <div className="trophy flex">

@@ -1,6 +1,25 @@
 const messages = {
     en: {
         translations: {
+            header: {
+                dropdown: {
+                    me: {
+                        home: 'My Page',
+                        profile: 'My Profile',
+                        settings: 'Settings',
+                        logout: 'Logout'
+                    },
+                    news: 'Journalism',
+                    community: {
+                        title: 'Community',
+                        halloffame: 'Hall of Fame',
+                        staff: 'Staff'
+                    },
+                    shop: 'Shop',
+                    housekeeping: 'Control Panel'
+                }
+            },
+            
             index: {
                 header: "Hello, great to see you here, we currently have a lot of users online, how about joining them all and enjoying what we have prepared for you?",
                 login: {
@@ -182,6 +201,207 @@ const messages = {
                     of: 'of',
                     groupText: 'groups'
                 }
+            },
+
+            settings: {
+                othersPreferences: {
+                    title: 'Other preferences',
+                    smallText: 'See what else you can change in your account.',
+
+                    generalPreferences: 'General preferences',
+                    myMail: 'My email',
+                    myPassword: 'My password',
+                },
+
+                generalSettings: {
+                    title: 'Quick settings',
+                    smallText: 'Here are some quick and essential settings you can change.',
+
+                    motto: {
+                        title: 'Your motto',
+                        smallText: 'What are you thinking today?',
+
+                        placeholder: 'Your motto here...'
+                    },
+
+                    friendRequests: {
+                        title: 'Friend requests',
+                        smallText: 'I want to receive friend requests from everyone.'
+                    },
+
+                    lastOnline: {
+                        title: 'Last online',
+                        smallText: 'Allow other users to see the last time you logged into the hotel?',
+                    },
+
+                    statusOnline: {
+                        title: 'Online status',
+                        smallText: 'Allow other users to see when you are online?',
+                    },
+
+                    copyFigure: {
+                        title: 'Copy figure',
+                        smallText: 'Allow other users to copy your look? (command :copy)'
+                    },
+
+                    followMe: {
+                        title: 'Follow me',
+                        smallText: 'Allow other users to follow you? (command :follow)'
+                    },
+
+                    trade: {
+                        title: 'Trades',
+                        smallText: 'Allow other users to trade with you?'
+                    },
+
+                    whisper: {
+                        title: 'Whispers',
+                        smallText: 'Allow other users to whisper with you?'
+                    },
+
+                    allowSex: {
+                        title: 'Sex',
+                        smallText: 'Allow other users to use the :sex command with you?'
+                    },
+
+                    mentions: {
+                        title: 'Mentions',
+                        smallText: 'Who can use to mention you?',
+
+                        types: {
+                            friends: 'Friends',
+                            everyone: 'Everyone',
+                            nobody: 'Nobody'
+                        }
+                    },
+
+                    button: 'Save changes',
+                    success: 'Preferences saved successfully!',
+                },
+
+                email: {
+                    title: 'Change email',
+                    smallText: 'Here you can change the email of your account.',
+
+                    infos: {
+                        title: 'Your email is very important!',
+                        smallText: 'When changing your email, use a real email! Why? In case you forget your account password, we will surely need your email to reset it.',
+                        smallText2: 'Dont worry, we dont send those annoying promotional emails or unnecessary things to your email.'
+                    },
+
+                    emailInput: {
+                        newMail: 'New email'
+                    },
+
+                    button: 'Finish',
+                    success: 'Email successfully changed!',
+                },
+
+                password: {
+                    title: 'Change password',
+                    smallText: 'Here you can change your account password.',
+
+                    infos: {
+                        title: 'ALWAYS CHOOSE A SECURE PASSWORD!',
+                        smallText: 'Security is never too much! Therefore, when changing your password, preferably choose a secure password that you remember and that is different from the one you already use on other Habbo sites.',
+
+                        smallText2: 'Never give anyone access to your account! By providing your password, we are not responsible for it, so it is your sole responsibility to compromise access to your account for others.',
+                        smallText3: 'And never, under any circumstances, will a member of our staff request your password, and if they do, you must report it immediately to a higher-up.'
+                    },
+
+                    passwordInput: {
+                        currentPassword: 'Current password',
+                        newPassword: 'New password',
+                        repeatPassword: 'Confirm your new password',
+
+                        placeholders: {
+                            currentPassword: 'Current password...',
+                            newPassword: 'New password...',
+                            repeatPassword: 'Confirm your new password...'
+                        }
+                    },
+                    button: 'Finish',
+                    success: 'Password changed successfully!'
+                },
+            },
+
+            articles: {
+                othersArticles: {
+                    title: 'Other news',
+                    smallText: 'Continue reading other news we have prepared for you.'
+                },
+
+                footerArticle: {
+                    author: 'Published by:',
+                    date: 'On'
+                },
+
+                comments: {
+                    placeholders: {
+                        writeComment: 'Type your comment here...'
+                    },
+
+                    commentOwner: 'By',
+                    date: 'at',
+
+                    button: 'Comment',
+
+                    disabledComments: {
+                        title: 'Better to comment on other peoples lives',
+                        smallText: 'Because comments for this news have been disabled by the author.'
+                    }
+                }
+            },
+
+            hall: {
+
+                pages: {
+                    rich: 'Wealth',
+                    other: 'Events and Promotions'
+                },
+
+                rich: {
+                    currencys: {
+                        credits: {
+                            title: 'Credits',
+
+                            txt1: 'for having',
+                            txt2: 'credits'
+                        },
+                        diamonds: {
+                            title: 'Diamonds',
+
+                            txt1: 'for having',
+                            txt2: 'diamonds'
+                        },
+                        duckets: {
+                            title: 'Duckets',
+                            txt1: 'for having',
+                            txt2: 'duckets'
+                        }
+                    },
+                },
+
+                events_and_promotions: {
+                    events: {
+                        title: 'Events',
+
+                        txt1: 'for winning',
+                        txt2: 'events'
+                    },
+
+                    promotions: {
+                        title: 'Promotions',
+
+                        txt1: 'for winning',
+                        txt2: 'promotions'
+                    }
+                },
+
+                aboutHall: 'The Hall of Fame for points and promotions was created with the intention of promoting the best event players or those most committed to winning promotions where you have the chance to be among the 5 users who score the most points in events or who participated and won promotions!',
+                aboutHall2: 'At the end of every month, this hall of fame is reset, thus giving a new chance for other people to appear here, not to mention that after being reset, the users who stayed on the podium (5 places) won prizes, such as rubies, gems, badges or even rares. Do not miss this chance and participate in events and win promotions to receive prizes and become famous!',
+
+                button: 'Learn more'
             }
         }
     }

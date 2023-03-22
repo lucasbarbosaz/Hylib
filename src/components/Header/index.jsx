@@ -65,25 +65,25 @@ const Header = (props) => {
                                     </label>
                                     <ul className="dropdown-content">
                                         <Link to="/me" place={`Principal: ${user?.username} - ${config.hotel.name}`} className="list-content">
-                                            <h5 className="no-select">Minha página</h5>
+                                            <h5 className="no-select">{i18n.t('header.dropdown.me.home')}</h5>
                                         </Link>
 
                                         <Link to={`/profile/${user?.username}`} place={`Perfil: ${user?.username} - ${config.hotel.name}`} className="list-content">
-                                            <h5 className="no-select">Meu perfil</h5>
+                                            <h5 className="no-select">{i18n.t('header.dropdown.me.profile')}</h5>
                                         </Link>
 
                                         <Link to="/settings/account" place={`Perfil: ${user?.username} - ${config.hotel.name}`} className="list-content">
-                                            <h5 className="no-select">Configurações</h5>
+                                            <h5 className="no-select">{i18n.t('header.dropdown.me.settings')}</h5>
                                         </Link>
 
                                         <Link to="/logout" onClick={handleLogout} className="list-content">
-                                            <h5 className="no-select">Sair</h5>
+                                            <h5 className="no-select">{i18n.t('header.dropdown.me.logout')}</h5>
                                         </Link>
                                     </ul>
                                 </li>
                                 <li className="header-menu dropdown">
                                     <label className={`dropbtn ${visited === 'articles' ? 'visited' : ''}`}>
-                                        <h5 className="no-select">Jornalismo</h5>
+                                        <h5 className="no-select">{i18n.t('header.dropdown.news')}</h5>
                                     </label>
                                     <ul className="dropdown-content">
                                         {Array.isArray(config.newsSubmenu) && config.newsSubmenu.length > 0 &&
@@ -99,21 +99,21 @@ const Header = (props) => {
                                 </li>
                                 <li className="header-menu dropdown">
                                     <label className={`dropbtn ${visited === 'community' ? 'visited' : ''}`}>
-                                        <h5 className="no-select">Comunidade</h5>
+                                        <h5 className="no-select">{i18n.t('header.dropdown.community.title')}</h5>
                                     </label>
                                     <div className="dropdown-content">
                                         <Link to="/community/hall/coins" place={`Comunidade: Hall da Fama  - ${config.hotel.name}`} className="list-content">
-                                            <h5 className="no-select">Hall da Fama</h5>
+                                            <h5 className="no-select">{i18n.t('header.dropdown.community.halloffame')}</h5>
                                         </Link>
                                         <Link to="/community/staff" place={`Comunidade: Equipe  - ${config.hotel.name}`} className="list-content">
-                                            <h5 className="no-select">Equipe</h5>
+                                            <h5 className="no-select">{i18n.t('header.dropdown.community.staff')}</h5>
                                         </Link>
                                     </div>
                                 </li>
                                 <li className="header-menu">
                                     <label className={`dropbtn ${visited === 'shop' ? 'visited' : ''}`}>
                                         <Link to="/shop/vip">
-                                            <h5 className="no-select">Loja</h5>
+                                            <h5 className="no-select">{i18n.t('header.dropdown.shop')}</h5>
                                         </Link>
                                     </label>
 
@@ -130,7 +130,7 @@ const Header = (props) => {
                                     <>
                                         <li className="header-menu">
                                             <a href="/adminpan/login">
-                                                <h5 className="no-select">Painel de controle</h5>
+                                                <h5 className="no-select">{i18n.t('header.dropdown.housekeeping')}</h5>
                                             </a>
                                         </li>
                                     </>

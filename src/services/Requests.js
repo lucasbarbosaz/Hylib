@@ -111,27 +111,6 @@ const Requests = {
         }
     },
 
-    articles: {
-        getNewsIndex: () => {
-            return axios.get(`/article-index`);
-        },
-        getNews: (validId, id) => {
-            return axios.get(`/${validId ? 'news' : 'news_lastest'}`, { params: validId ? { id } : {} });
-        },
-        getLikes: (validId, id) => {
-            return axios.get(`/get-like-news`, { params: validId ? { id } : {} })
-        },
-        getComments: (validId, id) => {
-            return axios.get(`/get-comments-from-news`, { params: validId ? { id } : {} })
-        },
-        sendLike: (id) => {
-            return axios.post(`/send-like`, { id });
-        },
-        sendComment: (id, value) => {
-            return axios.post(`/send-comment`, { id, value });
-        }
-    },
-
     hall: {
         getCredits: () => {
             return axios.get(`/hall/credits`);

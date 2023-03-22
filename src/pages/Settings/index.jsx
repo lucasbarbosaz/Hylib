@@ -7,7 +7,9 @@ import Header from '../../components/Header';
 import Switch from '../../components/Switch';
 import Requests from '../../services/Requests';
 import StoreContext from '../../store/Context';
+import { i18n } from "../../translate/i18n";
 import { scrollToTop } from '../../utils/utils';
+
 
 const Settings = (props) => {
     const { config, user, setUser } = React.useContext(StoreContext);
@@ -81,7 +83,7 @@ const Settings = (props) => {
                         let message = response.data.message;
 
                         if (statusCode === 200) {
-                            sendAlert('success', 'Preferências salvas com sucesso!');
+                            sendAlert('success', i18n.t('settings.generalSettings.success'));
                             setOriginalUserSettings(userSettings);
                             setUser({
                                 ...user,
@@ -113,7 +115,7 @@ const Settings = (props) => {
                         let message = response.data.message;
 
                         if (statusCode === 200) {
-                            sendAlert('success', 'E-mail alterado com sucesso!');
+                            sendAlert('success', i18n.t('settings.email.success'));
                         } else if (statusCode === 204) {
                             sendAlert(null);
                         } else if (message) {
@@ -138,7 +140,7 @@ const Settings = (props) => {
                         let message = response.data.message;
 
                         if (statusCode === 200) {
-                            sendAlert('success', 'Senha alterada com sucesso!');
+                            sendAlert('success', i18n.t('settings.password.success'));
                             setOldPassword(null);
                             setNewPassword(null);
                             setNewPasswordRepeated(null);
@@ -172,7 +174,7 @@ const Settings = (props) => {
                 .catch((error) => {
                     console.log(error);
                 })
-                .finally(() => {});
+                .finally(() => { });
         }, [config.dev.timeout]);
     }, []);
 
@@ -189,9 +191,9 @@ const Settings = (props) => {
                                     <icon name='plus-magic' className='mr-auto'></icon>
                                 </div>
                                 <label className='flex-column color-4 mr-auto-top-bottom text-nowrap'>
-                                    <h4 className='bold text-nowrap'>Outras preferências</h4>
+                                    <h4 className='bold text-nowrap'>{i18n.t('settings.othersPreferences.title')}</h4>
                                     <h6 className='text-nowrap'>
-                                        Veja o que mais você pode alterar em sua conta.
+                                        {i18n.t('settings.othersPreferences.smallText')}
                                     </h6>
                                 </label>
                             </div>
@@ -199,7 +201,7 @@ const Settings = (props) => {
                                 {page === 'account' ? (
                                     <a className='general-box-menu-link no-link color-5 flex visited'>
                                         <label className='pointer-none mr-auto-top-bottom'>
-                                            <h5 className='bold'>Preferências geral</h5>
+                                            <h5 className='bold'>{i18n.t('settings.othersPreferences.generalPreferences')}</h5>
                                         </label>
                                     </a>
                                 ) : (
@@ -209,14 +211,14 @@ const Settings = (props) => {
                                         onClick={() => changePage('account')}
                                     >
                                         <label className='pointer-none mr-auto-top-bottom'>
-                                            Preferências geral
+                                            {i18n.t('settings.othersPreferences.generalPreferences')}
                                         </label>
                                     </Link>
                                 )}
                                 {page === 'email' ? (
                                     <a className='general-box-menu-link no-link color-5 flex visited'>
                                         <label className='pointer-none mr-auto-top-bottom'>
-                                            <h5 className='bold'>Meu email</h5>
+                                            <h5 className='bold'>{i18n.t('settings.othersPreferences.myMail')}</h5>
                                         </label>
                                     </a>
                                 ) : (
@@ -226,14 +228,14 @@ const Settings = (props) => {
                                         onClick={() => changePage('email')}
                                     >
                                         <label className='pointer-none mr-auto-top-bottom'>
-                                            Meu email
+                                            {i18n.t('settings.othersPreferences.myMail')}
                                         </label>
                                     </Link>
                                 )}
                                 {page === 'password' ? (
                                     <a className='general-box-menu-link no-link color-5 flex visited'>
                                         <label className='pointer-none mr-auto-top-bottom'>
-                                            <h5 className='bold'>Minha senha</h5>
+                                            <h5 className='bold'>{i18n.t('settings.othersPreferences.myPassword')}</h5>
                                         </label>
                                     </a>
                                 ) : (
@@ -243,7 +245,7 @@ const Settings = (props) => {
                                         onClick={() => changePage('password')}
                                     >
                                         <label className='pointer-none mr-auto-top-bottom'>
-                                            <h5>Minha senha</h5>
+                                            <h5>{i18n.t('settings.othersPreferences.myPassword')}</h5>
                                         </label>
                                     </Link>
                                 )}
@@ -258,10 +260,9 @@ const Settings = (props) => {
                                         <icon name='gear' className='mr-auto'></icon>
                                     </div>
                                     <label className='flex-column color-4 mr-auto-top-bottom text-nowrap'>
-                                        <h4 className='bold text-nowrap'>Configurações rápidas</h4>
+                                        <h4 className='bold text-nowrap'>{i18n.t('settings.generalSettings.title')}</h4>
                                         <h6 className=' text-nowrap'>
-                                            Aqui estão algumas configurações rápidas e essênciais
-                                            que você pode alterar.
+                                            {i18n.t('settings.generalSettings.smallText')}
                                         </h6>
                                     </label>
                                 </div>
@@ -271,8 +272,8 @@ const Settings = (props) => {
                                 >
                                     <li className='list-none flex-column padding-max gray'>
                                         <label className='margin-bottom-min'>
-                                            <h5 className='bold uppercase'>Sua missão</h5>
-                                            <h5>No que você está pensando hoje {user.username}?</h5>
+                                            <h5 className='bold uppercase'>{i18n.t('settings.generalSettings.motto.title')}</h5>
+                                            <h5>{i18n.t('settings.generalSettings.motto.smallText')} {user.username}?</h5>
                                         </label>
                                         <div>
                                             <icon
@@ -282,7 +283,7 @@ const Settings = (props) => {
                                             <input
                                                 type='text'
                                                 name='motto'
-                                                placeholder='Sua missão aqui...'
+                                                placeholder={i18n.t('settings.generalSettings.motto.placeholder')}
                                                 style={{
                                                     paddingLeft: '30px',
                                                 }}
@@ -296,8 +297,8 @@ const Settings = (props) => {
                                     <hr />
                                     <li className='list-none flex padding-max gray'>
                                         <label style={{}}>
-                                            <h5 className='bold'>Pedidos de amizade</h5>
-                                            <h5>Eu desejo receber pedidos de amizade de todos.</h5>
+                                            <h5 className='bold'>{i18n.t('settings.generalSettings.friendRequests.title')}</h5>
+                                            <h5>{i18n.t('settings.generalSettings.friendRequests.smallText')}</h5>
                                         </label>
                                         <div
                                             className='margin-auto-left margin-auto-top-bottom'
@@ -318,10 +319,9 @@ const Settings = (props) => {
                                     </li>
                                     <li className='list-none flex padding-max gray'>
                                         <label style={{}}>
-                                            <h5 className='bold'>Último online</h5>
+                                            <h5 className='bold'>{i18n.t('settings.generalSettings.lastOnline.title')}</h5>
                                             <h5>
-                                                Permitir que outros usuários vejam a última vez que
-                                                você entrou no hotel?
+                                                {i18n.t('settings.generalSettings.lastOnline.smallText')}
                                             </h5>
                                         </label>
                                         <div
@@ -345,10 +345,9 @@ const Settings = (props) => {
                                     </li>
                                     <li className='list-none flex padding-max gray'>
                                         <label style={{}}>
-                                            <h5 className='bold'>Estado online</h5>
+                                            <h5 className='bold'>{i18n.t('settings.generalSettings.statusOnline.title')}</h5>
                                             <h5>
-                                                Permitir que outros usuários vejam quando você
-                                                estiver online?
+                                                {i18n.t('settings.generalSettings.statusOnline.smallText')}
                                             </h5>
                                         </label>
                                         <div
@@ -367,10 +366,9 @@ const Settings = (props) => {
                                     </li>
                                     <li className='list-none flex padding-max gray'>
                                         <label style={{}}>
-                                            <h5 className='bold'>Copiar visual</h5>
+                                            <h5 className='bold'>{i18n.t('settings.generalSettings.copyFigure.title')}</h5>
                                             <h5>
-                                                Permitir que outros usuários possam copiar o seu
-                                                visual? (comando <i>:copy</i>)
+                                                {i18n.t('settings.generalSettings.copyFigure.smallText')}
                                             </h5>
                                         </label>
                                         <div
@@ -389,10 +387,9 @@ const Settings = (props) => {
                                     </li>
                                     <li className='list-none flex padding-max gray'>
                                         <label style={{}}>
-                                            <h5 className='bold'>Te segui</h5>
+                                            <h5 className='bold'>{i18n.t('settings.generalSettings.followMe.title')}</h5>
                                             <h5>
-                                                Permitir que outros usuários possam te seguir?
-                                                (comando <i>:follow</i>)
+                                                {i18n.t('settings.generalSettings.followMe.smallText')}
                                             </h5>
                                         </label>
                                         <div
@@ -411,10 +408,9 @@ const Settings = (props) => {
                                     </li>
                                     <li className='list-none flex padding-max gray'>
                                         <label style={{}}>
-                                            <h5 className='bold'>Negociações</h5>
+                                            <h5 className='bold'>{i18n.t('settings.generalSettings.trade.title')}</h5>
                                             <h5>
-                                                Permitir que outros usuários possam negociar com
-                                                você?
+                                                {i18n.t('settings.generalSettings.trade.smallText')}
                                             </h5>
                                         </label>
                                         <div
@@ -433,9 +429,9 @@ const Settings = (props) => {
                                     </li>
                                     <li className='list-none flex padding-max gray'>
                                         <label style={{}}>
-                                            <h5 className='bold'>Sussurros</h5>
+                                            <h5 className='bold'>{i18n.t('settings.generalSettings.whisper.title')}</h5>
                                             <h5>
-                                                Permitir que outros usuários sussurrem com você?
+                                                {i18n.t('settings.generalSettings.whisper.smallText')}
                                             </h5>
                                         </label>
                                         <div
@@ -459,10 +455,9 @@ const Settings = (props) => {
                                     </li>
                                     <li className='list-none flex padding-max gray'>
                                         <label style={{}}>
-                                            <h5 className='bold'>Sexo</h5>
+                                            <h5 className='bold'>{i18n.t('settings.generalSettings.allowSex.title')}</h5>
                                             <h5>
-                                                Permitir que outros usuários usem o comando{' '}
-                                                <i>:sexo</i> com você?
+                                                {i18n.t('settings.generalSettings.allowSex.smallText')}
                                             </h5>
                                         </label>
                                         <div
@@ -481,10 +476,9 @@ const Settings = (props) => {
                                     </li>
                                     <li className='list-none flex padding-max gray'>
                                         <label style={{}}>
-                                            <h5 className='bold'>Menções</h5>
+                                            <h5 className='bold'>{i18n.t('settings.generalSettings.mentions.title')}</h5>
                                             <h5>
-                                                Quem pode usar <i>@{user.username}</i> para
-                                                mencionar você?
+                                                {i18n.t('settings.generalSettings.mentions.smallText')} @{user.username}
                                             </h5>
                                         </label>
                                         <div
@@ -497,9 +491,9 @@ const Settings = (props) => {
                                                     updateSettings('mention_type', e.target.value)
                                                 }
                                             >
-                                                <MenuItem value={'FRIENDS'}>Amigos</MenuItem>
-                                                <MenuItem value={'ALL'}>Todos</MenuItem>
-                                                <MenuItem value={'NONE'}>Ninguém</MenuItem>
+                                                <MenuItem value={'FRIENDS'}>{i18n.t('settings.generalSettings.mentions.types.friends')}</MenuItem>
+                                                <MenuItem value={'ALL'}>{i18n.t('settings.generalSettings.mentions.types.everyone')}</MenuItem>
+                                                <MenuItem value={'NONE'}>{i18n.t('settings.generalSettings.mentions.types.nobody')}</MenuItem>
                                             </Select>
                                         </div>
                                     </li>
@@ -531,25 +525,22 @@ const Settings = (props) => {
                                     <icon name='gear' className='mr-auto'></icon>
                                 </div>
                                 <label className='flex-column color-4 mr-auto-top-bottom text-nowrap'>
-                                    <h4 className='bold text-nowrap'>Alterar email</h4>
+                                    <h4 className='bold text-nowrap'>{i18n.t('settings.email.title')}</h4>
                                     <h6 className=' text-nowrap'>
-                                        Aqui você pode trocar o email da sua conta.
+                                        {i18n.t('settings.email.smallText')}
                                     </h6>
                                 </label>
                             </div>
                             <div className='general-box-content flex-column pd-3'>
                                 <label className='flex-column color-5 mr-bottom-3'>
                                     <h5 className='bold uppercase mr-bottom-2'>
-                                        Seu email é muito importante!
+                                        {i18n.t('settings.email.infos.title')}
                                     </h5>
                                     <h6 className='mr-bottom-1'>
-                                        Ao alterar seu email, use um email real! Porque? Caso algum
-                                        dia você esqueça a senha da sua conta, com certeza,
-                                        precisaremos do seu email para fazer esse processo.
+                                        {i18n.t('settings.email.infos.smallText')}
                                     </h6>
                                     <h6>
-                                        Não se preocupe, não enviamos esses e-mails promocionais
-                                        chatos ou coisas desnecessárias no seu email.
+                                        {i18n.t('settings.email.infos.smallText2')}
                                     </h6>
                                 </label>
                                 <form
@@ -558,13 +549,13 @@ const Settings = (props) => {
                                 >
                                     <div className='md-input mr-bottom-2'>
                                         <label className='flex-column color-4 mr-bottom-1'>
-                                            <h5>Novo email</h5>
+                                            <h5>{i18n.t('settings.email.emailInput.newMail')}</h5>
                                         </label>
                                         <input
                                             type='text'
                                             name='email'
                                             value={email !== null ? email : ''}
-                                            placeholder='Novo email...'
+                                            placeholder={i18n.t('settings.email.emailInput.newMail')}
                                             style={{ height: 'auto' }}
                                             onChange={(e) => setEmail(e.target.value)}
                                         />
@@ -576,7 +567,7 @@ const Settings = (props) => {
                                         style={{ width: '100%', height: '47px' }}
                                     >
                                         <label className='mr-auto color-1'>
-                                            <h5 className='uppercase'>Concluir</h5>
+                                            <h5 className='uppercase'>{i18n.t('settings.email.button')}</h5>
                                         </label>
                                     </button>
                                 </form>
@@ -591,33 +582,25 @@ const Settings = (props) => {
                                         <icon name='gear' className='mr-auto'></icon>
                                     </div>
                                     <label className='flex-column color-4 mr-auto-top-bottom text-nowrap'>
-                                        <h4 className='bold text-nowrap'>Alterar senha</h4>
+                                        <h4 className='bold text-nowrap'>{i18n.t('settings.password.title')}</h4>
                                         <h6 className=' text-nowrap'>
-                                            Aqui você pode alterar a senha da sua conta.
+                                            {i18n.t('settings.password.smallText')}
                                         </h6>
                                     </label>
                                 </div>
                                 <div className='general-box-content flex-column pd-3'>
                                     <label className='flex-column color-5 mr-bottom-3'>
                                         <h5 className='bold uppercase mr-bottom-2'>
-                                            Sempre escolha uma senha segura!
+                                            {i18n.t('settings.password.infos.title')}
                                         </h5>
                                         <h6 className='mr-bottom-1'>
-                                            Segurança nunca é demais! Portanto, ao alterar sua
-                                            senha, de preferência, <b>escolha uma senha segura</b>,
-                                            que você lembre e também que seja diferente daquela que
-                                            você já usa em outros habbos.
+                                            {i18n.t('settings.password.infos.smallText')}
                                         </h6>
                                         <h6 className='mr-bottom-1'>
-                                            <b>Nunca dê a ninguém acesso à sua conta!</b> Ao
-                                            fornecer sua senha, não somos responsáveis ​​por isso;
-                                            portanto, é de sua exclusiva responsabilidade sua
-                                            comprometer o acesso à sua conta para outras pessoas.
+                                            {i18n.t('settings.password.infos.smallText2')}
                                         </h6>
                                         <h6>
-                                            E nunca, de forma alguma, um membro de nossa equipe
-                                            solicitará sua senha e, se solicitar, você deve
-                                            denunciar imediatamente a um membro superior.
+                                            {i18n.t('settings.password.infos.smallText3')}
                                         </h6>
                                     </label>
                                     <form
@@ -626,12 +609,12 @@ const Settings = (props) => {
                                     >
                                         <div className='md-input mr-bottom-2'>
                                             <label className='flex-column color-4 mr-bottom-1'>
-                                                <h5>Senha atual</h5>
+                                                <h5>{i18n.t('settings.password.passwordInput.currentPassword')}</h5>
                                             </label>
                                             <input
                                                 type='password'
                                                 name='current-password'
-                                                placeholder='Senha atual...'
+                                                placeholder={i18n.t('settings.password.passwordInput.placeholders.currentPassword')}
                                                 style={{ height: 'auto' }}
                                                 value={oldPassword !== null ? oldPassword : ''}
                                                 onChange={(e) => setOldPassword(e.target.value)}
@@ -640,12 +623,12 @@ const Settings = (props) => {
                                         </div>
                                         <div className='md-input mr-bottom-2'>
                                             <label className='flex-column color-4 mr-bottom-1'>
-                                                <h5>Nova senha</h5>
+                                                <h5>{i18n.t('settings.password.passwordInput.newPassword')}</h5>
                                             </label>
                                             <input
                                                 type='password'
                                                 name='new-password'
-                                                placeholder='Nova senha...'
+                                                placeholder={i18n.t('settings.password.passwordInput.placeholders.newPassword')}
                                                 style={{ height: 'auto' }}
                                                 value={newPassword !== null ? newPassword : ''}
                                                 onChange={(e) => setNewPassword(e.target.value)}
@@ -654,12 +637,12 @@ const Settings = (props) => {
                                         </div>
                                         <div className='md-input mr-bottom-2'>
                                             <label className='flex-column color-4 mr-bottom-1'>
-                                                <h5>Cofirme sua nova senha</h5>
+                                                <h5>{i18n.t('settings.password.passwordInput.repeatPassword')}</h5>
                                             </label>
                                             <input
                                                 type='password'
                                                 name='confirm-new-password'
-                                                placeholder='Confirme sua nova senha...'
+                                                placeholder={i18n.t('settings.password.passwordInput.placeholders.repeatPassword')}
                                                 style={{ height: 'auto' }}
                                                 value={
                                                     newPasswordRepeated !== null
@@ -679,7 +662,7 @@ const Settings = (props) => {
                                             disabled={isUpdatingPassword}
                                         >
                                             <label className='mr-auto color-1'>
-                                                <h5 className='uppercase'>Concluir</h5>
+                                                <h5 className='uppercase'>{i18n.t('settings.password.button')}</h5>
                                             </label>
                                         </button>
                                         <div className='form-warns flex'></div>

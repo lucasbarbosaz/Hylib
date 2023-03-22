@@ -1,3 +1,4 @@
+import axios from "axios";
 import moment from 'moment';
 import { Fragment, useContext, useEffect, useState } from 'react';
 import ReactHtmlParser from 'react-html-parser';
@@ -6,7 +7,7 @@ import Bottom from '../../components/Bottom';
 import Footer from '../../components/Footer';
 import Head from '../../components/Head';
 import Header from '../../components/Header';
-import Requests from '../../services/Requests';
+import { i18n } from "../../translate/i18n";
 import { scrollToTop } from '../../utils/utils';
 
 import StoreContext from '../../store/Context';
@@ -42,31 +43,30 @@ const Articles = (props) => {
 
     const getNewsIndex = () => {
         setTimeout(() => {
-            Requests.articles
-                .getNewsIndex()
-                .then((response) => {
+            axios.get(`${config.apiUrl}/article-index`)
+                .then(response => {
                     setNewsIndex(response.data);
                 })
-                .catch((error) => {
-                    console.log(error);
+                .catch(error => {
+                    console.log(error)
                 })
-                .finally(() => {});
+                .finally(() => {
+                })
         }, config.dev.timeout);
-    };
+    }
 
     const getNews = (id) => {
         scrollToTop();
 
-        let validId = id === parseInt(id);
+        let validId = id == parseInt(id);
         if (!validId) {
             history.push('/');
         }
 
-        setLoadingCurrentNews(true);
+        setLoadingCurrentNews(true)
         setTimeout(() => {
-            Requests.articles
-                .getNews(validId, id)
-                .then((response) => {
+            axios.get(`${config.apiUrl}/${validId ? 'news' : 'news_lastest'}`, { params: validId ? { id } : {} })
+                .then(response => {
                     if (response.data.status_code === 400 || response.data.status_code === 404) {
                         setCurrentNews(null);
                         history.push('/');
@@ -74,17 +74,17 @@ const Articles = (props) => {
                         setCurrentNews(response.data);
                     }
                 })
-                .catch((error) => {
-                    console.log(error);
+                .catch(error => {
+                    console.log(error)
                 })
                 .finally(() => {
-                    setLoadingCurrentNews(false);
-                });
+                    setLoadingCurrentNews(false)
+                })
         }, config.dev.timeout);
-    };
+    }
 
     const getLikes = (id) => {
-        let validId = id === parseInt(id);
+        let validId = id == parseInt(id);
         if (!validId) {
             history.push('/');
         }
@@ -92,22 +92,22 @@ const Articles = (props) => {
         setLoadingLikes(true);
 
         setTimeout(() => {
-            Requests.articles
-                .getLikes(validId, id)
-                .then((response) => {
+            axios.get(`${config.apiUrl}/get-like-news`, { params: validId ? { id } : {} })
+                .then(response => {
                     setLikes(response.data);
                 })
-                .catch((error) => {
-                    console.log(error);
+                .catch(error => {
+                    console.log(error)
                 })
                 .finally(() => {
                     setLoadingLikes(false);
-                });
+                })
+
         }, config.dev.timeout);
-    };
+    }
 
     const getComments = (id) => {
-        let validId = id === parseInt(id);
+        let validId = id == parseInt(id);
         if (!validId) {
             history.push('/');
         }
@@ -115,69 +115,58 @@ const Articles = (props) => {
         setLoadingGetComments(true);
 
         setTimeout(() => {
-            Requests.articles
-                .getComments(validId, id)
-                .then((response) => {
+            axios.get(`${config.apiUrl}/get-comments-from-news`, { params: validId ? { id } : {} })
+                .then(response => {
                     setComments(response.data);
                 })
-                .catch((error) => {
-                    console.log(error);
+                .catch(error => {
+                    console.log(error)
                 })
                 .finally(() => {
                     setLoadingGetComments(false);
-                });
+                })
+
         }, config.dev.timeout);
-    };
+    }
 
     const sendLike = (e) => {
         if (e !== undefined) e.preventDefault();
 
         setLoadingLikes(true);
         setTimeout(() => {
-            Requests.articles
-                .sendLike(id)
-                .then((response) => {
-                    if (
-                        response.data.status_code ||
-                        response.data.status_code === 400 ||
-                        response.data.status_code === 404
-                    ) {
-                        sendAlert('error', response.data.message);
+            axios.post(`${config.apiUrl}/send-like`, { id })
+                .then(response => {
+                    if (response.data.status_code || response.data.status_code === 400 || response.data.status_code === 404) {
+                        sendAlert('error', response.data.message)
                     } else {
                         getLikes(id);
                     }
-                })
-                .finally(() => {
+                }).finally(() => {
                     setLoadingLikes(false);
-                });
-        }, 500);
-    };
+                })
+        }, 500)
+    }
 
     const sendComment = (e) => {
         if (e !== undefined) e.preventDefault();
 
         setLoadingCommentWrite(true);
         setTimeout(() => {
-            Requests.articles
-                .sendComment(id, value)
-                .then((response) => {
-                    if (
-                        response.data.status_code ||
-                        response.data.status_code === 400 ||
-                        response.data.status_code === 404
-                    ) {
-                        sendAlert('error', response.data.message);
+            axios.post(`${config.apiUrl}/send-comment`, { id, value })
+                .then(response => {
+                    if (response.data.status_code || response.data.status_code === 400 || response.data.status_code === 404) {
+                        sendAlert('error', response.data.message)
                     } else {
-                        setValue('');
+                        setValue("");
                         setAlert(null);
                         getComments(id);
                     }
-                })
-                .finally(() => {
+                }).finally(() => {
                     setLoadingCommentWrite(false);
-                });
-        }, 500);
-    };
+                })
+        }, 500)
+    }
+
 
     useEffect(() => {
         getNews(id);
@@ -202,8 +191,8 @@ const Articles = (props) => {
                                 <icon name='plus-magic' className='flex mr-auto'></icon>
                             </div>
                             <label className='color-4 flex-column'>
-                                <h4 className='bold'>Outras noticias</h4>
-                                <h6>Continue lendo outras noticias que preparamos para você.</h6>
+                                <h4 className='bold'>{i18n.t('articles.othersArticles.title')}</h4>
+                                <h6>{i18n.t('articles.othersArticles.smallText')}</h6>
                             </label>
                         </div>
                         <div className='general-box-content flex-column'>
@@ -230,11 +219,10 @@ const Articles = (props) => {
                                                                 key={news.id}
                                                             >
                                                                 <div
-                                                                    className={`other-article-indicator pointer-none ${
-                                                                        currentNews?.id === news?.id
+                                                                    className={`other-article-indicator pointer-none ${currentNews?.id === news?.id
                                                                             ? 'visited'
                                                                             : ''
-                                                                    }`}
+                                                                        }`}
                                                                 ></div>
                                                                 <label className='width-content mr-auto-top-bottom text-nowrap color-1 pointer-none'>
                                                                     <h5 className='bold text-nowrap'>
@@ -270,15 +258,13 @@ const Articles = (props) => {
                         <div
                             className='news-article-head flex'
                             style={{
-                                background: `linear-gradient(to right, ${
-                                    !isLoadingCurrentNews && currentNews !== null
+                                background: `linear-gradient(to right, ${!isLoadingCurrentNews && currentNews !== null
                                         ? currentNews?.hex
                                         : '#B1D4EB'
-                                } 70%, #00000000), url(${
-                                    !isLoadingCurrentNews && currentNews !== null
+                                    } 70%, #00000000), url(${!isLoadingCurrentNews && currentNews !== null
                                         ? currentNews?.image
                                         : ''
-                                }) right center no-repeat`,
+                                    }) right center no-repeat`,
                             }}
                         >
                             <label className='color-1 flex-column mr-auto-top-bottom'>
@@ -321,9 +307,9 @@ const Articles = (props) => {
                             <label className='color-5 flex- mr-auto-top-bottom flex-column'>
                                 {isLoadingCurrentNews ? (
                                     <>
-                                        <h5>Publicada por: ...</h5>
+                                        <h5>{i18n.t('articles.footerArticle.author')} ...</h5>
                                         <h6 className='mr-top-1'>
-                                            Em <b>...</b>
+                                            {i18n.t('articles.footerArticle.date')} <b>...</b>
                                         </h6>
                                     </>
                                 ) : (
@@ -402,8 +388,8 @@ const Articles = (props) => {
                         </div>
                     </div>
                     {!isLoadingCurrentNews &&
-                    currentNews?.commentsEnabled === true &&
-                    user !== null ? (
+                        currentNews?.commentsEnabled === true &&
+                        user !== null ? (
                         <>
                             <form method='POST' onSubmit={sendComment}>
                                 <div className='article-comments flex-column mr-top-1'>
@@ -418,7 +404,7 @@ const Articles = (props) => {
                                             <div className='general-contenteditable flex'>
                                                 <textarea
                                                     contenteditable='true'
-                                                    placeholder='Digite aqui seu comentário...'
+                                                    placeholder={i18n.t('articles.comments.placeholders.writeComment')}
                                                     value={value}
                                                     onChange={(e) => setValue(e.target.value)}
                                                 ></textarea>
@@ -428,7 +414,7 @@ const Articles = (props) => {
                                                     type='submit'
                                                     disabled={isLoadingCommentWrite}
                                                 >
-                                                    Comentar
+                                                    {i18n.t('articles.comments.button')}
                                                 </button>
                                             </div>
                                         </div>
@@ -438,18 +424,17 @@ const Articles = (props) => {
                             </form>
                         </>
                     ) : !isLoadingCurrentNews &&
-                      user !== null &&
-                      currentNews?.commentsEnabled === false ? (
+                        user !== null &&
+                        currentNews?.commentsEnabled === false ? (
                         <>
                             <div className='article-comments flex-column mr-top-1'>
                                 <div className='general-box article-comments-disabled flex height-auto mr-top-1'>
                                     <label className='color-1'>
                                         <h3 className='bold'>
-                                            Melhor comentar sobre a vida dos outros
+                                            {i18n.t('articles.comments.disabledComments.title')}
                                         </h3>
                                         <h5>
-                                            Pois os comentários para essa noticia, foram desativados
-                                            pelo autor.
+                                            {i18n.t('articles.comments.disabledComments.smallText')}
                                         </h5>
                                     </label>
                                 </div>
@@ -460,8 +445,8 @@ const Articles = (props) => {
                     )}
 
                     {isLoadingGetComments &&
-                    currentNews?.commentsEnabled === true &&
-                    comments.length > 0 ? (
+                        currentNews?.commentsEnabled === true &&
+                        comments.length > 0 ? (
                         <>
                             <div className='article-comments-area flex-column'>
                                 <div className='article-comment-box flex general-box mr-top-1'>
@@ -476,14 +461,14 @@ const Articles = (props) => {
                                     </div>
                                     <label className='color-4 mr-auto-top-bottom'>
                                         <h5>...</h5>
-                                        <h6 className='fs-10 mr-top-1'>Por ...</h6>
+                                        <h6 className='fs-10 mr-top-1'>{i18n.t('articles.comments.commentOwner')} ...</h6>
                                     </label>
                                 </div>
                             </div>
                         </>
                     ) : !isLoadingGetComments &&
-                      currentNews?.commentsEnabled === true &&
-                      comments.length > 0 ? (
+                        currentNews?.commentsEnabled === true &&
+                        comments.length > 0 ? (
                         <>
                             <div className='article-comments-area flex-column'>
                                 {comments.map((player, index) => {
@@ -505,14 +490,14 @@ const Articles = (props) => {
                                                 <label className='color-4 mr-auto-top-bottom'>
                                                     <h5>{player.value}</h5>
                                                     <h6 className='fs-10 mr-top-1'>
-                                                        Por{' '}
+                                                        {i18n.t('articles.comments.commentOwner')}{' '}
                                                         <Link
                                                             to={`/profile/${player.username}`}
                                                             className='no-link bold'
                                                         >
                                                             {player.username}
                                                         </Link>{' '}
-                                                        às{' '}
+                                                        {i18n.t('articles.comments.date')}{' '}
                                                         <b>
                                                             {moment
                                                                 .unix(player?.timestamp)
