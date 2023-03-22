@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { i18n } from "../../../../translate/i18n";
 
 const Rooms = ({
     isLoadingUserData,
@@ -14,19 +15,17 @@ const Rooms = ({
             <div className="general-box-header-3 padding-md">
                 <label className="gray">
                     {isLoadingUserData && (
-                        <h5 className="bold">Quartos de ...</h5>
+                        <h5 className="bold">{i18n.t('profile.rooms.title', { ownerRoom: '...' })}.</h5>
                     )}
                     {!isLoadingUserData && (
-                        <h5 className="bold">Quartos de {userData.username}</h5>
+                        <h5 className="bold">{i18n.t('profile.rooms.title', { ownerRoom: userData.username })}</h5>
                     )}
                     {isLoadingCount && (
-                        <h6>
-                            <text>0</text> de ... quartos
-                        </h6>
+                        <h6 dangerouslySetInnerHTML={{ __html: i18n.t('profile.rooms.countRooms', { count: '...' }) }}></h6>
                     )}
                     {!isLoadingUserData && !isLoadingCount && (
                         <h6>
-                            <text>0</text> de {countRooms} quartos
+                            <h6 dangerouslySetInnerHTML={{ __html: i18n.t('profile.rooms.countRooms', { count: countRooms }) }}></h6>
                         </h6>
                     )}
                 </label>
@@ -46,7 +45,7 @@ const Rooms = ({
                                     style={{ width: "80px", height: "30px" }}
                                 >
                                     <label className="margin-auto white">
-                                        <h6>Visitar</h6>
+                                        <h6>{i18n.t('profile.rooms.roomsInfo.goTo')}</h6>
                                     </label>
                                 </Link>
                             </div>
@@ -57,8 +56,7 @@ const Rooms = ({
                         <label class="text-center">
                             <label class="gray">
                                 <h6>
-                                    O usuário {userData.username} não possui
-                                    quartos.
+                                    {i18n.t('profile.rooms.userNoHasRoom', { username: userData.username })}
                                 </h6>
                             </label>
                         </label>

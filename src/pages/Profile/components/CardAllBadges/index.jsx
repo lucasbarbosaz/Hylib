@@ -1,4 +1,5 @@
 import React from "react";
+import { i18n } from "../../../../translate/i18n";
 import Badge from "./Badge";
 import "./style.css";
 
@@ -14,14 +15,14 @@ const CardAllBadges = ({
         <div className="general-box padding-none height-auto overflow-hidden profile-badges">
             <div className="general-box-header-3 padding-md">
                 <label className="gray">
-                    {isLoadingUserData && <h5 className="bold">Emblemas de ...</h5>}
+                    {isLoadingUserData && <h5 className="bold">{i18n.t('profile.badges.ownerBadges', { username: userData.username })}</h5>}
                     {!isLoadingUserData && (
-                        <h5 className="bold">Emblemas de {userData.username}</h5>
+                        <h5 className="bold">{i18n.t('profile.badges.ownerBadges', { username: userData.username })}</h5>
                     )}
                     {isLoadingCount && <h6>... emblemas </h6>}
                     {!isLoadingUserData && !isLoadingCount && (
                         <h6>
-                            {countBadges > 1 ? `${countBadges} emblemas` : `${countBadges} emblema`}{" "}
+                            { i18n.t('profile.badges.countBadges', { count: countBadges})} {" "}
                         </h6>
                     )}
                 </label>

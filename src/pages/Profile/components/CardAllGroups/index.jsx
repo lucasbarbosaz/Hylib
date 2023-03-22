@@ -16,20 +16,16 @@ const CardAllGroups = ({
             <div className="general-box-header-3 padding-md">
                 <label className="gray">
                     {isLoadingUserData && (
-                        <h5 className="bold">{i18n.t('profile.groups.title')} ...</h5>
+                        <h5 className="bold">{i18n.t('profile.groups.title', { username: '...' })}</h5>
                     )}
                     {!isLoadingUserData && (
-                        <h5 className="bold">{i18n.t('profile.groups.title')} {userData.username}</h5>
+                        <h5 className="bold">{i18n.t('profile.groups.title', { username: userData.username })}</h5>
                     )}
                     {isLoadingCount && (
-                        <h6>
-                            <text>0</text> {i18n.t('profile.groups.of')} ...
-                        </h6>
+                        <h6 dangerouslySetInnerHTML={{ __html: i18n.t('profile.groups.countGroups', {count: '0', count2: '...'})}}></h6>
                     )}
                     {!isLoadingCount && (
-                        <h6>
-                            <text>0</text> {i18n.t('profile.groups.of')} {`${countGroups} ${i18n.t('profile.groups.groupText')}`}
-                        </h6>
+                        <h6 dangerouslySetInnerHTML={{ __html: i18n.t('profile.groups.countGroups', {count: '0', count2: countGroups})}}></h6>
                     )}
                 </label>
             </div>

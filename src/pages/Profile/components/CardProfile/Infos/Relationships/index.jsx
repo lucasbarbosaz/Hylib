@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { i18n } from "../../../../../../translate/i18n";
 
 const Relationships = ({ userData }) => {
     const [heartRelationships, setHeartRelationships] = useState([]);
@@ -42,7 +43,7 @@ const Relationships = ({ userData }) => {
                                     return '';
                                 }
                                 if (i === 4) {
-                                    return 'e outros...';
+                                    return i18n.t('profile.infos.relationShips.others');
                                 }
                                 if (i === heartRelationships.length - 1) {
                                     return <a href={`/profile/${e.partner}`}>{e.partner}</a>;
@@ -105,7 +106,7 @@ const Relationships = ({ userData }) => {
                                     return '';
                                 }
                                 if (i === 4) {
-                                    return 'e outros...';
+                                    return i18n.t('profile.infos.relationShips.others');
                                 }
                                 if (i === poopRelationships.length - 1) {
                                     return <a href={`/profile/${e.partner}`}>{e.partner}</a>;

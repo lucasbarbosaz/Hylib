@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import StoreContext from '../../../store/Context';
+import { i18n } from "../../../translate/i18n";
 
 const CardRank = ({ rankName, rankDescription, players, badge }) => {
     const { config } = useContext(StoreContext);
@@ -48,7 +49,7 @@ const CardRank = ({ rankName, rankDescription, players, badge }) => {
                                     <h6>
                                         {!player.motto == ''
                                             ? player.motto
-                                            : `Faço parte da equipe do ${config.hotel.name}!`}
+                                            : i18n.t('staffs.defaultMotto', { hotelName: config.hotel.name })}
                                     </h6>
                                 </label>
                             </div>
@@ -57,10 +58,9 @@ const CardRank = ({ rankName, rankDescription, players, badge }) => {
                 ) : (
                     <div className='display-staff-box flex pd-4'>
                         <label className='color-4'>
-                            <h5 className='bold fs-14'>OH BOBBA?!</h5>
+                            <h5 className='bold fs-14'>{i18n.t('staffs.noStaff.title')}</h5>
                             <h6 className='fs-12'>
-                                Parece que ninguém está ocupando esse cargo! Mas fique atento(a)
-                                para novas vagas, quem sabe você não ocupe-a.
+                                {i18n.t('staffs.noStaff.smallText')}
                             </h6>
                         </label>
                     </div>

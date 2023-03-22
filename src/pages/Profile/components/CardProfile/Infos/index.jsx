@@ -47,10 +47,10 @@ const Infos = ({ isLoadingUserData, userData, config }) => {
                             <h6 className='fs-12 margin-auto-top-bottom'>
                                 {!isLoadingUserData
                                     ? userData.isOwner
-                                        ? 'Dono e desenvolvedor'
+                                        ? i18n.t('profile.infos.isOwner')
                                         : userData.canOpenAdminpan
                                         ? 'Staff'
-                                        : 'Usuário'
+                                        : i18n.t('profile.infos.rank')
                                     : '...'}
                             </h6>
                         </label>

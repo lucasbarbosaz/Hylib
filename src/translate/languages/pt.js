@@ -195,11 +195,38 @@ const messages = {
                     registeredIn: 'Entrou em',
                 },
 
-                groups: {
-                    title: 'Grupos de',
-                    of: 'de',
-                    groupText: 'grupos'
-                }
+                badges: {
+                    ownerBadges: 'Emblemas de {{username}}',
+                    countBadges: '{{count}} emblemas'
+                  },
+                  
+                  groups: {
+                    title: 'Grupos de {{username}}',
+                    countGroups: '<text>{{count}}</text> de {{count2}} grupos'
+                  },
+                  
+                  errands: {
+                    title: 'Recados de {{username}}',
+                    smallText: 'Os recados que amigos de {{username}} deixaram aqui!',
+                  
+                    errandsBox: {
+                      title: 'Parece que {{username}} não tem recados!',
+                      smallText: 'Você não pode deixar um recado por enquanto, mas aqui estão os recados que seus amigos deixaram para você! Se algum recado contiver algo ofensivo ou que você não goste, você pode excluí-lo ou, em casos mais graves, denunciar a pessoa que deixou um recado para nossa equipe.',
+                  
+                      habboway: 'Por favor, dedique um tempo para ler nossos <a className="bold">termos e condições</a> para evitar penalidades.'
+                    }
+                  },
+                  
+                  rooms: {
+                    title: 'Quartos de {{ownerRoom}}',
+                    countRooms: '<text>0</text> de {{count}} quartos',
+                  
+                    roomsInfo: {
+                      goTo: 'Visitar'
+                    },
+                  
+                    userNoHasRoom: '{{username}} não tem nenhum quarto.'
+                  }
             },
 
             settings: {
@@ -404,7 +431,21 @@ const messages = {
                 aboutHall2: 'Ao final de todo mês este hall da fama é resetado, assim dando uma nova chance para que as outras pessoas possam aparecer por aqui, sem contar que após ser resetado os usuários que ficaram no pódio (5 lugares) ganharam prêmios sendo eles rubis, gemas, emblemas ou até raros. Não perca essa chance e participe dos eventos e ganhe promoções para receber prêmios e ficar famoso!',
 
                 button: 'Saber mais'
-            }
+            },
+
+            staffs: {
+                pages: {
+                  staff: 'Equipe',
+                  gea: 'Gamers em Ação',
+                  colab: 'Colaboração'
+                },
+              
+                defaultMotto: 'Faço parte da equipe do {{hotelName}}!',
+                noStaff: {
+                  title: 'OH BOBBA?!',
+                  smallText: 'Parece que ninguém está ocupando essa posição atualmente! Mas fique atento a novas oportunidades, quem sabe você poderia ocupá-la.'
+                }
+              },
         }
     }
 }

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Head from '../../components/Head';
 import Header from '../../components/Header';
 import Requests from '../../services/Requests';
+import { i18n } from "../../translate/i18n";
 import StaffTab from './Tabs/Staff';
 import Tab from './Tabs/Tab';
 
@@ -61,7 +62,7 @@ const Staff = (props) => {
                             <div className='flex'>
                                 {page === 'staff' ? (
                                     <p className='another-header-menu-option visited'>
-                                        <label>Staff</label>
+                                        <label>{i18n.t('staffs.pages.staff')}</label>
                                     </p>
                                 ) : (
                                     <Link
@@ -69,14 +70,14 @@ const Staff = (props) => {
                                         className='another-header-menu-option'
                                         onClick={() => changePage('staff')}
                                     >
-                                        <label>Staff</label>
+                                        <label>{i18n.t('staffs.pages.staff')}</label>
                                     </Link>
                                 )}
 
                                 <separator></separator>
                                 {page === 'gea' ? (
                                     <p className='another-header-menu-option visited'>
-                                        <label>Gamers em Ação</label>
+                                        <label>{i18n.t('staffs.pages.gea')}</label>
                                     </p>
                                 ) : (
                                     <Link
@@ -84,13 +85,13 @@ const Staff = (props) => {
                                         className='another-header-menu-option'
                                         onClick={() => changePage('gea')}
                                     >
-                                        <label>Gamers em Ação</label>
+                                        <label>{i18n.t('staffs.pages.gea')}</label>
                                     </Link>
                                 )}
                                 <separator></separator>
                                 {page === 'colab' ? (
                                     <p className='another-header-menu-option visited'>
-                                        <label>Colaboração</label>
+                                        <label>{i18n.t('staffs.pages.colab')}</label>
                                     </p>
                                 ) : (
                                     <Link
@@ -98,7 +99,7 @@ const Staff = (props) => {
                                         className='another-header-menu-option'
                                         onClick={() => changePage('colab')}
                                     >
-                                        <label>Colaboração</label>
+                                        <label>{i18n.t('staffs.pages.colab')}</label>
                                     </Link>
                                 )}
                             </div>

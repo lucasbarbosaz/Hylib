@@ -196,11 +196,38 @@ const messages = {
                     registeredIn: 'Registrado en',
                 },
 
-                groups: {
-                    title: 'Grupos de',
-                    of: 'de',
-                    groupText: 'grupos'
-                }
+                badges: {
+                    ownerBadges: 'Emblemas de {{username}}',
+                    countBadges: '{{count}} emblemas'
+                  },
+                  
+                  groups: {
+                    title: 'Grupos de {{username}}',
+                    countGroups: '<text>{{count}}</text> de {{count2}} grupos'
+                  },
+                  
+                  errands: {
+                    title: 'Mensajes de {{username}}',
+                    smallText: '¡Los mensajes que los amigos de {{username}} dejaron aquí!',
+                  
+                    errandsBox: {
+                      title: '¡Parece que {{username}} no tiene mensajes!',
+                      smallText: 'Por ahora no puedes dejar mensajes, ¡pero aquí están los mensajes que tus amigos te dejaron! Si algún mensaje contiene algo ofensivo o que no te gusta, puedes eliminarlo o, en casos más graves, informar al equipo de nuestro sitio web sobre la persona que dejó el mensaje.',
+                  
+                      habboway: 'Por favor, tómate un momento para leer nuestros <a className="bold">términos y condiciones</a> para evitar penalizaciones.'
+                    }
+                  },
+                  
+                  rooms: {
+                    title: 'Habitaciones de {{ownerRoom}}',
+                    countRooms: '<text>0</text> de {{count}} habitaciones',
+                  
+                    roomsInfo: {
+                      goTo: 'Visitar'
+                    },
+                  
+                    userNoHasRoom: '{{username}} no tiene ninguna habitación.'
+                  }
             },
 
             settings: {
@@ -404,7 +431,21 @@ const messages = {
                 aboutHall2: 'Al final de cada mes, este Salón de la Fama es reseteado, dando una nueva oportunidad para que otras personas puedan aparecer aquí, además de que después de resetearse, los usuarios que quedaron en el podio (los primeros 5 lugares) ganarán premios como rubíes, gemas, emblemas o incluso raros. ¡No pierdas esta oportunidad y participa en los eventos y gana promociones para recibir premios y hacerte famoso!',
 
                 button: 'Saber más'
-            }
+            },
+
+            staffs: {
+                pages: {
+                  staff: 'Equipo',
+                  gea: 'Gamers en Acción',
+                  colab: 'Colaboración'
+                },
+              
+                defaultMotto: '¡Formo parte del equipo de {{hotelName}}!',
+                noStaff: {
+                  title: '¡OH BOBBA?!',
+                  smallText: '¡Parece que nadie está ocupando este cargo actualmente! Pero estad atentos a nuevas oportunidades, quién sabe, quizás podrías ocupar este puesto.'
+                }
+              },
         }
     }
 }

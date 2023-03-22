@@ -19,7 +19,7 @@ const messages = {
                     housekeeping: 'Control Panel'
                 }
             },
-            
+
             index: {
                 header: "Hello, great to see you here, we currently have a lot of users online, how about joining them all and enjoying what we have prepared for you?",
                 login: {
@@ -191,15 +191,47 @@ const messages = {
                     offline: 'Offline',
 
                     isOwner: 'Owner and developer',
+                    rank: 'User',
                     friendText: 'friends',
+
+                    relationShips: {
+                        others: 'Others...'
+                    },
 
                     registeredIn: 'Registered in',
                 },
 
+                badges: {
+                    ownerBadges: 'Badges of {{username}}',
+                    countBadges: '{{count}} badges'
+                },
+
                 groups: {
-                    title: 'Groups of',
-                    of: 'of',
-                    groupText: 'groups'
+                    title: 'Groups of {{username}}',
+                    countGroups: '<text>{{count}}</text> of {{count2}} groups'
+                },
+
+                errands: {
+                    title: 'Messages from {{username}}',
+                    smallText: 'The errands that friends of {{username}} left here!',
+
+                    errandsBox: {
+                        title: 'It looks like {{username}} has no errands!',
+                        smallText: 'You can\'t leave a message for now, but here are the messages your friends leave you! If any message contains anything offensive or that you don\'t like, you can delete it or, in more serious cases, report the person who left a message to our staff.',
+
+                        habboway: 'Please take some time to read our <a className="bold">terms and conditions</a> to avoid penalties.'
+                    }
+                },
+
+                rooms: {
+                    title: '{{ownerRoom}} rooms',
+                    countRooms: '<text>0</text> of {{count}} rooms',
+
+                    roomsInfo: {
+                        goTo: 'Visit'
+                    },
+
+                    userNoHasRoom: '{{username}} does not have any rooms.'
                 }
             },
 
@@ -402,6 +434,20 @@ const messages = {
                 aboutHall2: 'At the end of every month, this hall of fame is reset, thus giving a new chance for other people to appear here, not to mention that after being reset, the users who stayed on the podium (5 places) won prizes, such as rubies, gems, badges or even rares. Do not miss this chance and participate in events and win promotions to receive prizes and become famous!',
 
                 button: 'Learn more'
+            },
+
+            staffs: {
+                pages: {
+                    staff: 'Staff',
+                    gea: 'Gamers in Action',
+                    colab: 'Collaboration'
+                },
+
+                defaultMotto: 'I am part of the {{hotelName}} team!',
+                noStaff: {
+                    title: 'OH BOBBA?!',
+                    smallText: 'It looks like no one is currently holding this position! But stay tuned for new opportunities, who knows, maybe you could take on this role.'
+                }
             }
         }
     }

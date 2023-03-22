@@ -1,4 +1,5 @@
 import React from "react";
+import { i18n } from "../../../../translate/i18n";
 
 const MessagesReceived = ({
     isLoadingUserData,
@@ -10,20 +11,19 @@ const MessagesReceived = ({
                 <label className="gray">
                     {isLoadingUserData && (
                         <>
-                            <h5 className="bold">Recados de ...</h5>
+                            <h5 className="bold">{i18n.t('profile.errands.title', { username: '...' })}</h5>
                             <h6>
-                                Os recados que amigos de ... que deixaram aqui!
+                                {i18n.t('profile.errands.smallText', { username: '...' })}
                             </h6>
                         </>
                     )}
                     {!isLoadingUserData && (
                         <>
                             <h5 className="bold">
-                                Recados de {userData.username}
+                                {i18n.t('profile.errands.title', { username: userData.username })}
                             </h5>
                             <h6>
-                                Os recados que amigos de {userData.username} que
-                                deixaram aqui!
+                                {i18n.t('profile.errands.smallText', { username: userData.username })}
                             </h6>
                         </>
                     )}
@@ -34,12 +34,11 @@ const MessagesReceived = ({
                     <div className="errands-area-box-nothing margin-bottom-minm flex padding-min">
                         <label className="gray margin-auto-left-right">
                             {isLoadingUserData && (
-                                <h5>Parece que... não tem recados!</h5>
+                                <h5>{i18n.t('profile.errands.errandsBox.title', { username: '...' })}</h5>
                             )}
                             {!isLoadingUserData && (
                                 <h5>
-                                    Parece que {userData.username} não tem
-                                    recados!
+                                    {i18n.t('profile.errands.errandsBox.title', { username: userData.username })}
                                 </h5>
                             )}
                         </label>
@@ -48,18 +47,9 @@ const MessagesReceived = ({
                 <div className="flex margin-top-min">
                     <label className="gray flex-column">
                         <h6 className="fs-12 margin-bottom-minm">
-                            Você não pode deixar uma mensagem por enquanto, mas
-                            aqui estão as mensagens que seus amigos deixam para
-                            você! Se alguma mensagem contiver algo ofensivo ou
-                            que não lhe agrade, pode eliminá-la ou, em casos
-                            mais graves, denunciar a pessoa que deixou a
-                            mensagem para a nossa equipae
+                            {i18n.t('profile.errands.errandsBox.smallText')}
                         </h6>
-                        <h6>
-                            Reserve algum tempo para ler nosso{" "}
-                            <a className="bold">termos e condições</a> para
-                            evitar punições.
-                        </h6>
+                        <h6 dangerouslySetInnerHTML={{ __html: i18n.t('profile.errands.errandsBox.habboway') }}></h6>
                     </label>
                 </div>
             </div>
