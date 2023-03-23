@@ -173,6 +173,15 @@ const messages = {
                     twitter: 'Síganos en Twitter',
                     discord: 'Servidor en Discord'
                 },
+
+                footer: {
+                    changeLanguage: 'Cambiar idioma',
+                    languages: {
+                        pt: 'Portugués',
+                        en: 'Inglés',
+                        es: 'Español'
+                    }
+                },
             },
 
             profile: {

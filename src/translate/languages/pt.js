@@ -172,6 +172,15 @@ const messages = {
                     twitter: 'Siga-nos no twitter',
                     discord: 'Servidor no discord'
                 },
+
+                footer: {
+                    changeLanguage: 'Trocar Idioma',
+                    languages: {
+                        pt: 'Português',
+                        en: 'Inglês',
+                        es: 'Espanhol'
+                    }
+                },
             },
 
             profile: {

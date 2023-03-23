@@ -79,10 +79,6 @@
 
 /* BotÃ£o grande cinza */
 
-.gray-button-1::before {
-    background: linear-gradient(rgb(227, 225, 225) 50%, transparent 50%);
-}
-
 .gray-button-1 {
     background: rgb(210, 208, 208);
     border: 1px solid rgb(0, 0, 0);

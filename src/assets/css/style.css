@@ -2897,3 +2897,61 @@ button#general-button-view-all.reading {
     height: 50px;
     margin: auto;
 }
+
+.language-change-icon {
+    position: absolute;
+    left: 2vw;
+    bottom: -5px;
+}
+
+.language-change-btn {
+    padding: 7px;
+}
+
+.language-change-div {
+    display: flex;
+    align-items: center;
+}
+
+.language-change-options {
+    position: absolute;
+    left: 2.5vw;
+    background: rgb(210, 208, 208);
+    margin: 0 0 1px 0;
+    -webkit-box-shadow: -12px 11px 13px -11px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: -12px 11px 13px -11px rgba(0, 0, 0, 0.75);
+    box-shadow: -12px 11px 13px -11px rgba(0, 0, 0, 0.75);
+    border-radius: 3px 3px 0px 0px;
+    padding: 5px;
+    bottom: 8vh;
+}
+
+.language-change-options li {
+    display: block;
+    padding: 5px;
+    margin: 0 10px 0 -25px;
+    transition: 1s all;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    margin-top: 0px;
+    list-style: none;
+    display: block;
+    float: left;
+    min-width: 20px;
+}
+
+.language-change-options li:hover {
+    transition: 0.3s all;
+    color: #373737;
+    cursor: pointer;
+    border-radius: 5px;
+    border-bottom: 1px #2b2b2b solid;
+}
+
+.language-change-options li::before {
+    display: none;
+}
+
+.icon {
+    margin-right: 8px;
+}
