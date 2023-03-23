@@ -130,6 +130,13 @@ const messages = {
             },
 
             home: {
+
+                alert: {
+                    title: 'Notice',
+                    showMore: 'Show more',
+                    seeLess: 'See less'
+                },
+
                 userDetails: {
                     vip: 'You are VIP!',
 
@@ -182,15 +189,6 @@ const messages = {
                     instagram: 'Page on Instagram',
                     twitter: 'Follow us on Twitter',
                     discord: 'Server on Discord',
-                },
-
-                footer: {
-                    changeLanguage: 'Change Language',
-                    languages: {
-                        pt: 'Portuguese',
-                        en: 'English',
-                        es: 'Spanish'
-                    }
                 },
             },
 
@@ -479,8 +477,42 @@ const messages = {
                         'It looks like no one is currently holding this position! But stay tuned for new opportunities, who knows, maybe you could take on this role.',
                 },
             },
+
+            shop: {
+                pages: {
+                    vip: 'VIP',
+                    stars: 'Stars',
+                    diamonds: 'Diamonds',
+                    duckets: 'Duckets'
+                },
+
+                buttons: {
+                    buy: 'Buy',
+                    seeMore: 'See Benefits',
+                    seeLess: 'Hide Benefits',
+                    help: 'Help Tool'
+                }
+            },
+
+            footer: {
+                text: "<b>{{hotelName}}</b> 2009 - {{currentDate}} © All rights reserved.",
+                text2: "Developed by",
+
+                publicity: {
+                    title: 'Third-party advertising',
+                    smallText: 'Advertisements serve as a form of financial support to {{hotelName}}'
+                },
+
+                changeLanguage: 'Change Language',
+                languages: {
+                    pt: 'Portuguese',
+                    en: 'English',
+                    es: 'Spanish'
+                }
+            },
         },
     },
 };
 
 export { messages };
+

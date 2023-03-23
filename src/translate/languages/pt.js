@@ -118,6 +118,13 @@ const messages = {
             },
 
             home: {
+
+                alert: {
+                    title: 'Aviso',
+
+                    showMore: 'Ver mais',
+                    seeLess: 'Ver menos'
+                },
                 userDetails: {
                     vip: 'Você é VIP!',
 
@@ -172,15 +179,6 @@ const messages = {
                     twitter: 'Siga-nos no twitter',
                     discord: 'Servidor no discord'
                 },
-
-                footer: {
-                    changeLanguage: 'Trocar Idioma',
-                    languages: {
-                        pt: 'Português',
-                        en: 'Inglês',
-                        es: 'Espanhol'
-                    }
-                },
             },
 
             profile: {
@@ -207,35 +205,35 @@ const messages = {
                 badges: {
                     ownerBadges: 'Emblemas de {{username}}',
                     countBadges: '{{count}} emblemas'
-                  },
-                  
-                  groups: {
+                },
+
+                groups: {
                     title: 'Grupos de {{username}}',
                     countGroups: '<text>{{count}}</text> de {{count2}} grupos'
-                  },
-                  
-                  errands: {
+                },
+
+                errands: {
                     title: 'Recados de {{username}}',
                     smallText: 'Os recados que amigos de {{username}} deixaram aqui!',
-                  
+
                     errandsBox: {
-                      title: 'Parece que {{username}} não tem recados!',
-                      smallText: 'Você não pode deixar um recado por enquanto, mas aqui estão os recados que seus amigos deixaram para você! Se algum recado contiver algo ofensivo ou que você não goste, você pode excluí-lo ou, em casos mais graves, denunciar a pessoa que deixou um recado para nossa equipe.',
-                  
-                      habboway: 'Por favor, dedique um tempo para ler nossos <a className="bold">termos e condições</a> para evitar penalidades.'
+                        title: 'Parece que {{username}} não tem recados!',
+                        smallText: 'Você não pode deixar um recado por enquanto, mas aqui estão os recados que seus amigos deixaram para você! Se algum recado contiver algo ofensivo ou que você não goste, você pode excluí-lo ou, em casos mais graves, denunciar a pessoa que deixou um recado para nossa equipe.',
+
+                        habboway: 'Por favor, dedique um tempo para ler nossos <a className="bold">termos e condições</a> para evitar penalidades.'
                     }
-                  },
-                  
-                  rooms: {
+                },
+
+                rooms: {
                     title: 'Quartos de {{ownerRoom}}',
                     countRooms: '<text>0</text> de {{count}} quartos',
-                  
+
                     roomsInfo: {
-                      goTo: 'Visitar'
+                        goTo: 'Visitar'
                     },
-                  
+
                     userNoHasRoom: '{{username}} não tem nenhum quarto.'
-                  }
+                }
             },
 
             settings: {
@@ -397,7 +395,7 @@ const messages = {
                     rich: 'Riqueza',
                     other: 'Eventos e Promoções'
                 },
-                
+
                 rich: {
                     currencys: {
                         credits: {
@@ -444,17 +442,50 @@ const messages = {
 
             staffs: {
                 pages: {
-                  staff: 'Equipe',
-                  gea: 'Gamers em Ação',
-                  colab: 'Colaboração'
+                    staff: 'Equipe',
+                    gea: 'Gamers em Ação',
+                    colab: 'Colaboração'
                 },
-              
+
                 defaultMotto: 'Faço parte da equipe do {{hotelName}}!',
                 noStaff: {
-                  title: 'OH BOBBA?!',
-                  smallText: 'Parece que ninguém está ocupando essa posição atualmente! Mas fique atento a novas oportunidades, quem sabe você poderia ocupá-la.'
+                    title: 'OH BOBBA?!',
+                    smallText: 'Parece que ninguém está ocupando essa posição atualmente! Mas fique atento a novas oportunidades, quem sabe você poderia ocupá-la.'
                 }
-              },
+            },
+
+            shop: {
+                pages: {
+                    vip: 'VIP',
+                    stars: 'Stars',
+                    diamonds: 'Diamantes',
+                    duckets: 'Duckets'
+                },
+
+                buttons: {
+                    buy: 'Comprar',
+                    seeMore: 'Ver Benefícios',
+                    seeLess: 'Esconder Benefícios',
+
+                    help: 'Ferramenta de ajuda'
+                }
+            },
+
+            footer: {
+                text: "<b>{{hotelName}}</b> 2009 - {{currentDate}} © Todos os direitos reservados.",
+                text2: "Desenvolvido por",
+
+                publicity: {
+                    title: 'Publicidade de terceiros',
+                    smallText: 'As publicidades servem como forma de apoio financeiro ao {{hotelName}}'
+                },
+                changeLanguage: 'Trocar Idioma',
+                languages: {
+                    pt: 'Português',
+                    en: 'Inglês',
+                    es: 'Espanhol'
+                }
+            },
         }
     }
 }

@@ -70,6 +70,7 @@
     "hCaptchaSiteKey": "d42b287b-efdd-4662-9a1a-05f33c8b3f35",
 
     "dev": {
+        "name": "Laxus",
         "contact": "heartbroken#0023",
         "timeout": 0
     }

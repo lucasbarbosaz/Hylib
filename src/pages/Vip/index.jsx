@@ -1,10 +1,13 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import ReactHtmlParser from 'react-html-parser';
 import { Link } from 'react-router-dom';
+import Footer from '../../components/Footer';
 import Head from '../../components/Head';
 import Header from '../../components/Header';
 import Requests from '../../services/Requests';
 import StoreContext from "../../store/Context";
+import { i18n } from "../../translate/i18n";
 
 const Vip = (props) => {
     const { config } = React.useContext(StoreContext);
@@ -93,23 +96,23 @@ const Vip = (props) => {
                             </div>
                             <div className="flex">
                                 {
-                                    page === 'vip' ? <a className="another-header-menu-option visited"><label>VIP</label></a> : <Link to="/shop/vip" className="another-header-menu-option" onClick={() => changePage('vip')}><label>VIP</label></Link>
+                                    page === 'vip' ? <a className="another-header-menu-option visited"><label>{i18n.t('shop.pages.vip')}</label></a> : <Link to="/shop/vip" className="another-header-menu-option" onClick={() => changePage('vip')}><label>{i18n.t('shop.pages.vip')}</label></Link>
 
                                 }
 
                                 <separator></separator>
                                 {
-                                    page === 'stars' ? <a className="another-header-menu-option visited"><label>Stars</label></a> : <Link to="/shop/stars" className="another-header-menu-option" onClick={() => changePage('stars')}><label>Stars</label></Link>
+                                    page === 'stars' ? <a className="another-header-menu-option visited"><label>{i18n.t('shop.pages.stars')}</label></a> : <Link to="/shop/stars" className="another-header-menu-option" onClick={() => changePage('stars')}><label>{i18n.t('shop.pages.stars')}</label></Link>
 
                                 }
                                 <separator></separator>
                                 {
-                                    page === 'diamonds' ? <a className="another-header-menu-option visited"><label>Diamantes</label></a> : <Link to="/shop/diamonds" className="another-header-menu-option" onClick={() => changePage('diamonds')}><label>Diamantes</label></Link>
+                                    page === 'diamonds' ? <a className="another-header-menu-option visited"><label>{i18n.t('shop.pages.diamonds')}</label></a> : <Link to="/shop/diamonds" className="another-header-menu-option" onClick={() => changePage('diamonds')}><label>{i18n.t('shop.pages.diamonds')}</label></Link>
 
                                 }
                                 <separator></separator>
                                 {
-                                    page === 'duckets' ? <a className="another-header-menu-option visited"><label>Duckets</label></a> : <Link to="/shop/duckets" className="another-header-menu-option" onClick={() => changePage('duckets')}><label>Duckets</label></Link>
+                                    page === 'duckets' ? <a className="another-header-menu-option visited"><label>{i18n.t('shop.pages.duckets')}</label></a> : <Link to="/shop/duckets" className="another-header-menu-option" onClick={() => changePage('duckets')}><label>{i18n.t('shop.pages.duckets')}</label></Link>
 
                                 }
                             </div>
@@ -146,12 +149,12 @@ const Vip = (props) => {
                                                             <div className="flex">
                                                                 <a href={`${planos.link}`} target="_blank" className={`${config.cmsStyles.buttonsClass} margin-right-min buy-package no-link`} style={{ minWidth: "113px", height: "43px" }}>
                                                                     <label className="margin-auto white">
-                                                                        <h5>Comprar</h5>
+                                                                        <h5>{i18n.t('shop.buttons.buy')}</h5>
                                                                     </label>
                                                                 </a>
                                                                 <button className="blue-button-1 benefits" style={{ minWidth: "160px", height: "43px" }}>
                                                                     <label className="margin-auto white">
-                                                                        <h5><span>Ver</span> benefícios</h5>
+                                                                        <h5>{i18n.t('shop.buttons.seeMore')}</h5>
                                                                     </label>
                                                                 </button>
                                                             </div>
@@ -243,7 +246,7 @@ const Vip = (props) => {
                                                 <icon style={{ position: "absolute", width: "18px", height: "18px", top: "-1px", left: "-35px", overflow: "hidden" }}>
                                                     <img style={{ marginTop: "-595px", marginLeft: "-1440px" }} src="<?php echo $hotel['site']; ?>/general/assets/img/sprite.png?<?php echo time(); ?>" />
                                                 </icon>
-                                                Ferramenta de Ajuda
+                                                {i18n.t('shop.buttons.help')}
                                             </label>
                                         </div>
                                     </div>
@@ -258,10 +261,12 @@ const Vip = (props) => {
                                 </div>
                             </div>
                         </div>
+                        <Footer/>
                     </div>
+                    
                 </div>
+                
             </div>
-
         </>
     )
 }

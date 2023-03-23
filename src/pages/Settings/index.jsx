@@ -10,6 +10,7 @@ import StoreContext from '../../store/Context';
 import { i18n } from "../../translate/i18n";
 import { scrollToTop } from '../../utils/utils';
 
+import Footer from '../../components/Footer';
 
 const Settings = (props) => {
     const { config, user, setUser } = React.useContext(StoreContext);
@@ -672,7 +673,9 @@ const Settings = (props) => {
                         </div>
                     )}
                 </div>
+                <Footer/>
             </div>
+            
         </>
     );
 };

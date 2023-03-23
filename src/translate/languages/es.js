@@ -119,6 +119,13 @@ const messages = {
             },
 
             home: {
+
+                alert: {
+                    title: 'Aviso',
+                    showMore: 'Ver más',
+                    seeLess: 'Ver menos'
+                },
+
                 userDetails: {
                     vip: '¡Eres vip!',
 
@@ -173,15 +180,6 @@ const messages = {
                     twitter: 'Síganos en Twitter',
                     discord: 'Servidor en Discord'
                 },
-
-                footer: {
-                    changeLanguage: 'Cambiar idioma',
-                    languages: {
-                        pt: 'Portugués',
-                        en: 'Inglés',
-                        es: 'Español'
-                    }
-                },
             },
 
             profile: {
@@ -208,35 +206,35 @@ const messages = {
                 badges: {
                     ownerBadges: 'Emblemas de {{username}}',
                     countBadges: '{{count}} emblemas'
-                  },
-                  
-                  groups: {
+                },
+
+                groups: {
                     title: 'Grupos de {{username}}',
                     countGroups: '<text>{{count}}</text> de {{count2}} grupos'
-                  },
-                  
-                  errands: {
+                },
+
+                errands: {
                     title: 'Mensajes de {{username}}',
                     smallText: '¡Los mensajes que los amigos de {{username}} dejaron aquí!',
-                  
+
                     errandsBox: {
-                      title: '¡Parece que {{username}} no tiene mensajes!',
-                      smallText: 'Por ahora no puedes dejar mensajes, ¡pero aquí están los mensajes que tus amigos te dejaron! Si algún mensaje contiene algo ofensivo o que no te gusta, puedes eliminarlo o, en casos más graves, informar al equipo de nuestro sitio web sobre la persona que dejó el mensaje.',
-                  
-                      habboway: 'Por favor, tómate un momento para leer nuestros <a className="bold">términos y condiciones</a> para evitar penalizaciones.'
+                        title: '¡Parece que {{username}} no tiene mensajes!',
+                        smallText: 'Por ahora no puedes dejar mensajes, ¡pero aquí están los mensajes que tus amigos te dejaron! Si algún mensaje contiene algo ofensivo o que no te gusta, puedes eliminarlo o, en casos más graves, informar al equipo de nuestro sitio web sobre la persona que dejó el mensaje.',
+
+                        habboway: 'Por favor, tómate un momento para leer nuestros <a className="bold">términos y condiciones</a> para evitar penalizaciones.'
                     }
-                  },
-                  
-                  rooms: {
+                },
+
+                rooms: {
                     title: 'Habitaciones de {{ownerRoom}}',
                     countRooms: '<text>0</text> de {{count}} habitaciones',
-                  
+
                     roomsInfo: {
-                      goTo: 'Visitar'
+                        goTo: 'Visitar'
                     },
-                  
+
                     userNoHasRoom: '{{username}} no tiene ninguna habitación.'
-                  }
+                }
             },
 
             settings: {
@@ -402,13 +400,13 @@ const messages = {
                     currencys: {
                         credits: {
                             title: 'Créditos',
-    
+
                             txt1: 'por tener',
                             txt2: 'créditos'
                         },
                         diamonds: {
                             title: 'Diamantes',
-    
+
                             txt1: 'por tener',
                             txt2: 'diamantes'
                         },
@@ -423,14 +421,14 @@ const messages = {
                 events_and_promotions: {
                     events: {
                         title: 'Eventos',
-    
+
                         txt1: 'por ganar',
                         txt2: 'eventos'
                     },
-    
+
                     promotions: {
                         title: 'Promociones',
-    
+
                         txt1: 'por ganar',
                         txt2: 'promociones'
                     }
@@ -444,17 +442,50 @@ const messages = {
 
             staffs: {
                 pages: {
-                  staff: 'Equipo',
-                  gea: 'Gamers en Acción',
-                  colab: 'Colaboración'
+                    staff: 'Equipo',
+                    gea: 'Gamers en Acción',
+                    colab: 'Colaboración'
                 },
-              
+
                 defaultMotto: '¡Formo parte del equipo de {{hotelName}}!',
                 noStaff: {
-                  title: '¡OH BOBBA?!',
-                  smallText: '¡Parece que nadie está ocupando este cargo actualmente! Pero estad atentos a nuevas oportunidades, quién sabe, quizás podrías ocupar este puesto.'
+                    title: '¡OH BOBBA?!',
+                    smallText: '¡Parece que nadie está ocupando este cargo actualmente! Pero estad atentos a nuevas oportunidades, quién sabe, quizás podrías ocupar este puesto.'
                 }
-              },
+            },
+
+            shop: {
+                pages: {
+                    vip: 'VIP',
+                    stars: 'Estrellas',
+                    diamonds: 'Diamantes',
+                    duckets: 'Duckets'
+                },
+
+                buttons: {
+                    buy: 'Comprar',
+                    seeMore: 'Ver Beneficios',
+                    seeLess: 'Ocultar Beneficios',
+                    help: 'Herramienta de Ayuda'
+                }
+            },
+
+            footer: {
+                text: "<b>{{hotelName}}</b> 2009 - {{currentDate}} © Todos los derechos reservados.",
+                text2: "Desarrollado por",
+
+                publicity: {
+                    title: 'Publicidad de terceros',
+                    smallText: 'Los anuncios publicitarios sirven como forma de apoyo financiero para {{hotelName}}'
+                },
+
+                changeLanguage: 'Cambiar idioma',
+                languages: {
+                    pt: 'Portugués',
+                    en: 'Inglés',
+                    es: 'Español'
+                }
+            },
         }
     }
 }

@@ -106,6 +106,7 @@ const Staff = (props) => {
                         </div>
                     </div>
                 </div>
+                
             </div>
             {page === 'staff' && <StaffTab ranks={staffs} />}
             {page === 'gea' && <Tab ranks={gea} />}

@@ -66,6 +66,7 @@ const CardRank = ({ rankName, rankDescription, players, badge }) => {
                     </div>
                 )}
             </div>
+            
         </div>
     );
 };
