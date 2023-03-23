@@ -1,5 +1,5 @@
 import axios from 'axios';
-import moment from 'moment';
+import jwt_decode from 'jwt-decode';
 
 export const TOKEN_ATTRIBUTE_NAME = 'token'
 export const USER_ATTRIBUTE_NAME = 'user'
@@ -17,19 +17,14 @@ class AuthService {
         return localStorage.getItem(TOKEN_ATTRIBUTE_NAME)
     }
 
-    isTokenExpired() {
+    isTokenExpiredByTimestamp(token) {
+        try {
+            const decodedToken = jwt_decode(token);
+            const currentTime = Date.now() / 1000;
 
-        var now = moment().unix();
-        var dayExpire = now + 86400; // 1 day
-
-        let expiration = localStorage.getItem(EXPIRATION_ATTRIBUTE_NAME)
-
-        if (expiration === null) {
-            localStorage.setItem(EXPIRATION_ATTRIBUTE_NAME, dayExpire)
-        } else {
-            if (now >= expiration) {
-                this.logout()
-            }
+            return decodedToken.exp < currentTime;
+        } catch (error) {
+            return true;
         }
     }
 

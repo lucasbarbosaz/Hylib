@@ -1,14 +1,18 @@
 import axios from "axios";
+import dotenv from 'dotenv';
+import jwt_decode from 'jwt-decode';
 import { useContext, useEffect } from 'react';
 import { Link, useHistory } from "react-router-dom";
 import APIService from "../../services/APIService";
 import AuthService from "../../services/AuthService";
 import StoreContext from "../../store/Context";
-import useInterval from "../../utils/useInterval";
-
 import { i18n } from "../../translate/i18n";
 
+
+
 const Header = (props) => {
+    dotenv.config();
+
     const { updateLoggedUser, visited } = props;
     const history = useHistory();
 
@@ -29,7 +33,7 @@ const Header = (props) => {
             .catch(error => {
                 console.log(error)
             })
-            .finally(() => {});
+            .finally(() => { });
     }
 
     useEffect(() => {
@@ -41,14 +45,28 @@ const Header = (props) => {
         }
     }, []);
 
-    useInterval(() => {
+    useEffect(() => {
         if (AuthService.isUserLoggedIn()) {
-            AuthService.isTokenExpired(); //check if token has expired 
-        }
-    }, 60000) ;
-    
+            const token = localStorage.getItem('token');
 
-       
+            if (AuthService.isTokenExpiredByTimestamp(token)) {
+                handleLogout();
+                return;
+            }
+
+            const interval = setInterval(() => {
+                const tokenData = jwt_decode(token);
+                if (tokenData.exp < Date.now() / 1000) {
+                    handleLogout();
+                    return;
+                }
+            }, 10000);
+
+            return () => clearInterval(interval);
+        }
+    }, []);
+
+
 
     return (
         <div id="header-wrapper">
