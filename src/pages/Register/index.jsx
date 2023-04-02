@@ -208,7 +208,7 @@ const Register = () => {
                 <div className="flex">
                     <div className="col-3 flex-column">
                         <div className="general-box register-area margin-top-md height-auto">
-                            <div className="general-header-box flex">
+                            <div className="general-header-box flex" style={{ background: `${config.cmsStyles.cardLoginHex}` }}>
                                 <div className="flex margin-auto-top-bottom margin-right-min">
                                     <icon name="search"></icon>
                                 </div>

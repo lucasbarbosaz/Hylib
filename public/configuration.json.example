@@ -6,6 +6,7 @@
         "sprite": "http://localhost/cdn/assets/img/sprite.png",
         "avatarImage": "https://habbo.city/habbo-imaging/avatarimage",
         "groupImage": "https://lella.com.br/habbo-imaging/badge.php?badge=",
+        "badgeImage": "https://lella.com.br/swf/c_images/album1584/",
         "clients": {
             "betaUrl": "http://localhost/clients/beta.php",
             "betav2": "http://localhost/clients/betav2.php",
@@ -36,8 +37,8 @@
     "currentYear": 2023,
 
     "cmsStyles": {
-        "buttonsClass": "purple-button-1",
-        "cardLoginHex": "#814aa8",
+        "buttonsClass": "green-button-1",
+        "cardLoginHex": "#2ecc71",
         "errorHex": "#c78144",
         "errorHexBold": "#a16937",
         "logoUrl": "https://i.imgur.com/GxrHSPC.png?v4",

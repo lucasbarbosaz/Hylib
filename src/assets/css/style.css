@@ -624,7 +624,7 @@ img.habbo-imager {
 }
 
 .general-box.register-area .general-header-box {
-    background: url('../img/community.png') 140% 35% / auto no-repeat scroll rgb(129, 74, 168) !important;
+    background: url('../img/community.png') 140% 35% / auto no-repeat scroll rgb(129, 74, 168);
 }
 
 .register-inputs input {

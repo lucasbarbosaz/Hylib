@@ -95,7 +95,7 @@ const CardLogin = ({setLoggingIn, isLoggingIn, timeout, setCurrentTab, setAlert}
             className='lgn-area general-box flex-column margin-top-md'
         >
             <div
-                className='general-header-box flex'
+                className='general-header-box flex bg-green-500'
                 style={{ background: `${config.cmsStyles.cardLoginHex}` }}
             >
                 <div className='flex margin-auto-top-bottom margin-right-min'>
