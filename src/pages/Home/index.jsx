@@ -337,76 +337,42 @@ const Home = () => {
                         </div>
 
                         <div class="col-8 flex margin-top-min margin-right">
-                            {
-                                isLoadingEvents ? (
 
-                                    <div class="event-box-default" style={{ background: `url() 100% center / auto repeat-x scroll rgb(90, 38, 139)`, opacity: ".9" }}>
-                                        <label class="white margin-auto-top-bottom margin-auto-left text-right text-nowrap">
-                                            <h3 class="bold text-nowrap" style={{ textShadow: "2px 2px 2px black" }}>...</h3>
-                                            <h6 class="text-nowrap">....</h6>
-                                        </label>
-                                    </div>
-                                ) : (
-                                    !isLoadingEvents && events.length > 0 ? (
-                                        events.map((event, index) => {
-                                            return (
-                                                <div class="event-box-default" style={{ background: `url(${event.image}) 100% center / auto repeat-x scroll rgb(90, 38, 139)`, opacity: ".9" }} key={index}>
-                                                    <label class="white margin-auto-top-bottom margin-auto-left text-right text-nowrap">
-                                                        <h3 class="bold text-nowrap" style={{ textShadow: "2px 2px 2px black" }}>{event.title}</h3>
-                                                        <h6 class="text-nowrap">{event.description}</h6>
-                                                    </label>
-                                                </div>
-                                            )
+                        <div class="event-box-default" style={{background: `linear-gradient(to right, rgb(104 60 136) 51%, rgba(0, 0, 0, 0)), url(https://i.imgur.com/Uxtss5o.png) right center no-repeat` }}>
+                                <div class="general-box-header-me flex"> 
+                                    <div class="general-box-header-me-icon"    >
+                                <icon name="social" class="flex margin-auto"></icon>
+                                          </div>
+                                <label class="color-4 flex-column text-nowrap mr-auto-top-bottom">
+                                  <h4 class="bold text-nowrap white">{i18n.t('home.friendsOffline.title')}</h4>
+                                <h6 class="text-nowrap white">Você tem <b>15</b> amigos conectados, clique ao lado para visualizá-los.</h6>
+                                </label>
+                                <button   className={`${config.cmsStyles.buttonsClass} no-link margin-top`} style={{ width: "115px", height: "42px", top: "8px", left: "85px", }}>
+                            <label className="margin-auto white">
+                                <h5>{i18n.t('home.friendsOnline.button')}</h5>
+                            </label>
+                        </button>
 
-                                        })
-                                    ) : (
-                                        !isLoadingEvents &&
-                                        <div class="event-box-special" style={{ background: `url(https://images.habbo.com/web_images/habbo-web-articles/lpromo_sellableroombundle.png) 100% center / auto repeat-x scroll rgb(90, 38, 139)`, opacity: ".9" }}>
-                                            <label class="white margin-auto-top-bottom margin-auto-right text-nowrap">
-                                                <h3 class="bold text-nowrap" style={{ textShadow: "2px 2px 2px black" }}>{i18n.t('home.events.title')}</h3>
-                                                <h6 class="text-nowrap">{i18n.t('home.events.smallText')}</h6>
-                                            </label>
-                                        </div>
-                                    )
+                            </div>
+                                    </div>  
 
-                                )
+                            </div>
+                            
+                            {/* Amigos OFFLINE }
+                            
+                            <div class="event-box-default" style={{background: `linear-gradient(to right, rgb(104 60 136) 51%, rgba(0, 0, 0, 0)), url(https://i.imgur.com/Uxtss5o.png) right center no-repeat` }}>
+                                <div class="general-box-header-me flex"> 
+                                    <div class="general-box-header-me-icon"    >
+                                <icon name="social" class="flex margin-auto"></icon>
+                                          </div>
+                                <label class="color-4 flex-column text-nowrap mr-auto-top-bottom">
+                                  <h4 class="bold text-nowrap white">{i18n.t('home.friendsOffline.title')}</h4>
+                                <h6 class="text-nowrap white">{i18n.t('home.friendsOffline.smallText')}</h6>
+                                </label>
+                            </div>
+                                    </div>    
+                                    */}
 
-                            }
-
-                            {
-                                isLoadingActivitys ? (
-                                    <div className="event-box-special" style={{ background: `url() 100% center / auto repeat-x scroll rgb(90, 38, 139)`, opacity: ".9" }}>
-                                        <label className="white margin-auto-top-bottom margin-auto-right text-nowrap">
-                                            <h3 className="bold text-nowrap" style={{ textShadow: "2px 2px 2px black" }}>...</h3>
-                                            <h6 className="text-nowrap">...</h6>
-                                        </label>
-                                    </div>
-                                ) : (
-                                    !isLoadingActivitys && activity.length > 0 ? (
-                                        activity.map((activity, index) => {
-                                            return (
-                                                <div className="event-box-special" style={{ background: `url(${activity.image}) 100% center / auto repeat-x scroll rgb(90, 38, 139)`, opacity: ".9" }} key={index}>
-                                                    <label className="white margin-auto-top-bottom margin-auto-right text-nowrap">
-                                                        <h3 className="bold text-nowrap" style={{ textShadow: "2px 2px 2px black" }}>{activity.title}</h3>
-                                                        <h6 className="text-nowrap">{activity.description}</h6>
-                                                    </label>
-                                                </div>
-                                            )
-                                        })
-                                    ) : (
-                                        !isLoadingActivitys &&
-                                        <div className="event-box-special" style={{ background: `url(https://images.habbo.com/web_images/habbo-web-articles/lpromo_Jan23.png) 100% center / auto repeat-x scroll rgb(90, 38, 139)`, opacity: ".9" }}>
-                                            <label className="white margin-auto-top-bottom margin-auto-right text-nowrap">
-                                                <h3 className="bold text-nowrap" style={{ textShadow: "2px 2px 2px black" }}>{i18n.t('home.activitys.title')}</h3>
-                                                <h6 className="text-nowrap">{i18n.t('home.activitys.smallText')}</h6>
-                                            </label>
-                                        </div>
-                                    )
-                                )
-                            }
-
-
-                        </div>
                         <div className="col-9 flex margin-top-min">
                             <div className="general-box featured-users margin-top-min margin-right-min">
                                 <div className="general-header-box-2 flex hbg-1">

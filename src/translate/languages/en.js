@@ -152,6 +152,16 @@ const messages = {
                     smallText: 'Opps... we havent added an event yet.',
                 },
 
+                friendsOnline: {
+                    title: 'Online friends',
+                    button: 'See friends',
+                },
+                
+                friendsOffline: {
+                    title: 'Online friends',
+                    smallText: 'Opps.. looks like you dont have any friends online at the moment, try adding new people in the hotel.',
+                },
+
                 activitys: {
                     title: 'No activity at the moment',
                     smallText: 'Opps.. for now we havent added an activity.',

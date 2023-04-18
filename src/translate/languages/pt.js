@@ -146,6 +146,16 @@ const messages = {
                     smallText: 'Opps.. por enquanto não adicionamos uma atividade.',
                 },
 
+                friendsOnline: {
+                    title: 'Amigos Online',
+                    button: 'Ver amigos',
+                },
+
+                friendsOffline: {
+                    title: 'Amigos Online',
+                    smallText: 'Opps.. parece que você não tem nenhum amigo online no momento, tente adicionar novas pessoas no hotel.',
+                },
+
                 richestPlayers: {
                     title: 'Usuários ricos',
 

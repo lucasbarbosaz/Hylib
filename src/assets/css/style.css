@@ -1601,7 +1601,16 @@ li.header-menu:last-child {
     background-repeat: no-repeat;
     background-position: 105% -35px;
 }
-
+.general-box-header-me-icon {
+    position: relative;
+    min-width: 45px;
+    height: 52px;
+    border: 2px solid rgb(212, 211, 209);
+    border-radius: 5px;
+    margin: 4px 15px 0px 0px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+    display: flex;
+}
 .general-box.article-comments-disabled {
     background-color: #e094d0;
     padding: 20px;

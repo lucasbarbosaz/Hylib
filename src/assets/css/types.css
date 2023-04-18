@@ -1012,6 +1012,11 @@ icon[name="badge-db"] {
     height: 39px;
 }
 
+icon[name="social"] {
+    background: url(https://i.imgur.com/fuNcJc3.png);
+    width: 50px;
+    height: 50px;
+}
 icon[name="help"] {
     position: relative;
     background: url('../img/sprite.png') no-repeat -1340px -654px;
