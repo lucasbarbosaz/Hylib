@@ -1,7 +1,7 @@
 {
     "apiUrl": "http://localhost:3333",
     "hotel": {
-        "url": "https://lella.com.br",
+        "url": "http://localhost",
         "name": "Lella",
         "sprite": "http://localhost/cdn/assets/img/sprite.png",
         "avatarImage": "https://habbo.city/habbo-imaging/avatarimage",
