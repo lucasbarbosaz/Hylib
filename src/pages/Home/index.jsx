@@ -276,12 +276,12 @@ const Home = () => {
             {
                 showClientOptions ? (
                     <>
-                        <Link onClick={() => goToClient('betav2')} className={`${config.cmsStyles.buttonsClass} no-link margin-top`} style={{ width: "180px", height: "42px", marginTop: "6px" }}>
+                        <Link onClick={() => goToClient('betav2')} className={`${config.cmsStyles.buttonsClass} no-link margin-top`} style={{ width: "180px", height: "42px", marginTop: "20px" }}>
                             <label className="margin-auto white">
                                 <h5>{i18n.t('home.userDetails.buttons.beta')}</h5>
                             </label>
                         </Link>
-                        <Link onClick={() => goToClient('flash')} className={`${config.cmsStyles.buttonsClass} no-link margin-top`} style={{ width: "180px", height: "42px" }}>
+                        <Link onClick={() => goToClient('flash')} className={`${config.cmsStyles.buttonsClass} no-link margin-top`} style={{ width: "180px", height: "42px"}}>
                             <label className="margin-auto white">
                                 <h5>{i18n.t('home.userDetails.buttons.flash')}</h5>
                             </label>
@@ -289,7 +289,7 @@ const Home = () => {
                     </>
                 ) : (
                     <>
-                        <Link onClick={() => setShowClientOptions(true)} className={`${config.cmsStyles.buttonsClass} no-link margin-top-md`} style={{ width: "180px", height: "42px" }}>
+                        <Link onClick={() => setShowClientOptions(true)} className={`${config.cmsStyles.buttonsClass} no-link margin-top-md`} style={{ width: "180px", height: "42px" , top: "30px"}}>
                             <label className="margin-auto white">
                                 <h5>{i18n.t('home.userDetails.buttons.enter')}</h5>
                             </label>

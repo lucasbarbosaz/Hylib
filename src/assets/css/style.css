@@ -1165,17 +1165,25 @@ li.header-menu:last-child {
 .display-myhabbo {
     position: relative;
     width: 100%;
-    height: 94px;
+    height: 125px;
 }
 
 .display-myhabbo-imager {
     position: relative;
-    width: 64px;
-    height: 90px;
-    margin: auto 0 auto 50px;
+    width: 120px;
+    height: 130px;
+    margin: -5px 0px auto 0px;
     overflow: hidden;
+    zoom: 2;
+    image-rendering: pixelated;
+    margin-top: -4px;
+    -webkit-filter: drop-shadow(2px 1px 0 #fff) drop-shadow(-2px 1px 0 #fff) drop-shadow(0 -2px 0 #fff);
 }
-
+.display-myhabbo-texts {
+    color: white;
+    right: 90px;
+    top: 50px;
+}
 .display-habbo-currency {
 }
 
