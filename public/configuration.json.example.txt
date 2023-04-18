@@ -1,0 +1,77 @@
+{
+    "apiUrl": "http://localhost:3333",
+    "hotel": {
+        "url": "https://lella.com.br",
+        "name": "Lella",
+        "sprite": "http://localhost/cdn/assets/img/sprite.png",
+        "avatarImage": "https://habbo.city/habbo-imaging/avatarimage",
+        "groupImage": "https://lella.com.br/habbo-imaging/badge.php?badge=",
+        "clients": {
+            "betaUrl": "http://localhost/clients/beta.php",
+            "betav2": "http://localhost/clients/betav2.php",
+            "flashUrl": "http://localhost/clients/flash.php"
+        },
+        "txtHome": "Olá, o Lella inteiro está esperando por você! Ficamos felizes em saber que você está por aqui! O que tá esperando para entrar? Venha se divertir conosco! Temos várias atividades e uma equipe disposta a te ajudar no que for preciso! - Laxus",
+        "socialmedia": {
+            "discord": "https://discord.gg/lella",
+            "instagram": "https://instagram.com/lellabrpt",
+            "twitter": "https://twitter.com/RedeLella"
+        },
+        "shop": {
+            "diamondIcon": "https://lella.com.br/website_assets/img/diamonds.png",
+            "ducketsIcon": "https://lella.com.br/website_assets/img/_duckets2.png",
+            "starsIcon": "https://lella.com.br/website_assets/img/star.png"
+        },
+        "downloads": {
+            "image": "https://www.habbobites.com/uploads/1567fb58ce57xc_xjkjn29js.png",
+            "LellaSetupWindows" : "https://lella.com.br/downloads/LellaSetup-1.1.0.exe",
+            "LellaSetupMac": "https://lella.com.br/downloads/LellaSetup-1.1.0.dmg"
+        },
+        "form": {
+            "title": "Vagas para STAFF",
+            "link": "#"
+        }
+    },
+
+    "currentYear": 2023,
+
+    "cmsStyles": {
+        "buttonsClass": "purple-button-1",
+        "cardLoginHex": "#814aa8",
+        "errorHex": "#c78144",
+        "errorHexBold": "#a16937",
+        "logoUrl": "https://i.imgur.com/GxrHSPC.png?v4",
+        "backgroundIndex" : "https://i.imgur.com/udIp4A6.png",
+        "backgroundUrl": "https://i.imgur.com/XGUlzPg.png",
+        "cardHomeImage": "https://i.imgur.com/XGUlzPg.png",
+        "backgroundHex": "#5a268b",
+        "hallImage": "https://lella.com.br/website_assets/img/OpABlqg.png?v2"
+    },
+
+    "newsSubmenu": [
+        {
+            "title": "Promoções Ativas",
+            "newsId": 230
+        },
+        {
+            "title": "Colunas Ativas",
+            "newsId": 233
+        },
+        {
+            "title": "Premiação em Eventos",
+            "newsId": 229
+        },
+        {
+            "title": "Premiação em Promoções",
+            "newsId": 240
+        }
+    ],
+    
+    "hCaptchaSiteKey": "d42b287b-efdd-4662-9a1a-05f33c8b3f35",
+
+    "dev": {
+        "name": "Laxus",
+        "contact": "heartbroken#0023",
+        "timeout": 0
+    }
+}
