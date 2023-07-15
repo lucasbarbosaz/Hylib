@@ -303,7 +303,9 @@ const Articles = (props) => {
                                 ) : (
                                     ''
                                 )}
+                            
                             </div>
+
                             <label className='color-5 flex- mr-auto-top-bottom flex-column'>
                                 {isLoadingCurrentNews ? (
                                     <>
@@ -334,57 +336,24 @@ const Articles = (props) => {
                                     </>
                                 )}
                             </label>
+                            <button className='article-box-like'>
+                                    <div className='article-button-like'></div>
+                                    
+                                </button>
+                            <button className='article-box-unlike'>
+                                    <div className='article-button-unlike'></div>
+                                    
+                                </button>
                         </div>
                         <div className='news-article-footer flex pd-2'>
-                            <div className='news-article-like flex-column mr-auto-left mr-right-1'>
-                                {isLoadingLikes && user !== null ? (
-                                    <>
-                                        <button
-                                            className='reset-button flex mr-auto'
-                                            disabled={true}
-                                        >
-                                            <icon name='heart-big-noborder'></icon>
-                                        </button>
-                                        <h5 className='mr-auto-top mr-auto-left-right text-center'>
-                                            ... like
-                                        </h5>
-                                    </>
-                                ) : !isLoadingLikes && user !== null ? (
-                                    <>
-                                        <button
-                                            className='reset-button flex mr-auto'
-                                            disabled={isLoadingLikes}
-                                            onClick={sendLike}
-                                        >
-                                            <icon
-                                                name={
-                                                    like.like > 0
-                                                        ? 'heart-big'
-                                                        : 'heart-big-noborder'
-                                                }
-                                            ></icon>
-                                        </button>
-                                        <h5 className='mr-auto-top mr-auto-left-right text-center'>
-                                            {like.like <= 1
-                                                ? like.like + ' like'
-                                                : like.like + ' likes'}
-                                        </h5>
-                                    </>
-                                ) : user === null ? (
-                                    <>
-                                        <div className='flex mr-auto'>
-                                            <icon name='heart-big-noborder'></icon>
-                                        </div>
-                                        <h5 className='mr-auto-top mr-auto-left-right text-center'>
-                                            {like.like <= 1
-                                                ? like.like + ' like'
-                                                : like.like + ' likes'}
-                                        </h5>
-                                    </>
-                                ) : (
-                                    <></>
-                                )}
-                            </div>
+                           <div className='article-box-user-like'>
+            
+                           <img class="article-user-like" src="https://avatar.hubbe.biz/?figure=hr-828-31.ch-255-82.sh-3089-64.hd-180-10.lg-3058-64&gesture=sml"></img>
+                           <span className='tooltiptext'>
+                           Brytch
+                        </span>
+                           </div>
+                           
                         </div>
                     </div>
                     {!isLoadingCurrentNews &&

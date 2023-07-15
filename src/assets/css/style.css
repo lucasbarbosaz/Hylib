@@ -1553,7 +1553,121 @@ li.header-menu:last-child {
     height: 50px;
     margin: 0 10px 10px 10px;
 }
+.article-box-like {
+    --tw-bg-opacity: 1;
+    background-color: rgb(210 243 177 / var(--tw-bg-opacity));
+    width: 45px;
+    height: 45px;
+    top: 2px;
+    margin-left: 250px;
+    border-radius: 5px;
+    border: 1px solid #59B200;
+}
 
+.article-button-like {
+    background-image: url(https://hubbe.biz/build/assets/news-like-8faba972.png);
+    width: 30px;
+    height: 33px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    left: 2px;
+}
+
+button.article-box-like:hover {
+    opacity: .75;
+    transition-duration: 2s;
+    transition-timing-function: cubic-bezier(.4,0,.2,1);
+}
+
+.article-box-unlike {
+    --tw-bg-opacity: 1;
+    background-color: rgb(248 211 208 / var(--tw-bg-opacity));
+    width: 45px;
+    height: 45px;
+    top: 2px;
+    margin-left: 10px;
+    border-radius: 5px;
+    border: 1px solid #B20B00;
+}
+
+.article-button-unlike {
+    background-image: url(https://hubbe.biz/build/assets/news-unlike-857fa8dc.png);
+    width: 30px;
+    height: 33px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    left: 2px;
+}
+
+button.article-box-unlike:hover {
+    opacity: .75;
+    transition-duration: 2s;
+    transition-timing-function: cubic-bezier(.4,0,.2,1);
+}
+.article-box-user-like {
+    --tw-bg-opacity: 1;
+    background-color: rgb(178 205 151 / var(--tw-bg-opacity));
+    width: 45px;
+    height: 45px;
+    top: 2px;
+    border-radius: 5px;
+    border: 1px solid #59B200;
+    
+}
+.article-user-like {
+    object-position: center -20px;
+    object-fit: none;
+    top: -2px;
+    height: 45px;
+    width: 45px;
+}
+  
+   .tooltiptext {
+    visibility: hidden;
+    width: 75px;
+    background-color: #504f55;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 4px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 120%;
+    margin-left: -10px;
+}
+
+  
+   .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #504f55 transparent transparent transparent;
+ }
+  
+  .article-box-user-like:hover .tooltiptext {
+    visibility: visible;
+}
+.article-box-user-unlike {
+    --tw-bg-opacity: 1;
+    background-color: rgb(205 157 151 / var(--tw-bg-opacity));
+    width: 45px;
+    height: 45px;
+    top: 2px;
+    border-radius: 5px;
+    border: 1px solid #B20B00;
+    
+}
+.article-user-unlike {
+    object-position: center -20px;
+    object-fit: none;
+    top: -2px;
+    height: 45px;
+    width: 45px;
+}
 .article-body-author > .article-body-author-imager {
     position: relative;
     height: 75px;
