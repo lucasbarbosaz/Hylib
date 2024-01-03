@@ -54,11 +54,8 @@ const Requests = {
         getNewsSlider: () => {
             return axios.get(`/articles-slider-text`);
         },
-        getEvents: () => {
-            return axios.get(`/get-events`);
-        },
-        getActivity: () => {
-            return axios.get(`/get-activity`);
+        getOnlineFriends: () => {
+            return axios.get(`/friends-online`);
         }
     },
 
@@ -94,6 +91,13 @@ const Requests = {
         getGroups: (user) => {
             return axios.get(`/profile-groups?username=${user}`);
         },
+        getErrands: (user) => {
+            return axios.get(`/profile-errands?username=${user}`);
+        },
+
+        sendErrand: (username, value) => {
+            return axios.post(`/profile/send-errand`, { username: username, value: value });
+        }
     },
 
     settings: {
@@ -106,8 +110,14 @@ const Requests = {
         sendUpdatePassword: (oldPassword, newPassword, newPasswordRepeated) => {
             return axios.post(`/user_password_update`, { old_password: oldPassword, new_password: newPassword, new_password_repeat: newPasswordRepeated });
         },
+        sendUpdateSocialMedia: (instagram, imgur, vsco, twitter, link) => {
+            return axios.post(`/user_socialmedia`, { instagram: instagram, imgur: imgur, vsco: vsco, twitter: twitter, link: link })
+        },
         getUserSettings: () => {
             return axios.get(`/user_settings`);
+        },
+        getUserSocialMedia: () => {
+            return axios.get(`/get_user_socialmedia`);
         }
     },
 
@@ -129,6 +139,15 @@ const Requests = {
         }
     },
 
+    photos: {
+        getCommunityPhotos: () => {
+            return axios.get(`/get_photos?type=usergallery`);
+        },
+        getYoursPhotos: (username) => {
+            return axios.get(`/get_photos?type=usergallery&username=${username}`);
+        }
+    },
+
     vip: {
         getPlansVIP: () => {
             return axios.get(`/plans-vip`);
@@ -141,8 +160,28 @@ const Requests = {
         },
         getPlansDuckets: () => {
             return axios.get(`/plans-duckets`);
+        },
+
+        getPayment: () => {
+            return axios.post(`http://localhost/payment.php`, { pix: true });
+        },
+
+        statusPayment: {
+            insertPaymentStatus: (idPayment, userId, status, type) => {
+                return axios.post(`/save-payment`, { idPayment: idPayment, userId: userId, status: status, type: type });
+            },
+            approvedStatus: (idPayment, type, userId) => {
+                return axios.post(`/approved-payment`, { idPayment: idPayment, type: type, userId: userId });
+            },
+            rejectedStatus: (idPayment, userId) => {
+                return axios.post(`/rejected-payment`, { idPayment: idPayment, userId: userId })
+            },
+            cancelledStatus: (idPayment, userId) => {
+                return axios.post(`/cancelled-payment`, { idPayment: idPayment, userId: userId })
+            }
         }
     },
+
 
     recoveryPassword: {
         getResetKey: (resetKey) => {

@@ -26,7 +26,7 @@ const Badge = ({ isLoadingUserData, badgesUsed, config }) => {
                         >
                             <img
                                 alt={`${badges.badge_code}`}
-                                src={`${config.hotel.groupImage}${badges.badge_code}.gif`}
+                                src={`${config.hotel.badgeImage}${badges.badge_code}.gif`}
                             />
                         </div>
                     );
@@ -69,7 +69,7 @@ const Badge = ({ isLoadingUserData, badgesUsed, config }) => {
                         >
                             <img
                                 alt={`${badges.badge_code}`}
-                                src={`${config.hotel.groupImage}${badges.badge_code}.gif`}
+                                src={`${config.hotel.badgeImage}${badges.badge_code}.gif`}
                             />
                         </div>
                     );
@@ -108,7 +108,7 @@ const Badge = ({ isLoadingUserData, badgesUsed, config }) => {
                         >
                             <img
                                 alt={`${badges.badge_code}`}
-                                src={`${config.hotel.groupImage}${badges.badge_code}.gif`}
+                                src={`${config.hotel.badgeImage}${badges.badge_code}.gif`}
                             />
                         </div>
                     );
@@ -143,7 +143,7 @@ const Badge = ({ isLoadingUserData, badgesUsed, config }) => {
                         >
                             <img
                                 alt={`${badges.badge_code}`}
-                                src={`${config.hotel.groupImage}${badges.badge_code}.gif`}
+                                src={`${config.hotel.badgeImage}${badges.badge_code}.gif`}
                             />
                         </div>
                     );
@@ -175,7 +175,7 @@ const Badge = ({ isLoadingUserData, badgesUsed, config }) => {
                         >
                             <img
                                 alt={`${badges.badge_code}`}
-                                src={`${config.hotel.groupImage}${badges.badge_code}.gif`}
+                                src={`${config.hotel.badgeImage}${badges.badge_code}.gif`}
                             />
                         </div>
                     );
@@ -202,7 +202,7 @@ const Badge = ({ isLoadingUserData, badgesUsed, config }) => {
                         >
                             <img
                                 alt={`${badges.badge_code}`}
-                                src={`${config.hotel.groupImage}${badges.badge_code}.gif`}
+                                src={`${config.hotel.badgeImage}${badges.badge_code}.gif`}
                             />
                         </div>
                     );

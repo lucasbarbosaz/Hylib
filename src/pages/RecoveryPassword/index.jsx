@@ -46,7 +46,7 @@ const RecoveryPassword = () => {
                 })
                 .catch(error => console.log(error))
                 .finally();
-        }, [config.dev.timeout])
+        }, [config.dev[0].timeout])
     }, [])
 
     const handleSubmit = (e) => {
@@ -75,7 +75,7 @@ const RecoveryPassword = () => {
                 .finally(() => {
                     setLoading(false)
                 })
-        }, [config.dev.timeout])
+        }, [config.dev[0].timeout])
     }
 
     return (

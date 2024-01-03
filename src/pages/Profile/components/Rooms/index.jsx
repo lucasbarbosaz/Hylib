@@ -39,7 +39,7 @@ const Rooms = ({
                                     <h5>{room.roomName}</h5>
                                 </label>
                                 <Link
-                                    to={`/client/room/${room.roomId}`}
+                                    to={`/client/betav2/${room.roomId}`}
                                     target="_blank"
                                     className={`${config.cmsStyles.buttonsClass} disabled no-link margin-auto-left`}
                                     style={{ width: "80px", height: "30px" }}

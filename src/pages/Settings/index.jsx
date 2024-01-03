@@ -13,16 +13,17 @@ import { scrollToTop } from '../../utils/utils';
 import Footer from '../../components/Footer';
 
 const Settings = (props) => {
+
     const { config, user, setUser } = React.useContext(StoreContext);
-    const [page, setPage] = React.useState(
-        props.email ? 'email' : props.password ? 'password' : 'account'
-    );
+    const [page, setPage] = React.useState(props.email ? 'email' : (props.password ? 'password' : props.account ? 'account' : props.socialmedia ? 'socialmedia' : 'changetheme' ));
+
     const [alert, setAlert] = React.useState(null);
 
     const changePage = (newPage) => {
         setAlert(null);
         setPage(newPage);
     };
+
 
     const [originalUserSettings, setOriginalUserSettings] = React.useState(null);
     const [userSettings, setUserSettings] = React.useState(null);
@@ -32,9 +33,16 @@ const Settings = (props) => {
     const [newPassword, setNewPassword] = React.useState(null);
     const [newPasswordRepeated, setNewPasswordRepeated] = React.useState(null);
 
+    const [instagram, setInstagram] = React.useState("");
+    const [imgur, setImgur] = React.useState("");
+    const [vsco, setVsco] = React.useState("");
+    const [twitter, setTwitter] = React.useState("");
+    const [link, setLink] = React.useState("");
+
     const [isUpdatingAccount, setUpdatingAccount] = React.useState(false);
     const [isUpdatingEmail, setUpdatingEmail] = React.useState(false);
     const [isUpdatingPassword, setUpdatingPassword] = React.useState(false);
+    const [isUpdatingSocialMedia, setUpdatingSocialMedia] = React.useState(false);
 
     const [wto, setWto] = React.useState();
 
@@ -158,6 +166,41 @@ const Settings = (props) => {
                         setUpdatingPassword(false);
                     });
             }, 500);
+        } else if (page === "socialmedia") {
+            setUpdatingSocialMedia(true);
+
+
+            const instagramLink = instagram?.match(/^https?:\/\/(?:www\.)?instagram\.com\/([^/]+)/);
+            const instagramUser = instagramLink && instagramLink[1] ? instagramLink[1] : '';
+
+            const imgurAlbum = imgur?.match(/^https?:\/\/(?:www\.)?imgur\.com\/(?:a\/)?([^/]+)/);
+            const imgurUser = imgurAlbum && imgurAlbum[1] ? imgurAlbum[1] : '';
+
+            const vscoLink = vsco?.match(/^https?:\/\/vsco\.co\/([^\/]+)/);
+            const vscoUser = vscoLink && vscoLink[1] ? vscoLink[1] : '';;
+
+            const twitterLink = twitter?.match(/^https?:\/\/twitter\.com\/([^/]+)/);
+            const twitterUser = twitterLink && twitterLink[1] ? twitterLink[1] : '';;
+
+            Requests.settings.sendUpdateSocialMedia(instagramUser, imgurUser, vscoUser, twitterUser, link)
+                .then((response) => {
+                    let statusCode = response.data.status_code;
+                    let message = response.data.message;
+
+                    if (statusCode === 200) {
+                        sendAlert('success', message);
+                    } else {
+                        sendAlert('error', message);
+                    }
+
+
+                }).catch((error) => {
+                    console.log(error);
+                })
+                .finally(() => {
+                    setUpdatingSocialMedia(false);
+                });
+
         }
     };
 
@@ -176,7 +219,21 @@ const Settings = (props) => {
                     console.log(error);
                 })
                 .finally(() => { });
-        }, [config.dev.timeout]);
+        }, [config.dev[0].timeout]);
+
+        Requests.settings.getUserSocialMedia()
+            .then((response) => {
+                if (response.data) {
+                    setInstagram(response.data[0].instagram !== "" ? "https://instagram.com/" + response.data[0].instagram + "" : "");
+                    setImgur(response.data[0].imgur !== "" ? "https://imgur.com/a/" + response.data[0].imgur : "");
+                    setVsco(response.data[0].vsco !== "" ? "https://vsco.co/" + response.data[0].vsco + "/gallery" : "");
+                    setTwitter(response.data[0].twitter !== "" ? "https://twitter/" + response.data[0].twitter + "" : "");
+                    setLink(response.data[0].link);
+                }
+            }).catch((error) => {
+                console.log(error);
+            })
+            .finally(() => { });
     }, []);
 
     return (
@@ -250,9 +307,47 @@ const Settings = (props) => {
                                         </label>
                                     </Link>
                                 )}
+                                {
+                                    page === "socialmedia" ? (
+                                        <a className='general-box-menu-link no-link color-5 flex visited'>
+                                            <label className='pointer-none mr-auto-top-bottom'>
+                                                <h5 className='bold'>{i18n.t('settings.othersPreferences.socialMedia')}</h5>
+                                            </label>
+                                        </a>
+                                    ) : (
+                                        <Link
+                                            to='/settings/socialmedia'
+                                            className='general-box-menu-link no-link color-5 flex'
+                                            onClick={() => changePage('socialmedia')}
+                                        >
+                                            <label className='pointer-none mr-auto-top-bottom'>
+                                                <h5>{i18n.t('settings.othersPreferences.socialMedia')}</h5>
+                                            </label>
+                                        </Link>
+                                    )
+                                }
+                                {
+                                    page === "changetheme" ? (
+                                        <a className='general-box-menu-link no-link color-5 flex visited'>
+                                            <label className='pointer-none mr-auto-top-bottom'>
+                                                <h5 className='bold'>{i18n.t('settings.othersPreferences.changeTheme')}</h5>
+                                            </label>
+                                        </a>
+                                    ) : (
+                                        <Link
+                                            to='/settings/changetheme'
+                                            className='general-box-menu-link no-link color-5 flex'
+                                            onClick={() => changePage('changetheme')}
+                                        >
+                                            <label className='pointer-none mr-auto-top-bottom'>
+                                                <h5>{i18n.t('settings.othersPreferences.changeTheme')}</h5>
+                                            </label>
+                                        </Link>
+                                    )
+                                }
                             </div>
                         </div>
-                    </div>
+                    </div >
                     {page === 'account' && (
                         <div className='col-17 flex-column'>
                             <div className='general-box-3 flex-column pd-0 overflow-hidden'>
@@ -518,164 +613,326 @@ const Settings = (props) => {
                                 </form>
                             </div>
                         </div>
-                    )}
-                    {page === 'email' && (
-                        <div className='general-box-3 flex-column pd-0 overflow-hidden'>
-                            <div className='general-box-header flex'>
-                                <div className='general-box-header-icon flex'>
-                                    <icon name='gear' className='mr-auto'></icon>
-                                </div>
-                                <label className='flex-column color-4 mr-auto-top-bottom text-nowrap'>
-                                    <h4 className='bold text-nowrap'>{i18n.t('settings.email.title')}</h4>
-                                    <h6 className=' text-nowrap'>
-                                        {i18n.t('settings.email.smallText')}
-                                    </h6>
-                                </label>
-                            </div>
-                            <div className='general-box-content flex-column pd-3'>
-                                <label className='flex-column color-5 mr-bottom-3'>
-                                    <h5 className='bold uppercase mr-bottom-2'>
-                                        {i18n.t('settings.email.infos.title')}
-                                    </h5>
-                                    <h6 className='mr-bottom-1'>
-                                        {i18n.t('settings.email.infos.smallText')}
-                                    </h6>
-                                    <h6>
-                                        {i18n.t('settings.email.infos.smallText2')}
-                                    </h6>
-                                </label>
-                                <form
-                                    className='change-email-form flex-column'
-                                    onSubmit={handleSubmit}
-                                >
-                                    <div className='md-input mr-bottom-2'>
-                                        <label className='flex-column color-4 mr-bottom-1'>
-                                            <h5>{i18n.t('settings.email.emailInput.newMail')}</h5>
-                                        </label>
-                                        <input
-                                            type='text'
-                                            name='email'
-                                            value={email !== null ? email : ''}
-                                            placeholder={i18n.t('settings.email.emailInput.newMail')}
-                                            style={{ height: 'auto' }}
-                                            onChange={(e) => setEmail(e.target.value)}
-                                        />
-                                    </div>
-                                    <button
-                                        className={`${config.cmsStyles.buttonsClass}`}
-                                        type='submit'
-                                        disabled={isUpdatingEmail}
-                                        style={{ width: '100%', height: '47px' }}
-                                    >
-                                        <label className='mr-auto color-1'>
-                                            <h5 className='uppercase'>{i18n.t('settings.email.button')}</h5>
-                                        </label>
-                                    </button>
-                                </form>
-                            </div>
-                        </div>
-                    )}
-                    {page === 'password' && (
-                        <div className='col-17 flex-column'>
+                    )
+                    }
+                    {
+                        page === 'email' && (
                             <div className='general-box-3 flex-column pd-0 overflow-hidden'>
                                 <div className='general-box-header flex'>
                                     <div className='general-box-header-icon flex'>
                                         <icon name='gear' className='mr-auto'></icon>
                                     </div>
                                     <label className='flex-column color-4 mr-auto-top-bottom text-nowrap'>
-                                        <h4 className='bold text-nowrap'>{i18n.t('settings.password.title')}</h4>
+                                        <h4 className='bold text-nowrap'>{i18n.t('settings.email.title')}</h4>
                                         <h6 className=' text-nowrap'>
-                                            {i18n.t('settings.password.smallText')}
+                                            {i18n.t('settings.email.smallText')}
                                         </h6>
                                     </label>
                                 </div>
                                 <div className='general-box-content flex-column pd-3'>
                                     <label className='flex-column color-5 mr-bottom-3'>
                                         <h5 className='bold uppercase mr-bottom-2'>
-                                            {i18n.t('settings.password.infos.title')}
+                                            {i18n.t('settings.email.infos.title')}
                                         </h5>
                                         <h6 className='mr-bottom-1'>
-                                            {i18n.t('settings.password.infos.smallText')}
-                                        </h6>
-                                        <h6 className='mr-bottom-1'>
-                                            {i18n.t('settings.password.infos.smallText2')}
+                                            {i18n.t('settings.email.infos.smallText')}
                                         </h6>
                                         <h6>
-                                            {i18n.t('settings.password.infos.smallText3')}
+                                            {i18n.t('settings.email.infos.smallText2')}
                                         </h6>
                                     </label>
                                     <form
-                                        className='change-password-form flex-column'
+                                        className='change-email-form flex-column'
                                         onSubmit={handleSubmit}
                                     >
                                         <div className='md-input mr-bottom-2'>
                                             <label className='flex-column color-4 mr-bottom-1'>
-                                                <h5>{i18n.t('settings.password.passwordInput.currentPassword')}</h5>
+                                                <h5>{i18n.t('settings.email.emailInput.newMail')}</h5>
                                             </label>
                                             <input
-                                                type='password'
-                                                name='current-password'
-                                                placeholder={i18n.t('settings.password.passwordInput.placeholders.currentPassword')}
+                                                type='text'
+                                                name='email'
+                                                value={email !== null ? email : ''}
+                                                placeholder={i18n.t('settings.email.emailInput.newMail')}
                                                 style={{ height: 'auto' }}
-                                                value={oldPassword !== null ? oldPassword : ''}
-                                                onChange={(e) => setOldPassword(e.target.value)}
+                                                onChange={(e) => setEmail(e.target.value)}
                                             />
-                                            <div className='input-warns'></div>
-                                        </div>
-                                        <div className='md-input mr-bottom-2'>
-                                            <label className='flex-column color-4 mr-bottom-1'>
-                                                <h5>{i18n.t('settings.password.passwordInput.newPassword')}</h5>
-                                            </label>
-                                            <input
-                                                type='password'
-                                                name='new-password'
-                                                placeholder={i18n.t('settings.password.passwordInput.placeholders.newPassword')}
-                                                style={{ height: 'auto' }}
-                                                value={newPassword !== null ? newPassword : ''}
-                                                onChange={(e) => setNewPassword(e.target.value)}
-                                            />
-                                            <div className='input-warns'></div>
-                                        </div>
-                                        <div className='md-input mr-bottom-2'>
-                                            <label className='flex-column color-4 mr-bottom-1'>
-                                                <h5>{i18n.t('settings.password.passwordInput.repeatPassword')}</h5>
-                                            </label>
-                                            <input
-                                                type='password'
-                                                name='confirm-new-password'
-                                                placeholder={i18n.t('settings.password.passwordInput.placeholders.repeatPassword')}
-                                                style={{ height: 'auto' }}
-                                                value={
-                                                    newPasswordRepeated !== null
-                                                        ? newPasswordRepeated
-                                                        : ''
-                                                }
-                                                onChange={(e) =>
-                                                    setNewPasswordRepeated(e.target.value)
-                                                }
-                                            />
-                                            <div className='input-warns'></div>
                                         </div>
                                         <button
                                             className={`${config.cmsStyles.buttonsClass}`}
                                             type='submit'
+                                            disabled={isUpdatingEmail}
                                             style={{ width: '100%', height: '47px' }}
-                                            disabled={isUpdatingPassword}
                                         >
                                             <label className='mr-auto color-1'>
-                                                <h5 className='uppercase'>{i18n.t('settings.password.button')}</h5>
+                                                <h5 className='uppercase'>{i18n.t('settings.email.button')}</h5>
                                             </label>
                                         </button>
-                                        <div className='form-warns flex'></div>
                                     </form>
                                 </div>
                             </div>
-                        </div>
-                    )}
-                </div>
-                <Footer/>
-            </div>
-            
+                        )
+                    }
+                    {
+                        page === 'password' && (
+                            <div className='col-17 flex-column'>
+                                <div className='general-box-3 flex-column pd-0 overflow-hidden'>
+                                    <div className='general-box-header flex'>
+                                        <div className='general-box-header-icon flex'>
+                                            <icon name='gear' className='mr-auto'></icon>
+                                        </div>
+                                        <label className='flex-column color-4 mr-auto-top-bottom text-nowrap'>
+                                            <h4 className='bold text-nowrap'>{i18n.t('settings.password.title')}</h4>
+                                            <h6 className=' text-nowrap'>
+                                                {i18n.t('settings.password.smallText')}
+                                            </h6>
+                                        </label>
+                                    </div>
+                                    <div className='general-box-content flex-column pd-3'>
+                                        <label className='flex-column color-5 mr-bottom-3'>
+                                            <h5 className='bold uppercase mr-bottom-2'>
+                                                {i18n.t('settings.password.infos.title')}
+                                            </h5>
+                                            <h6 className='mr-bottom-1'>
+                                                {i18n.t('settings.password.infos.smallText')}
+                                            </h6>
+                                            <h6 className='mr-bottom-1'>
+                                                {i18n.t('settings.password.infos.smallText2')}
+                                            </h6>
+                                            <h6>
+                                                {i18n.t('settings.password.infos.smallText3')}
+                                            </h6>
+                                        </label>
+                                        <form
+                                            className='change-password-form flex-column'
+                                            onSubmit={handleSubmit}
+                                        >
+                                            <div className='md-input mr-bottom-2'>
+                                                <label className='flex-column color-4 mr-bottom-1'>
+                                                    <h5>{i18n.t('settings.password.passwordInput.currentPassword')}</h5>
+                                                </label>
+                                                <input
+                                                    type='password'
+                                                    name='current-password'
+                                                    placeholder={i18n.t('settings.password.passwordInput.placeholders.currentPassword')}
+                                                    style={{ height: 'auto' }}
+                                                    value={oldPassword !== null ? oldPassword : ''}
+                                                    onChange={(e) => setOldPassword(e.target.value)}
+                                                />
+                                                <div className='input-warns'></div>
+                                            </div>
+                                            <div className='md-input mr-bottom-2'>
+                                                <label className='flex-column color-4 mr-bottom-1'>
+                                                    <h5>{i18n.t('settings.password.passwordInput.newPassword')}</h5>
+                                                </label>
+                                                <input
+                                                    type='password'
+                                                    name='new-password'
+                                                    placeholder={i18n.t('settings.password.passwordInput.placeholders.newPassword')}
+                                                    style={{ height: 'auto' }}
+                                                    value={newPassword !== null ? newPassword : ''}
+                                                    onChange={(e) => setNewPassword(e.target.value)}
+                                                />
+                                                <div className='input-warns'></div>
+                                            </div>
+                                            <div className='md-input mr-bottom-2'>
+                                                <label className='flex-column color-4 mr-bottom-1'>
+                                                    <h5>{i18n.t('settings.password.passwordInput.repeatPassword')}</h5>
+                                                </label>
+                                                <input
+                                                    type='password'
+                                                    name='confirm-new-password'
+                                                    placeholder={i18n.t('settings.password.passwordInput.placeholders.repeatPassword')}
+                                                    style={{ height: 'auto' }}
+                                                    value={
+                                                        newPasswordRepeated !== null
+                                                            ? newPasswordRepeated
+                                                            : ''
+                                                    }
+                                                    onChange={(e) =>
+                                                        setNewPasswordRepeated(e.target.value)
+                                                    }
+                                                />
+                                                <div className='input-warns'></div>
+                                            </div>
+                                            <button
+                                                className={`${config.cmsStyles.buttonsClass}`}
+                                                type='submit'
+                                                style={{ width: '100%', height: '47px' }}
+                                                disabled={isUpdatingPassword}
+                                            >
+                                                <label className='mr-auto color-1'>
+                                                    <h5 className='uppercase'>{i18n.t('settings.password.button')}</h5>
+                                                </label>
+                                            </button>
+                                            <div className='form-warns flex'></div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        )
+                    }
+                    {
+                        page === "socialmedia" && (
+                            <div className='col-17 flex-column'>
+                                <div className='general-box-3 flex-column pd-0 overflow-hidden'>
+                                    <div className='general-box-header flex'>
+                                        <div className='general-box-header-icon flex'>
+                                            <icon name='friends-big' className='mr-auto'></icon>
+                                        </div>
+                                        <label className='flex-column color-4 mr-auto-top-bottom text-nowrap'>
+                                            <h4 className='bold text-nowrap'>{i18n.t('settings.socialMedia.title')}</h4>
+                                            <h6 className=' text-nowrap'>
+                                                {i18n.t('settings.socialMedia.smallText')}
+                                            </h6>
+                                        </label>
+                                    </div>
+                                    <div className='general-box-content flex-column pd-3'>
+
+                                        <form
+                                            className='change-password-form flex-column'
+                                            onSubmit={handleSubmit}
+                                        >
+                                            <div className='md-input mr-bottom-2'>
+                                                <label className='flex-column color-4 mr-bottom-1'>
+                                                    <h5>{i18n.t('settings.socialMedia.inputs.instagram')}</h5>
+                                                </label>
+                                                <input
+                                                    type='text'
+                                                    name='current-password'
+                                                    placeholder={i18n.t('settings.socialMedia.inputs.placeholders.instagram')}
+                                                    style={{ height: 'auto' }}
+                                                    value={instagram !== null ? instagram : ''}
+                                                    onChange={(e) => setInstagram(e.target.value)}
+                                                />
+                                                <div className='input-warns'></div>
+                                            </div>
+
+                                            <div className='md-input mr-bottom-2'>
+                                                <label className='flex-column color-4 mr-bottom-1'>
+                                                    <h5>{i18n.t('settings.socialMedia.inputs.imgur')}</h5>
+                                                </label>
+                                                <input
+                                                    type='text'
+                                                    name='current-password'
+                                                    placeholder={i18n.t('settings.socialMedia.inputs.placeholders.imgur')}
+                                                    style={{ height: 'auto' }}
+                                                    value={imgur !== null ? imgur : ''}
+                                                    onChange={(e) => setImgur(e.target.value)}
+                                                />
+                                                <div className='input-warns'></div>
+                                            </div>
+
+                                            <div className='md-input mr-bottom-2'>
+                                                <label className='flex-column color-4 mr-bottom-1'>
+                                                    <h5>{i18n.t('settings.socialMedia.inputs.vsco')}</h5>
+                                                </label>
+                                                <input
+                                                    type='text'
+                                                    name='current-password'
+                                                    placeholder={i18n.t('settings.socialMedia.inputs.placeholders.vsco')}
+                                                    style={{ height: 'auto' }}
+                                                    value={vsco !== null ? vsco : ''}
+                                                    onChange={(e) => setVsco(e.target.value)}
+                                                />
+                                                <div className='input-warns'></div>
+                                            </div>
+
+                                            <div className='md-input mr-bottom-2'>
+                                                <label className='flex-column color-4 mr-bottom-1'>
+                                                    <h5>{i18n.t('settings.socialMedia.inputs.twitter')}</h5>
+                                                </label>
+                                                <input
+                                                    type='text'
+                                                    name='current-password'
+                                                    placeholder={i18n.t('settings.socialMedia.inputs.placeholders.twitter')}
+                                                    style={{ height: 'auto' }}
+                                                    value={twitter !== null ? twitter : ''}
+                                                    onChange={(e) => setTwitter(e.target.value)}
+                                                />
+                                                <div className='input-warns'></div>
+                                            </div>
+
+                                            <div className='md-input mr-bottom-2'>
+                                                <label className='flex-column color-4 mr-bottom-1'>
+                                                    <h5>{i18n.t('settings.socialMedia.inputs.link')}</h5>
+                                                </label>
+                                                <input
+                                                    type='text'
+                                                    name='current-password'
+                                                    placeholder={i18n.t('settings.socialMedia.inputs.placeholders.link')}
+                                                    style={{ height: 'auto' }}
+                                                    value={link !== null ? link : ''}
+                                                    onChange={(e) => setLink(e.target.value)}
+                                                />
+                                                <div className='input-warns'></div>
+                                            </div>
+                                            <button
+                                                className={`${config.cmsStyles.buttonsClass}`}
+                                                type='submit'
+                                                style={{ width: '100%', height: '47px' }}
+                                                disabled={isUpdatingSocialMedia}
+                                            >
+                                                <label className='mr-auto color-1'>
+                                                    <h5 className='uppercase'>{i18n.t('settings.password.button')}</h5>
+                                                </label>
+                                            </button>
+                                            <div className='form-warns flex'></div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        )
+                    }
+                    {
+                        page === "changetheme" && (
+                            <div className='col-17 flex-column'>
+                                <div className='general-box-3 flex-column pd-0 overflow-hidden'>
+                                    <div className='general-box-header flex'>
+                                        <div className='general-box-header-icon flex'>
+                                            <icon name='friends-big' className='mr-auto'></icon>
+                                        </div>
+                                        <label className='flex-column color-4 mr-auto-top-bottom text-nowrap'>
+                                            <h4 className='bold text-nowrap'>{i18n.t('settings.socialMedia.title')}</h4>
+                                            <h6 className=' text-nowrap'>
+                                                {i18n.t('settings.socialMedia.smallText')}
+                                            </h6>
+                                        </label>
+                                    </div>
+                                    <div className='general-box-content flex-column pd-3'>
+
+                                        <form
+                                            className='change-password-form flex-column'
+                                            onSubmit={handleSubmit}
+                                        >
+                                            <li className='list-none flex padding-max gray'>
+                                                <label style={{}}>
+                                                    <h5 className='bold'>{i18n.t('settings.generalSettings.changeTheme.title')}</h5>
+                                                    <h5>{i18n.t('settings.generalSettings.changeTheme.smallText')}</h5>
+                                                </label>
+                                                <div
+                                                    className='margin-auto-left margin-auto-top-bottom'
+                                                    configurations
+                                                >
+                                                    <Switch
+                                                        checked={props.toggleState}
+                                                        onChange={props.toggleTheme}
+                                                        color="primary"
+                                                        name="toggleTheme"
+                                                    />
+                                                </div>
+                                            </li>
+                                            <div className='form-warns flex'></div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        )
+                    }
+                </div >
+                <Footer />
+            </div >
+
         </>
     );
 };

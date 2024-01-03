@@ -28,7 +28,7 @@ const CardProfile = ({
                         countFriends={countFriends}
                         config={config}
                     />
-                    <div className="flex">
+                    <div className="flex"   style={{ marginTop: "7px" }}>
                         <Infos isLoadingUserData={isLoadingUserData} userData={userData} config={config}/>
 
                         <BadgesUsed userData={userData} badgesUsed={badgesUsed} config={config} isLoadingUserData={isLoadingUserData}/>

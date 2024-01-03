@@ -1,5 +1,6 @@
 import 'react-app-polyfill/ie11';
 import 'react-app-polyfill/stable';
+import 'intl-pluralrules';
 
 import axios from 'axios';
 import React from 'react';

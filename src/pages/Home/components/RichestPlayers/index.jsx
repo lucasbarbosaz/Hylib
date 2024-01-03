@@ -22,7 +22,7 @@ const RichestPlayers = ({
                 <>
                     <div className="flex featured-user-credits">
                         <div className="featured-user-credits-imager">
-                            <img alt={`${richestUsers[0].username}`} src={`${config.hotel.avatarImage}?figure=${richestUsers[0].figure}`} />
+                            <img alt={`${richestUsers[0].username}`} src={`${config.hotel.avatarImage}?figure=${richestUsers[0].figure}`} className="fixed-imager-rich"/>
                         </div>
                         <label className="white margin-auto-top-bottom margin-auto-right padding-right-min">
                             <Link to={`/profile/${richestUsers[0].username}`} place={`Perfil: ${richestUsers[0].username} - ${config.hotel.name}`} className="no-link white">
@@ -37,7 +37,7 @@ const RichestPlayers = ({
 
                     <div className="flex featured-user-diamonds">
                         <div className="featured-user-diamonds-imager">
-                            <img alt={`${richestUsers[1].username}`} src={`${config.hotel.avatarImage}?figure=${richestUsers[1].figure}`} />
+                            <img alt={`${richestUsers[1].username}`} src={`${config.hotel.avatarImage}?figure=${richestUsers[1].figure}`} className="fixed-imager-rich"/>
                         </div>
                         <label className="white margin-auto-top-bottom margin-auto-right padding-right-min">
                             <Link to={`/profile/${richestUsers[1].username}`} place={`Perfil: ${richestUsers[1].username} - ${config.hotel.name}`} className="no-link white">
@@ -53,7 +53,7 @@ const RichestPlayers = ({
 
                     <div className="flex featured-user-duckets">
                         <div className="featured-user-duckets-imager">
-                            <img alt={`${richestUsers[2].username}`} src={`${config.hotel.avatarImage}?figure=${richestUsers[2].figure}`} />
+                            <img alt={`${richestUsers[2].username}`} src={`${config.hotel.avatarImage}?figure=${richestUsers[2].figure}`} className="fixed-imager-rich"/>
                         </div>
                         <label className="white margin-auto-top-bottom margin-auto-right padding-right-min">
                             <Link to={`/profile/${richestUsers[2].username}`} place={`Perfil: ${richestUsers[2].username} - ${config.hotel.name}`} className="no-link white">

@@ -1,7 +1,7 @@
 /* eslint-disable no-extend-native */
 import React from 'react';
 import Iframe from 'react-iframe';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import APIService from "../../../services/APIService";
 import Requests from '../../../services/Requests';
 import StoreContext from '../../../store/Context';
@@ -11,6 +11,8 @@ const Beta = () => {
     const history = useHistory();
     const [userId, setUserId] = React.useState(null);
     const [sso, setSSO] = React.useState("");
+
+    const { goto } = useParams();
 
     if (typeof String.prototype.replaceAll == "undefined") {
         String.prototype.replaceAll = function (match, replace) {
@@ -45,17 +47,28 @@ const Beta = () => {
     React.useEffect(() => {
         setTimeout(() => {
             sendToken();
-        }, config.dev.timeout);
+        }, config.dev[0].timeout);
     })
 
-    const url = (config.hotel.clients.betav2 + '?token=' + userId + '&sso=' + sso);
-    console.log(url)
-    return (
-        <Iframe
-            url={url}
-            className="client-iframe"
-        />
-    )
+    if (!goto) {
+        const url = (config.hotel.clients.betav2 + '?token=' + userId + '&sso=' + sso);
+        return (
+            <Iframe
+                url={url}
+                className="client-iframe"
+            />
+        )
+    } else {
+        const url = (config.hotel.clients.betav2 + '?token=' + userId + '&sso=' + sso + '&goto=' + goto);
+
+        return (
+            <Iframe
+                url={url}
+                className="client-iframe"
+            />
+        )
+    }
+
 }
 
 export default Beta;

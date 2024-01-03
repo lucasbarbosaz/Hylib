@@ -2,6 +2,7 @@
 .green-button-2,
 .gray-button-1,
 .purple-button-1,
+.pink-button-1,
 .blue-button-1 {
     position: relative;
     border-radius: 4px;
@@ -24,31 +25,55 @@
     margin: 5px;
 }
 
-/* BotÃ£o grande verde */
-
 .green-button-1::before {
-    background: linear-gradient(#d00b77 50%, transparent 50%);
+    background: linear-gradient(rgb(98, 196, 82) 50%, transparent 50%);
 }
 
 .green-button-1 {
-    background: #a6055d;
-    border: 1px solid #9d0558;
+    background: rgb(88, 176, 62);
+    border: 1px solid rgb(77, 152, 54);
 }
 
 .green-button-1:hover:before {
-    background: linear-gradient(#d90b7c 50%, transparent 50%);
+    background: linear-gradient(rgb(118, 203, 103) 50%, transparent 50%);
 }
 
 .green-button-1:hover {
-    background: rgb(180, 6, 101);
+    background: rgb(97, 190, 69);
     cursor: pointer;
 }
 
 .green-button-1:active:before {
-    background: linear-gradient(#d00b77 50%, transparent 50%);
+    background: linear-gradient(rgb(96, 193, 80) 50%, transparent 50%);
 }
 
 .green-button-1:active {
+    background: rgb(89, 179, 62);
+}
+
+.pink-button-1::before {
+    background: linear-gradient(#d00b77 50%, transparent 50%);
+}
+
+.pink-button-1 {
+    background: #a6055d;
+    border: 1px solid #9d0558;
+}
+
+.pink-button-1:hover:before {
+    background: linear-gradient(#d90b7c 50%, transparent 50%);
+}
+
+.pink-button-1:hover {
+    background: rgb(180, 6, 101);
+    cursor: pointer;
+}
+
+.pink-button-1:active:before {
+    background: linear-gradient(#d00b77 50%, transparent 50%);
+}
+
+.pink-button-1:active {
     background: rgb(166, 5, 93);
 }
 
@@ -132,6 +157,7 @@
 }
 
 /* BotÃ£o azul */
+
 
 .blue-button-1::before {
     background: linear-gradient(rgb(86, 145, 192) 50%, transparent 50%);

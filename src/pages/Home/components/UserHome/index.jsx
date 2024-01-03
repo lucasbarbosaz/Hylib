@@ -1,5 +1,3 @@
-import React from "react";
-
 const UserHome = ({
     isUserDataLoading,
     user,
@@ -27,12 +25,12 @@ const UserHome = ({
                 !isUserDataLoading &&
                 <>
                     <div className="display-myhabbo-imager">
-                        <img alt={`${user.username} - ${config.hotel.name}`} src={`${config.hotel.avatarImage}?figure=${user.figure}`} />
+                        <img alt={`${user.username} - ${config.hotel.name}`} src={`${config.hotel.avatarImage}?figure=${user.figure}&gesture=sml`}  />
                     </div>
-                    <label className="white margin-auto-top-bottom margin-left-min">
+                    <div className="display-myhabbo-texts">
                         <h3 className="bold">{user.username}</h3>
                         <h6>{user.motto}</h6>
-                    </label>
+                    </div>
                     <div className="margin-auto-left margin-right-md">
                         {getClientButtons()}
                     </div>

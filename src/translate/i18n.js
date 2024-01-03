@@ -8,6 +8,9 @@ i18n
     .use(LanguageDetector)
     .init({
         debug: false,
+        interpolation: {
+            escapeValue: false, // Permitir tags HTML nas mensagens
+        },
         defaultNS: ['translations'], //default ns
         fallbackLng: 'en', //default language
         ns: ['translations'],

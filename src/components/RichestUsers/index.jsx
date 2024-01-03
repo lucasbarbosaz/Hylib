@@ -7,8 +7,6 @@ const RichestUsers = (props) => {
 
     const { username, avatar, label, amount, key, ...rest } = props;
 
-    console.log(username)
-
     return (
         <>
             <div className="flex featured-user-credits" key={key}>
