@@ -43,7 +43,7 @@ const Flash = () => {
     React.useEffect(() => {
         setTimeout(() => {
             sendToken();
-        }, config.dev.timeout);
+        }, config.dev[0].timeout);
     })
 
     const enable60fps = window.location.pathname.endsWith('60') || window.location.pathname.endsWith('60/');

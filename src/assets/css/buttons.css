@@ -158,6 +158,7 @@
 
 /* BotÃ£o azul */
 
+
 .blue-button-1::before {
     background: linear-gradient(rgb(86, 145, 192) 50%, transparent 50%);
 }

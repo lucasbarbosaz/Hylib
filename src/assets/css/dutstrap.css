@@ -360,6 +360,10 @@
 	object-fit: cover;
 }
 
+.justify-content-around {
+	justify-content: space-around!important;
+}
+
 .img-full-right {
 	position: absolute;
 	width: 100%;
@@ -413,14 +417,6 @@ li.list-none:before {
 
 .color-3 {
 	color: #888;
-}
-
-.color-4 {
-    color: #656565;
-}
-
-.color-5 {
-	color: #989898;
 }
 
 .color-6 {

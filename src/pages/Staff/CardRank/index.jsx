@@ -5,7 +5,7 @@ import { i18n } from "../../../translate/i18n";
 
 const CardRank = ({ rankName, rankDescription, players, badge }) => {
     const { config } = useContext(StoreContext);
-
+    
     return (
         <div className='general-box-3 flex-column padding-none margin-bottom-min overflow-hidden'>
             <div className='general-box-header flex'>
@@ -30,6 +30,7 @@ const CardRank = ({ rankName, rankDescription, players, badge }) => {
                                     <img
                                         alt='miniatura user'
                                         src={`${config.hotel.avatarImage}?figure=${player.figure}&headonly=0&size=n&gesture=sml&direction=2&head_direction=3&action=wav`}
+                                        className="fixed-imager-rank"
                                     />
                                 </div>
                                 <label className='flex-column color-4 margin-auto-top-bottom margin-right-min'>

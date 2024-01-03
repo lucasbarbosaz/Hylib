@@ -1,0 +1,124 @@
+{
+    "apiUrl": "http://localhost:3333",
+    "hotel": {
+        "url": "https://lella.com.br",
+        "name": "Habbinfo",
+        "sprite": "http://localhost/cdn/assets/img/sprite.png",
+        "avatarImage": "https://imager.lella.com.br",
+        "groupImage": "https://lella.com.br/habbo-imaging/badge.php?badge=",
+        "badgeImage": "https://lella.com.br/swf/c_images/album1584/",
+        "clients": {
+            "betaUrl": "http://localhost/clients/beta.php",
+            "betav2": "http://localhost/clients/betav2.php",
+            "flashUrl": "http://localhost/clients/flash.php"
+        },
+        "txtHome": "Olá, o Lella inteiro está esperando por você! Ficamos felizes em saber que você está por aqui! O que tá esperando para entrar? Venha se divertir conosco! Temos várias atividades e uma equipe disposta a te ajudar no que for preciso! - Laxus",
+        "socialmedia": {
+            "facebook": "https://facebook.com/equipecrazzy",
+            "discord": "https://discord.gg/lella",
+            "instagram": "https://instagram.com/lellabrpt",
+            "twitter": "https://twitter.com/RedeLella"
+        },
+        "shop": {
+            "diamondIcon": "https://lella.com.br/website_assets/img/diamonds.png",
+            "ducketsIcon": "https://lella.com.br/website_assets/img/_duckets2.png",
+            "starsIcon": "https://lella.com.br/website_assets/img/star.png"
+        },
+        "downloads": {
+            "image": "https://www.habbobites.com/uploads/1567fb58ce57xc_xjkjn29js.png",
+            "LellaSetupWindows": "https://lella.com.br/downloads/LellaSetup-1.1.0.exe",
+            "LellaSetupMac": "https://lella.com.br/downloads/LellaSetup-1.1.0.dmg"
+        },
+        "form": {
+            "title": "Vagas para STAFF",
+            "link": "#"
+        }
+    },
+
+    "currentYear": 2023,
+
+    "cmsStyles": {
+        "logoStyles": {
+            "logoUrl": "https://i.imgur.com/nIt53vs.png",
+            "logoWidth": "225px",
+            "logoHeight": "86px"
+        },
+        "buttonsClass": "purple-button-1",
+        "cardLoginHex": "rgb(104, 60, 136)",
+        "errorHex": "#c78144",
+        "errorHexBold": "#a16937",
+
+        "backgroundIndex": "https://i.imgur.com/N4nlEpe.png",
+        "backgroundUrl": "https://i.imgur.com/13St4Nt.png",
+        "cardHomeImage": "https://i.imgur.com/6FyTojx.png",
+        "backgroundHex": "#5a268b",
+        "hallImage": "https://lella.com.br/website_assets/img/OpABlqg.png?v2",
+
+        "eventBox": "linear-gradient(to right, rgb(104 60 136) 51%, rgba(0, 0, 0, 0)), url(https://i.imgur.com/Uxtss5o.png) right center no-repeat"
+    },
+
+    "newsSubmenu": [
+        {
+            "title": "Promoções Ativas",
+            "newsId": 230
+        },
+        {
+            "title": "Colunas Ativas",
+            "newsId": 233
+        },
+        {
+            "title": "Premiação em Eventos",
+            "newsId": 229
+        },
+        {
+            "title": "Premiação em Promoções",
+            "newsId": 240
+        }
+    ],
+
+    "hCaptchaSiteKey": "d42b287b-efdd-4662-9a1a-05f33c8b3f35",
+
+    "tabsStaff": [
+        {
+            "title": "Colaboração",
+            "link": "colab",
+            "active": true
+        },
+        {
+            "title": "Rádio",
+            "link": "radio",
+            "active": true
+        },
+        {
+            "title": "Creators",
+            "link": "creators",
+            "active": false
+        }
+    ],
+
+    "linksFooter": [
+        {
+            "name": "habboway",
+            "link": "/habbo-way",
+            "samePage": false
+        },
+        {
+            "name": "statusServer",
+            "link": "stats.uptimerobot.com/mWg80c1Kq1",
+            "samePage": true
+        }
+    ],
+
+    "dev": [
+        {
+            "name": "Laxus",
+            "contact": "220#0001",
+            "timeout": 0
+        },
+        {
+            "name": "Ron",
+            "contact": "ron8414",
+            "timeout": 0
+        }
+    ]
+}

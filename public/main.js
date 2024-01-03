@@ -91,7 +91,9 @@ $(document).on('click', '.header-menu.dropdown > label', function(e) {
 		$(this).parent().siblings().removeClass('active');
 	}
 }).on('click', function(e) {
-	if (!e.target.matches('.header-menu.dropdown > .dropbtn')) {
+	const isMobile = window.screen.width <= 480;
+
+	if (!e.target.matches('.header-menu.dropdown > .dropbtn') && !isMobile) {
 		var dropmenu = $('.header-menu.dropdown'),
 		dropdown = dropmenu.find('.dropdown-content');
 

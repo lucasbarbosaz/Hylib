@@ -38,7 +38,7 @@ const CardRecover = ({ isLoggingIn, setCurrentTab, setAlert }) => {
                 .finally(() => {
                     setLoading(false);
                 })
-        }, [config.dev.timeout]);
+        }, [config.dev[0].timeout]);
     };
 
     const changeTab = (e) => {

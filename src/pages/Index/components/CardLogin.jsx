@@ -112,7 +112,7 @@ const CardLogin = ({setLoggingIn, isLoggingIn, timeout, setCurrentTab, setAlert}
                     style={{
                         background: `url(${
                             figure ? figure : ghostAvatar
-                        }) 0px 0px / auto no-repeat scroll`,
+                        }) -3px -17px / auto no-repeat scroll`,
                     }}
                 ></div>
                 <input

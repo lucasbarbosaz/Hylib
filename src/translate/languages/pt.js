@@ -13,7 +13,9 @@ const messages = {
                     community: {
                         title: 'Comunidade',
                         halloffame: 'Hall da Fama',
-                        staff: 'Equipe'
+                        staff: 'Equipe',
+                        photos: 'Fotos',
+                        vips: 'Vips',
                     },
                     shop: 'Loja',
                     housekeeping: 'Painel de controle'
@@ -140,6 +142,19 @@ const messages = {
                     smallText: 'Opps.. por enquanto não adicionamos um evento.',
                 },
 
+                friendsOnline: {
+                    title: 'Amigos Online',
+                    smallText: 'Você tem {{countMessage}} clique ao lado para visualizá-los.',
+                    connectedFriendsPluralMessage: 'amigos conectados',
+                    connectedFriendsSingularMessage: 'amigo conectado',
+                    button: 'Ver amigos',
+                },
+
+                friendsOffline: {
+                    title: 'Amigos Online',
+                    smallText: 'Opps.. parece que você não tem nenhum <strong>amigo online</strong> no momento, tente adicionar novas pessoas no hotel.',
+                },
+
 
                 activitys: {
                     title: 'Nenhuma atividade no momento',
@@ -175,6 +190,7 @@ const messages = {
                 socialNetworks: {
                     title: 'Mais acessibilidade para você!',
 
+                    facebook: 'Curta nossa página',
                     instagram: 'Página no instagram',
                     twitter: 'Siga-nos no twitter',
                     discord: 'Servidor no discord'
@@ -197,6 +213,7 @@ const messages = {
                     offline: 'Desconectado',
 
                     isOwner: 'Dono e desenvolvedor',
+                    isDev: 'Lindo e desenvolvedor',
                     friendText: 'amigos',
 
                     registeredIn: 'Entrou em',
@@ -216,11 +233,21 @@ const messages = {
                     title: 'Recados de {{username}}',
                     smallText: 'Os recados que amigos de {{username}} deixaram aqui!',
 
+                    placeholder: 'Envie seu recado para {{username}}.',
+
+                    iNotHaveErrands: 'Parece que você não tem recados.',
+                    notHaveErrands: 'Seja o primeiro a enviar um recado, pois {{username}} não possui recados.',
+
+                    sendErrand: 'Enviar mensagem para <b>{{username}}</b>',
+                    sendErrandMyself: 'Você não pode deixar uma mensagem para você, mas aqui estão as mensagens que seus amigos deixam para você! Se alguma mensagem contiver algo ofensivo ou que não lhe agrade, denuncie a pessoa que deixou a mensagem para a nossa equipe. Reserve algum tempo para ler nosso termos e condições para evitar punições.',
+
+                    sendErrandAreaNotFriends: '<h5><b>Você</b> e <b>{{username}}</b> precisam ser amigos para poder trocar recados!</h5>',
+
                     errandsBox: {
                         title: 'Parece que {{username}} não tem recados!',
                         smallText: 'Você não pode deixar um recado por enquanto, mas aqui estão os recados que seus amigos deixaram para você! Se algum recado contiver algo ofensivo ou que você não goste, você pode excluí-lo ou, em casos mais graves, denunciar a pessoa que deixou um recado para nossa equipe.',
 
-                        habboway: 'Por favor, dedique um tempo para ler nossos <a className="bold">termos e condições</a> para evitar penalidades.'
+                        habboway: 'Por favor, dedique um tempo para ler nossos <a className="bold" href="/habbo-way">termos e condições</a> para evitar penalidades.'
                     }
                 },
 
@@ -244,6 +271,8 @@ const messages = {
                     generalPreferences: 'Preferências geral',
                     myMail: 'Meu email',
                     myPassword: 'Minha senha',
+                    socialMedia: "Redes sociais",
+                    changeTheme: 'Alterar tema'
                 },
 
                 generalSettings: {
@@ -278,7 +307,7 @@ const messages = {
                     },
 
                     followMe: {
-                        title: 'Te segui',
+                        title: 'Te seguir',
                         smallText: 'Permitir que outros usuários possam te seguir? (comando :follow)'
                     },
 
@@ -306,6 +335,11 @@ const messages = {
                             everyone: 'Todos',
                             nobody: 'Ninguém'
                         }
+                    },
+
+                    changeTheme: {
+                        title: 'Alterar tema',
+                        smallText: 'Altere para o modo escuro do site.'
                     },
 
                     button: 'Salvar alterações',
@@ -356,6 +390,27 @@ const messages = {
 
                     button: 'Concluir',
                     success: 'Senha alterada com sucesso!'
+                },
+
+                socialMedia: {
+                    title: "Redes sociais",
+                    smallText: 'Aqui você pode alterar suas redes sociais.',
+
+                    inputs: {
+                        instagram: "Usuário do Instagram",
+                        imgur: "ID do Imgur",
+                        vsco: "Usuário do Vsco",
+                        twitter: "Usuário do twitter",
+                        link: "Link aléatorio",
+
+                        placeholders: {
+                            instagram: "https://instagram/redelella",
+                            imgur: "https://imgur.com/a/R3h8vll",
+                            vsco: "https://vsco.co/username/gallery",
+                            twitter: "https://twitter/habbinfo",
+                            link: "Link desejado"
+                        }
+                    }
                 }
 
 
@@ -444,7 +499,9 @@ const messages = {
                 pages: {
                     staff: 'Equipe',
                     gea: 'Gamers em Ação',
-                    colab: 'Colaboração'
+                    colab: 'Colaboração',
+                    radio: 'Rádio',
+                    creators: 'Creators',
                 },
 
                 defaultMotto: 'Faço parte da equipe do {{hotelName}}!',
@@ -454,10 +511,24 @@ const messages = {
                 }
             },
 
+            photos: {
+                pages: {
+                    communityPhotos: {
+                        title: 'Fotos da comunidade',
+                        smallText: 'Dê uma olhada em alguns dos grandes momentos capturados por nossa comunidade.',
+                    },
+                    yourPhotos: {
+                        title: 'Suas fotos',
+                        smallText: 'Aqui estão os seus grandes momentos capturados por você.',
+                    }
+                },
+                title: 'Últimas Fotos',
+            },
+
             shop: {
                 pages: {
                     vip: 'VIP',
-                    stars: 'Stars',
+                    stars: 'Estrela Guia',
                     diamonds: 'Diamantes',
                     duckets: 'Duckets'
                 },
@@ -472,8 +543,10 @@ const messages = {
             },
 
             footer: {
-                text: "<b>{{hotelName}}</b> 2009 - {{currentDate}} © Todos os direitos reservados.",
+                text: "<b>{{hotelName}}</b> 2009 - {{currentDate}}. Astro Server © Todos os direitos reservados.",
                 text2: "Desenvolvido por",
+                habboway: "{{hotelName}} Etiqueta",
+                statusServer: "Status",
 
                 publicity: {
                     title: 'Publicidade de terceiros',

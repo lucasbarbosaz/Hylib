@@ -11,6 +11,7 @@ const Tab = ({ ranks }) => {
                                 rankName={rank.name}
                                 rankDescription={rank.function}
                                 players={rank.players}
+                                badge={rank.badge}
                             />
                         );
                     })}

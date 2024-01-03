@@ -13,7 +13,9 @@ const messages = {
                     community: {
                         title: 'Comunidad',
                         halloffame: 'Salón de la Fama',
-                        staff: 'Equipo'
+                        staff: 'Equipo',
+                        photos: 'Fotos',
+                        vips: 'Vips',
                     },
                     shop: 'Tienda',
                     housekeeping: 'Panel de control'
@@ -141,6 +143,18 @@ const messages = {
                     smallText: 'Opps... aún no hemos agregado un evento.',
                 },
 
+                friendsOnline: {
+                    title: 'Amigos en línea',
+                    smallText: 'Tienes {{countMessage}} clic al lado para verlos.',
+                    connectedFriendsPluralMessage: 'amigos conectados',
+                    connectedFriendsSingularMessage: 'amigo conectado',
+                    button: 'Ver amigos',
+                },
+
+                friendsOffline: {
+                    title: 'Amigos en línea',
+                    smallText: 'Opps... parece que no tienes amigos en línea en este momento, intenta agregar nuevas personas en el hotel.',
+                },
 
                 activitys: {
                     title: 'Sin actividad por el momento',
@@ -176,6 +190,7 @@ const messages = {
                 socialNetworks: {
                     title: '¡Más accesibilidad para ti!',
 
+                    facebook: 'Califica nuestra pagina',
                     instagram: 'Página en Instagram',
                     twitter: 'Síganos en Twitter',
                     discord: 'Servidor en Discord'
@@ -198,6 +213,7 @@ const messages = {
                     offline: 'Offline',
 
                     isOwner: 'Propietario y desarrollador',
+                    isDev: 'Hermoso y desarrollador',
                     friendText: 'amigos',
 
                     registeredIn: 'Registrado en',
@@ -214,14 +230,24 @@ const messages = {
                 },
 
                 errands: {
-                    title: 'Mensajes de {{username}}',
-                    smallText: '¡Los mensajes que los amigos de {{username}} dejaron aquí!',
+                    title: 'Recados de {{username}}',
+                    smallText: 'Los mensajes que dejaron amigos de {{username}} aquí.',
+
+                    placeholder: 'Envía tu mensaje a {{username}}.',
+
+                    iNotHaveErrands: 'Parece que no tienes mensajes.',
+                    notHaveErrands: 'Sé el primero en enviar un mensaje, ya que {{username}} no tiene mensajes.',
+
+                    sendErrand: 'Enviar mensaje a <b>{{username}}</b>',
+                    sendErrandMyself: 'No puedes dejar un mensaje para ti, ¡pero aquí están los mensajes que tus amigos te han dejado! Si algún mensaje contiene algo ofensivo o que no te gusta, denuncia a la persona que dejó el mensaje a nuestro equipo. Tómate un tiempo para leer nuestros términos y condiciones para evitar sanciones.',
+
+                    sendErrandAreaNotFriends: '<h5><b>Tú</b> y <b>{{username}}</b> necesitan ser amigos para intercambiar mensajes.</h5>',
 
                     errandsBox: {
-                        title: '¡Parece que {{username}} no tiene mensajes!',
-                        smallText: 'Por ahora no puedes dejar mensajes, ¡pero aquí están los mensajes que tus amigos te dejaron! Si algún mensaje contiene algo ofensivo o que no te gusta, puedes eliminarlo o, en casos más graves, informar al equipo de nuestro sitio web sobre la persona que dejó el mensaje.',
+                        title: 'Parece que {{username}} no tiene mensajes.',
+                        smallText: 'No puedes dejar un mensaje por ahora, ¡pero aquí están los mensajes que tus amigos te han dejado! Si algún mensaje contiene algo ofensivo o que no te gusta, puedes eliminarlo o, en casos más graves, denunciar a la persona que dejó un mensaje a nuestro equipo.',
 
-                        habboway: 'Por favor, tómate un momento para leer nuestros <a className="bold">términos y condiciones</a> para evitar penalizaciones.'
+                        habboway: 'Por favor, dedica un tiempo para leer nuestros <a className="bold" href="/habbo-way">términos y condiciones</a> para evitar penalizaciones.'
                     }
                 },
 
@@ -246,6 +272,7 @@ const messages = {
                     generalPreferences: 'Preferencias generales',
                     myMail: 'Mi email',
                     myPassword: 'Mi contraseña',
+                    changeTheme: 'Alterar tema'
                 },
 
                 generalSettings: {
@@ -308,6 +335,11 @@ const messages = {
                             everyone: 'Todos',
                             nobody: 'Nadie'
                         }
+                    },
+
+                    changeTheme: {
+                        title: 'Cambiar tema',
+                        smallText: 'Cambie al modo oscuro del sitio.'
                     },
 
                     button: 'Guardar cambios',
@@ -444,13 +476,29 @@ const messages = {
                 pages: {
                     staff: 'Equipo',
                     gea: 'Gamers en Acción',
-                    colab: 'Colaboración'
+                    colab: 'Colaboración',
+                    radio: 'Radio',
+                    creators: 'Creators',
                 },
 
                 defaultMotto: '¡Formo parte del equipo de {{hotelName}}!',
                 noStaff: {
                     title: '¡OH BOBBA?!',
                     smallText: '¡Parece que nadie está ocupando este cargo actualmente! Pero estad atentos a nuevas oportunidades, quién sabe, quizás podrías ocupar este puesto.'
+                }
+            },
+
+            photos: {
+                pages: {
+                    communityPhotos: 'Fotos de la comunidad',
+                    yourPhotos: 'Tus fotos'
+                },
+                title: 'Últimas Fotos',
+                communityPhotos: {
+                    smallText: 'Echa un vistazo a algunos de los grandes momentos capturados por nuestra comunidad.',
+                },
+                yourPhotos: {
+                    smallText: 'Aquí están tus grandes momentos capturados por ti.',
                 }
             },
 
@@ -473,6 +521,8 @@ const messages = {
             footer: {
                 text: "<b>{{hotelName}}</b> 2009 - {{currentDate}} © Todos los derechos reservados.",
                 text2: "Desarrollado por",
+                habboway: "HabboWay",
+                statusServer: "Status",
 
                 publicity: {
                     title: 'Publicidad de terceros',

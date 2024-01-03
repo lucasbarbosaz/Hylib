@@ -43,12 +43,14 @@ const Profile = () => {
     const [myBadges, setAllBadges] = useState([]);
     const [rooms, setRooms] = useState([]);
     const [groups, setGroups] = useState([]);
+    const [errands, setErrands] = useState([]);
 
     const [isLoadingUserData, setIsLoadingUserData] = useState(true);
     const [isLoadingBadgesUsed, setIsLoadingBadgesUsed] = useState(true);
     const [isLoadingMyBadges, setIsLoadingMyBadges] = useState(true);
     const [isLoadingRooms, setIsLoadingRooms] = useState(true);
     const [isLoadingGroups, setIsLoadingGroups] = useState(true);
+    const [isLoadingErrands, setIsLoadingErrands] = useState(true);
     const [usernameSearch, setUsernameSearch] = useState('');
     const [showMsgError, setShowMsgError] = useState(false);
 
@@ -56,7 +58,6 @@ const Profile = () => {
         Requests.profile
             .getPlayerData(users)
             .then((response) => {
-                console.log(response);
                 if (response.data.status_code) {
                     let statusCode = response.data.status_code;
 
@@ -173,30 +174,53 @@ const Profile = () => {
             });
     };
 
+    const getErrands = (user) => {
+        Requests.profile
+        .getErrands(user)
+        .then((response) => {
+            if (response.data.status_code) {
+                let statusCode = response.data.status_code;
+
+                if (statusCode === 401) {
+                    return;
+                }
+            } else {
+                setErrands(response?.data);
+            }
+        })
+        .finally(() => {
+            setIsLoadingErrands(false);
+        });
+    }
+
     useEffect(() => {
         setTimeout(() => {
             getPlayerData(username);
-        }, config.dev.timeout);
+        }, config.dev[0].timeout);
 
         setTimeout(() => {
             getDataCount(username);
-        }, config.dev.timeout);
+        }, config.dev[0].timeout);
 
         setTimeout(() => {
             getBadgesUsed(username);
-        }, config.dev.timeout);
+        }, config.dev[0].timeout);
 
         setTimeout(() => {
             getAllBadges(username);
-        }, config.dev.timeout);
+        }, config.dev[0].timeout);
 
         setTimeout(() => {
             getRooms(username);
-        }, config.dev.timeout);
+        }, config.dev[0].timeout);
 
         setTimeout(() => {
             getGroups(username);
-        }, config.dev.timeout);
+        }, config.dev[0].timeout);
+
+        setTimeout(() => {
+            getErrands(username);
+        }, config.dev[0].timeout);
     }, []);
 
     const checkUsernameExist = async (username) => {
@@ -264,6 +288,11 @@ const Profile = () => {
                             <MessagesReceived
                                 isLoadingUserData={isLoadingUserData}
                                 userData={userData}
+                                myUser={user}
+                                config={config}
+                                getErrands={getErrands}
+                                errands={errands}
+                                
                             />
                         </div>
                         <div className='flex-column'>

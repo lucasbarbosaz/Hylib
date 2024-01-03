@@ -1,4 +1,7 @@
 import React from "react";
+import StoreContext from "../../../../store/Context";
+
+
 
 const FeaturedGroups = ({
     isGroupLoading,
@@ -6,6 +9,9 @@ const FeaturedGroups = ({
     featuredGroups,
     membersText,
 }) => {
+
+    const { config } = React.useContext(StoreContext);
+
     return (
         <>
             <div className="featured-groups flex-column">
@@ -19,7 +25,7 @@ const FeaturedGroups = ({
                         return (
                             <div className="featured-groups-item flex" key={index}>
                                 <div className="featured-groups-badge mr-right-1 flex">
-                                    <img src={`https://habbo.city/habbo-imaging/badge/${groupData.badge}`} className="float-left mr-auto" />
+                                    <img src={`${config.hotel.groupImage}${groupData.badge}`} className="float-left mr-auto" />
                                 </div>
                                 <label className="color-4 text-nowrap mr-auto-top-bottom">
                                     <h5 className="bold text-nowrap">{groupData.name}</h5>
