@@ -157,6 +157,23 @@ const Register = () => {
     setToken(token);
     setUser(user);
 
+    var users = JSON.parse(localStorage.getItem("users")) || [];
+
+    var currentUser = {
+      user: user,
+      token: token,
+    };
+
+    let userIndex = users.findIndex((item) => item.user.id === user.id);
+
+    if (userIndex === -1) {
+      users.push(currentUser);
+    } else {
+      users[userIndex] = currentUser;
+    }
+
+    localStorage.setItem("users", JSON.stringify(users));
+
     history.push("/client/betav2");
   };
 

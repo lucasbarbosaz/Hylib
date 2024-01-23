@@ -27,6 +27,7 @@ const messages = {
                 login: {
                     title: "Área de inicio de sesión",
                     smallText: "¡Inicia sesión para jugar con nosotras!",
+                    smallTextReduced: "¡Inicie sesión para agregar una cuenta!",
 
                     placeholders: {
                         loginInput: "Nombre de usuario...",

@@ -7,7 +7,7 @@ import StoreContext from "../../../store/Context";
 import React from 'react';
 
 //vips QRCODE
-import supervip from "../../../assets/img/pagamentos/vip/15reais.png";
+import supervip from "../../../assets/img/pagamentos/vip/supervip.png";
 
 //diamantes QRCODE
 import coins_diamond_new1 from "../../../assets/img/pagamentos/diamante/160reais.png";

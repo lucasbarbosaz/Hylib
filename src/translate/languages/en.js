@@ -27,6 +27,7 @@ const messages = {
                 login: {
                     title: 'Login Area',
                     smallText: 'Login to play with us!',
+                    smallTextReduced: "Log in to add account!",
 
                     forgetPassword: 'I forgot my password',
 

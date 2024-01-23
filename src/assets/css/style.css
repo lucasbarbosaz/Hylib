@@ -563,12 +563,12 @@ label[role="placeholder"] {
 }
 
 img.habbo-imager {
-    position: relative;
-    object-position: center 10px;
-    object-fit: none;
-    top: -25px;
-    height: 110px;
-    width: 100px;
+  position: relative;
+  object-position: center 10px;
+  object-fit: none;
+  top: -25px;
+  height: 110px;
+  width: 100px;
 }
 
 .general-box.register-announcement {
@@ -1149,7 +1149,131 @@ li.header-menu:last-child {
 
 @media screen and (max-width: 480px) {
   .display-myhabbo-texts {
-    right: 105px;
+    right: 18vw;
+  }
+  .display-myhabbo-imager img {
+    left: -20px;
+  }
+}
+
+.dropbtn.visited {
+  svg {
+    fill: rgb(129, 74, 168);
+  }
+}
+
+.quick-actions {
+  margin-top: 5px;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.quick-actions div {
+  margin: 0 5px;
+  border-radius: 7px;
+  padding: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-color: #323232;
+}
+
+.quick-actions:hover div {
+  background-color: #4d4d4d;
+  color: white;
+}
+
+.btn-change-accounts {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-change-accounts svg {
+  fill: rgb(129, 74, 168);
+  width: 25px;
+}
+
+.btn-change-accounts:hover svg {
+  fill: rgb(255, 255, 255);
+}
+
+.btn-change-accounts div {
+  margin: 0 5px 0 1px;
+  color: rgb(129, 74, 168);
+}
+
+.alert-login-ingame .errors-top {
+  position: relative;
+}
+
+.btn-select-user {
+  width: 25vw;
+  height: 40px;
+  left: -1px;
+  font-size: 13px;
+}
+
+.btn-select-user-disabled {
+  width: 25vw;
+  height: 40px;
+  left: -1px;
+  font-size: 13px;
+  background: #323232;
+  color: #a1a1a1;
+  cursor: not-allowed;
+}
+
+.btn-select-user-disabled::before {
+  background: linear-gradient(#323232 50%, transparent 50%);
+}
+
+.btn-select-user-disabled:hover {
+  background: #323232;
+  color: #a1a1a1;
+  cursor: not-allowed;
+}
+
+.btn-select-user-disabled:hover::before {
+  background: linear-gradient(#323232 50%, transparent 50%);
+}
+
+.account-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #e5e5e5bd;
+  border-radius: 10px;
+  padding: 0px 1%;
+  margin: 10px 0;
+}
+
+.account-card-infos img {
+  left: -10%;
+}
+
+.account-card-infos {
+  display: flex;
+  align-items: center;
+  max-width: 35vw;
+}
+
+.account-card-infos div {
+  color: black;
+  left: -20%;
+}
+
+.accounts-body-modal {
+  max-height: 80vh;
+}
+
+@media screen and (max-width: 480px) {
+  .account-card-infos img {
+    left: -20%;
+  }
+  .account-card-infos div {
+    left: -30%;
   }
 }
 

@@ -27,6 +27,7 @@ const messages = {
                 login: {
                     title: "Área de login",
                     smallText: "Faça login para jogar conosco!",
+                    smallTextReduced: "Faça login para adicionar a conta!",
 
                     forgetPassword: 'Esqueci minha senha',
 
@@ -528,7 +529,7 @@ const messages = {
             shop: {
                 pages: {
                     vip: 'VIP',
-                    stars: 'Estrela Guia',
+                    stars: 'Conchas',
                     diamonds: 'Diamantes',
                     duckets: 'Duckets'
                 },

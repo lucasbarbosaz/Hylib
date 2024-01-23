@@ -291,8 +291,8 @@ const Home = () => {
             <a
               //onClick={() => setShowClientOptions(true)}
               href="/client/choose"
-              className={`${config.cmsStyles.buttonsClass} no-link margin-top-md`}
-              style={{ width: "180px", height: "42px", top: "30px" }}
+              className={`${config.cmsStyles.buttonsClass} no-link margin-top-md margin-bottom-min`}
+              style={{ width: "180px", height: "42px" }}
             >
               <label className="margin-auto white">
                 <h5>{i18n.t("home.userDetails.buttons.enter")}</h5>
@@ -492,7 +492,6 @@ const Home = () => {
             </div>
             <SocialNetworks
               titleText={i18n.t("home.socialNetworks.title")}
-              facebookText={i18n.t("home.socialNetworks.facebook")}
               instagramText={i18n.t("home.socialNetworks.instagram")}
               twitterText={i18n.t("home.socialNetworks.twitter")}
               discordText={i18n.t("home.socialNetworks.discord")}
