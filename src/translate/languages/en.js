@@ -141,7 +141,8 @@ const messages = {
                 },
 
                 userDetails: {
-                    vip: 'You are VIP!',
+                    isVip: 'You are <b>VIP</b>!',
+                    notVip: 'You are not <b>VIP</b>!',
 
                     buttons: {
                         enter: 'Enter the Hotel',
@@ -150,10 +151,14 @@ const messages = {
                     },
                 },
 
-                events: {
-                    title: 'No events at the moment',
-                    smallText: 'Opps... we havent added an event yet.',
-                },
+                multipleAccounts: {
+                    button: 'Accounts',
+                    title: 'SWITCH ACCOUNTS',
+                    description: 'Easily manage your multiple accounts in one place! Connect and switch between accounts with convenience for a personalized experience. Effortlessly navigate between your accounts with our new feature. <b>Try it now!</b>',
+                    currentAccount: 'Current Account',
+                    joinAccount: 'Join as {{username}}',
+                    close: 'Close'
+                },                
 
                 friendsOnline: {
                     title: 'Online Friends',

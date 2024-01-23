@@ -1,6 +1,7 @@
 import React from "react";
 import AccountsModal from "../Modals";
 import IconSwap from "./IconSwap";
+import { i18n } from "../../../../translate/i18n";
 
 const UserHome = ({ isUserDataLoading, user, config, ghostAvatar, getClientButtons }) => {
   const [openPaymentModal, setOpenPaymentModal] = React.useState(false);
@@ -45,7 +46,7 @@ const UserHome = ({ isUserDataLoading, user, config, ghostAvatar, getClientButto
             <div className="quick-actions">
               <div className="btn-change-accounts" onClick={handleOpenPaymentModal}>
                 <IconSwap />
-                {isMobile ? null : <div>Contas</div>}
+                {isMobile ? null : <div>{i18n.t('home.multipleAccounts.button')}</div>}
               </div>
             </div>
             {getClientButtons()}

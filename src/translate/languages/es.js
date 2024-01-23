@@ -130,7 +130,8 @@ const messages = {
                 },
 
                 userDetails: {
-                    vip: '¡Eres vip!',
+                    isVip: 'Eres <b>VIP</b>!',
+                    notVip: 'No eres <b>VIP</b>!',
 
                     buttons: {
                         enter: 'Entrar en el Hotel',
@@ -139,9 +140,13 @@ const messages = {
                     }
                 },
 
-                events: {
-                    title: 'No hay eventos en este momento',
-                    smallText: 'Opps... aún no hemos agregado un evento.',
+                multipleAccounts: {
+                    button: 'Cuentas',
+                    title: 'CAMBIAR DE CUENTAS',
+                    description: '¡Administra fácilmente tus múltiples cuentas en un solo lugar! Conéctate y cambia entre cuentas con comodidad para una experiencia personalizada. Navega sin esfuerzo entre tus cuentas con nuestra nueva función. <b>¡Pruébalo ahora!</b>',
+                    currentAccount: 'Cuenta actual',
+                    joinAccount: 'Ingresar como {{username}}',
+                    close: 'Cerrar'
                 },
 
                 friendsOnline: {

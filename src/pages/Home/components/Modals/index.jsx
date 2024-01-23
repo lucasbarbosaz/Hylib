@@ -13,6 +13,7 @@ import CardLogin from "../../../Index/components/CardLogin";
 import CardRecover from "../../../Index/components/CardRecover";
 import CardPin from "../../../Index/components/CardPin";
 import AuthService from "../../../../services/AuthService";
+import { i18n } from "../../../../translate/i18n";
 
 const AccountsModal = (props) => {
   const { config, user, setUser, setToken } = React.useContext(StoreContext);
@@ -70,14 +71,14 @@ const AccountsModal = (props) => {
               <div
                 className={`${config.cmsStyles.buttonsClass} margin-auto-left margin-auto-top-bottom no-link btn-select-user-disabled`}
               >
-                <label className="margin-auto white">Conta atual</label>
+                <label className="margin-auto white">{i18n.t('home.multipleAccounts.currentAccount')}</label>
               </div>
             ) : (
               <div
                 className={`${config.cmsStyles.buttonsClass} margin-auto-left margin-auto-top-bottom no-link btn-select-user`}
                 onClick={() => handleSelectUser(item.user, item.token)}
               >
-                <label className="margin-auto white">Entrar como {item.user.username}</label>
+                <label className="margin-auto white">{i18n.t('home.multipleAccounts.joinAccount', { username: item.user.username })}</label>
               </div>
             )}
           </div>
@@ -153,7 +154,7 @@ const AccountsModal = (props) => {
                 fontWeight: "bold",
               }}
             >
-              Alternar contas
+              {i18n.t('home.multipleAccounts.title')}
               <IconButton
                 aria-label="close"
                 size="small"
@@ -170,11 +171,11 @@ const AccountsModal = (props) => {
 
             <ModalBody>
               <div className="accounts-body-modal">
-                <h3>
-                  Gerencie facilmente suas múltiplas contas em um só lugar! Conecte e alterne entre contas com
-                  praticidade para uma experiência personalizada. Navegue sem esforço entre as suas contas com
-                  a nossa nova funcionalidade. <b>Experimente agora!</b>
-                </h3>
+                <h3
+                  dangerouslySetInnerHTML={{
+                    __html: i18n.t("home.multipleAccounts.description"),
+                  }}
+                ></h3>
                 {renderAccounts()}
                 {renderLoginCard()}
                 {alert && (
@@ -191,7 +192,7 @@ const AccountsModal = (props) => {
                 onClick={close}
                 style={{ width: "205px", height: "40px", left: "-1px", fontSize: "13px" }}
               >
-                <label className="margin-auto white">Deixar pra lá</label>
+                <label className="margin-auto white">{i18n.t('home.multipleAccounts.close')}</label>
               </div>
             </ModalFooter>
           </ModalContent>

@@ -1,5 +1,6 @@
 import React from "react";
 import ReactHtmlParser from 'react-html-parser';
+import { i18n } from "../../../../translate/i18n";
 
 const Currencys = ({
     isUserDataLoading,
@@ -43,7 +44,7 @@ const Currencys = ({
                         <h6 className="white fs-12 margin-auto-top-bottom">{user.duckets}</h6>
                     </div>
                     <div className="display-habbo-vip-status flex">
-                        <h6 className="white fs-12 margin-auto-top-bottom">{user.isVip === true ? ReactHtmlParser('Você é <b>VIP</b>!') : ReactHtmlParser('Você não é <b>VIP</b>!')}</h6>
+                        <h6 className="white fs-12 margin-auto-top-bottom">{user.isVip === true ? ReactHtmlParser(i18n.t('home.userDetails.isVip')) : ReactHtmlParser(i18n.t('home.userDetails.notVip'))}</h6>
                     </div>
                 </>
             }
